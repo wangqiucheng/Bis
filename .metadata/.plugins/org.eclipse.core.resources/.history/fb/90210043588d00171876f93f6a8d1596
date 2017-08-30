@@ -1,0 +1,30 @@
+package com.bisa.hkshop.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+/**
+ * 用户地址表
+ * @author wqc
+ *
+ */
+@Entity
+@Table(name="s_address",uniqueConstraints={@UniqueConstraint(columnNames={"addr_number"})})
+public class Address {
+
+	private int id;
+	private String addr_number;//地址编号
+	private String username;//支付用户的用户
+	private String address;//比如地址：深圳市宝安区   后亭地铁站 address:是指后亭地铁站
+	private String tel;
+	private String postcode;//邮政编码
+	private String name;
+	private String act_time;//最近使用时间(可根据这个时间排序)
+	private String province;//省
+	private String city;//市
+	private String county;//县
+	
+		
+}

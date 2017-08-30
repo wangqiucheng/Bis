@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%-- 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css"> --%>
+	<link  rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/report_minute.css"><!--一分钟报告css样式-->
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/jquery-ui.css" /><!--时间选择插件css-->
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/report-minute.js" ></script><!--报告时间选择js文件-->
+	<!--时间选择插件js文件 start-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-ui-slide.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-ui-timepicker-addon.js"></script>
+	<!--end时间插件js文件-->
+	<title>报告详情页</title>
+	<style></style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="conbody container-fluid">
+				<div class="list-title col-md-12">
+					<div class="list-title-left clearfix">
+						<span><i></i>我的报告></span>
+						<span class="spana">${report.report_type==1?"一分钟报告":"24小时报告"}</span>
+					</div>
+					<div class="list-title-right pull-right">
+					
+					<div class="demo pull-left">
+					<a id="pre" class="pages" href="<%=request.getContextPath()%>/report/preOrNextReport?id=${report.id}&flag=-1" target="form-content">&laquo;上一个</a>
+					<a id="next" class="pages" href="<%=request.getContextPath()%>/report/preOrNextReport?id=${report.id}&flag=1" target="form-content">下一个&raquo;</a>
+					<a class="pages" href="<%=request.getContextPath()%>/report/reportList?report_type=null&submit_time=null">返回</a>
+					   	</div>
+					</div>
+				</div>
+				<div class="report-body col-md-12" id="divPrint">
+					<div class="report-start col-md-12">
+						<p class="pone"><span class="sta">姓名:小明</span><span>${report.submit_time}</span></p><!--报告形成时间-->
+					</div>
+					<div class="report-middle">
+						<div class="contentall">
+<%-- 							<div class="header">
+								<div class="container">
+									<div class="h-left pull-left">
+										<img src="<%=request.getContextPath() %>/resources/images/bisa-logo-color.png" class="img-responsive"><!--公司或医院logo-->
+									</div>
+									<div class="h-right pull-right">
+										<p>深圳市全至科技园10E</p><!--公司或医院地址-->
+									</div>
+								</div>
+							</div> --%>
+		
+							<div class="content2">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6 col-con2 c-tableleft">
+								<div class="pdf" id="pdf" ><!-- pdf -->
+									<object type="application/pdf" data="http://localhost:8080/bisa-teama-controller/report/updateReport/${report.report_name}" id="review" style="width:1100px; height:1000px; margin-top:25px; margin-left:250px" > 
+									</object>
+							 </div>
+							</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<nav>
+							  <ul class="pagination">
+							    <li><span>1 <span class="sr-only"></span></span></li><!--第一页-->
+							  </ul>
+							</nav>
+							<nav>
+							  <ul class="pagination">
+							    <li><span>2 <span class="sr-only"></span></span></li><!--第二页-->
+							  </ul>
+							</nav>
+						</div>
+					</div>
+					<div class="report-end"><span>${report.end_time}</span></div><!--报告结束时间-->
+				</div>
+			</div>
+			<script type="text/javascript">
+			//上下报告的时候，判断第一个ID和最后一个ID的报告，让按键失效
+			window.onload=function(){
+				
+				var isFinished = ${report.report_status};
+				if(isFinished==0){
+					alert("您的报告正在生成中，暂时无法查看");
+				}
+			
+				//上一个下一个的js代码
+				var firstId=${firstId};
+				var lastId=${lastId};
+				var id = ${report.id};
+				if(firstId==null||id==firstId){
+					document.getElementById("pre").setAttribute("href","#");
+					document.getElementById("pre").onclick=function(){
+						alert("已经是该类型第一个报告！");
+					}
+				}if(lastId==null||id==lastId){
+					document.getElementById("next").setAttribute("href","#");
+					document.getElementById("next").onclick=function(){
+						alert("已经是该类型最后第一个报告！");
+					}
+				}
+			};
+			</script>
+
+</body>
+</html>

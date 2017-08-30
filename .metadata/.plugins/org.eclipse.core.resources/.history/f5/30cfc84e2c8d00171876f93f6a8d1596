@@ -1,0 +1,142 @@
+<%@page import="com.itextpdf.text.log.SysoCounter"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"  
+    pageEncoding="utf-8"%> 
+<%@ page  
+    import="java.io.ByteArrayOutputStream,  
+    com.itextpdf.text.Document,  
+    java.io.DataOutput,java.io.DataOutputStream,  
+    com.itextpdf.text.Paragraph,  
+    com.itextpdf.text.DocumentException,  
+    com.itextpdf.text.Document.*,
+    com.itextpdf.text.Font,
+    com.itextpdf.text.BaseColor,  
+    com.itextpdf.text.pdf.*,
+    com.bisa.health.model.User,
+    java.io.FileOutputStream,
+   	java.util.ArrayList,
+   	java.util.Iterator,
+   	java.awt.image.BufferedImage,
+   	java.util.List"%> 
+<%  
+    response.setContentType("application/pdf");  
+    Document doc = new Document();  
+    ByteArrayOutputStream ba = new ByteArrayOutputStream();  
+    
+    PdfWriter writer = PdfWriter.getInstance(doc, ba);  
+    doc.open();
+    
+    BaseFont bfChinese = BaseFont.createFont("c://windows//fonts//msyh.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+ 
+    com.itextpdf.text.Font FontChinese24 = new com.itextpdf.text.Font(bfChinese, 24, com.itextpdf.text.Font.BOLD);
+    com.itextpdf.text.Font FontChinese18 = new com.itextpdf.text.Font(bfChinese, 18, com.itextpdf.text.Font.BOLD); 
+    com.itextpdf.text.Font FontChinese16 = new com.itextpdf.text.Font(bfChinese, 16, com.itextpdf.text.Font.BOLD);
+    com.itextpdf.text.Font FontChinese12 = new com.itextpdf.text.Font(bfChinese, 12, com.itextpdf.text.Font.NORMAL);
+    com.itextpdf.text.Font FontChinese11Bold = new com.itextpdf.text.Font(bfChinese, 11, com.itextpdf.text.Font.BOLD);
+    com.itextpdf.text.Font FontChinese11 = new com.itextpdf.text.Font(bfChinese, 11, com.itextpdf.text.Font.ITALIC);
+    com.itextpdf.text.Font FontChinese11Normal = new com.itextpdf.text.Font(bfChinese, 11, com.itextpdf.text.Font.NORMAL);
+
+    Font fontChinese =  new  Font(bfChinese  ,  12 , Font.NORMAL, BaseColor.BLACK);  
+    Paragraph pf = new Paragraph("");  
+    pf.setAlignment(PdfContentByte.ALIGN_CENTER);
+
+    pf = new Paragraph("This is a Report from BISA HEALTH");   
+    pf.setAlignment(PdfContentByte.ALIGN_CENTER);
+    doc.add(pf); 
+    
+    //获得用户信息
+    User user =  (User)request.getAttribute("user");
+
+    //加入空行
+    Paragraph blankRow1 = new Paragraph(18f," ",FontChinese18); 
+    doc.add(blankRow1);
+    
+    //加入空行
+    Paragraph blankRow2 = new Paragraph(18f, " ", FontChinese11); 
+    doc.add(blankRow2); 
+    //加入空行
+    Paragraph blankRow3 = new Paragraph(18f, " ", FontChinese11); 
+    doc.add(blankRow3); 
+    //加入空行
+    Paragraph blankRow4 = new Paragraph(18f, " ", FontChinese11); 
+    doc.add(blankRow4); 
+    
+    
+    //table2
+    PdfPTable table2 = new PdfPTable(2);
+    //设置每列宽度比例   
+    int width21[] = {2,98};
+    table2.setWidths(width21); 
+    table2.getDefaultCell().setBorder(0);
+    PdfPCell cell21 = new PdfPCell(new Paragraph("ecg erport",FontChinese16));
+    cell21.setBorder(0);
+    table2.addCell("");
+    table2.addCell(cell21); 
+    doc.add(table2);
+    
+  //table3
+  //性别
+  	String sex ="女"; //user.getSex()==1?"男":"女";
+    PdfPTable table3 = new PdfPTable(3);
+     int width3[] = {30,35,25};
+    table3.setWidths(width3);  
+    table3.getDefaultCell().setBorderColor(new BaseColor(220,155,100));//边框颜色
+  /*   PdfPCell cell31 = new PdfPCell(new Paragraph("用户名:"+user.getAccessname(),FontChinese11Normal));
+    PdfPCell cell32 = new PdfPCell(new Paragraph("出生日期:"+user.getBirthday(),FontChinese11Normal));
+    PdfPCell cell33 = new PdfPCell(new Paragraph("性别:"+sex,FontChinese11Normal)); */
+    PdfPCell cell31 = new PdfPCell(new Paragraph("name:baby",FontChinese11Normal));
+   	PdfPCell cell32 = new PdfPCell(new Paragraph("birthday:20170714",FontChinese11Normal));
+    PdfPCell cell33 = new PdfPCell(new Paragraph("sex:"+sex,FontChinese11Normal));
+    cell31.setBorder(1);
+    cell32.setBorder(1);
+    cell33.setBorder(1);
+    table3.addCell(cell31);
+    table3.addCell(cell32);
+    table3.addCell(cell33);
+    doc.add(table3);
+    //加入空行
+    Paragraph blankRow31 = new Paragraph(18f, " ", FontChinese11); 
+    doc.add(blankRow31); 
+    
+    
+    PdfPTable table4 = new PdfPTable(4);
+    
+     int[] widths = {20,50,20,50} ;   //percentage
+     table4.setWidths(widths);   //设置列宽度
+     //边框属性
+     table4.getDefaultCell().setBorderColor(new BaseColor(0,0,0));   //边框颜色
+     table4.getDefaultCell().setPadding(1);            //space between content and border
+     table4.getDefaultCell().setSpaceCharRatio(1);     // Sets the ratio between the extra word spacing and the extra character spacing when the text is fully justified.
+     table4.getDefaultCell().setBorderWidth(1);        //Sets the borderwidth of the table.
+     //设置可以在PDF中输入汉字的字体
+     Font font21 = new Font(bfChinese,12,Font.NORMAL);
+     font21.setColor(0,0,0);
+ /*      //添加表头信息
+     table4.addCell(new Paragraph("",font21));
+     table4.addCell(new Paragraph("",font21));
+     table4.addCell(new Paragraph("",font21));
+     table4.addCell(new Paragraph("",font21));
+     table4.setHeaderRows(0);  */
+     //添加表格内容
+     table4.addCell(new Paragraph("仪器类型",font21));
+     table4.addCell(new Paragraph("心电仪",font21));
+     table4.addCell(new Paragraph("检查原因",font21));
+     table4.addCell(new Paragraph("待查",font21));
+     table4.addCell(new Paragraph("病历号",font21)); 
+     table4.addCell(new Paragraph("6",font21));
+     table4.addCell(new Paragraph("记录日期",font21));
+     table4.addCell(new Paragraph("20170714",font21));
+     table4.addCell(new Paragraph("分析日期",font21));
+     table4.addCell(new Paragraph("20170715",font21));
+     doc.add(table4); 
+
+    doc.close();  
+  
+    DataOutput output = new DataOutputStream(response.getOutputStream());  
+    byte[] bytes = ba.toByteArray();  
+    response.setContentLength(bytes.length);  
+    for (int i = 0; i < bytes.length; i++) {  
+        output.writeByte(bytes[i]);  
+    }  
+    out.clear();  
+    out = pageContext.pushBody();  
+%>  

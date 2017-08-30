@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;bisa-hk-pom/com.bisa.health.hk.shop.service&apos; to &apos;bisa-hk-service&apos;" description="Rename resource &apos;com.bisa.health.hk.shop.service&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="com.bisa.health.hk.shop.service" name="bisa-hk-service" stamp="1503895442384" updateReferences="true"/>
+</session>

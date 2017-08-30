@@ -1,0 +1,16 @@
+package com.bisa.hkshop.wqc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.bisa.hkshop.model.Active;
+import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+@Repository
+public class ActiveDaoImpl extends BaseDao<Active> implements IActiveDao {
+
+	@Override
+	public Active getActiveByNumber(String atcive_number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

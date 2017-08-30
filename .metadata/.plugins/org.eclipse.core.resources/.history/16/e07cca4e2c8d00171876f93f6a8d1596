@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/report_list.css"><!--报告列表样式-->
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/user_password.js" ></script>
+	<title>密码修改</title>
+	<style>
+		.contact1{
+			border-bottom: 1px solid #ccc;
+			padding-left: 75px;
+			padding-top: 15px;
+			padding-bottom: 25px;
+		}
+		.contact2{
+			border-bottom: 1px solid #ccc;
+			padding-left: 75px;
+			padding-top: 15px;
+			padding-bottom: 25px;
+		}
+		.ctitle{color: #000;font-size: 17px;margin-bottom: 20px;padding-left: 10px;}
+		.xiugai{
+			width: 90px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			display: inline-block;
+			background-color: #46B8DA;
+			color: #fff;
+			margin-left: 178px;
+			margin-top: 20px;
+			font-size: 16px;
+			border-radius: 3px;
+		}
+		.xiugai2{margin-left: 100px;}
+		.xiugai:hover{color: #fff;}
+		.input-group {
+		    width: 100%;
+		}
+		.input-group-addon {
+		    border-right: none;
+		    background-color: #fff;
+		}
+		.selectpicker {
+		    border: none;
+		    background-color: inherit;
+		}
+		.selectpicker option {
+		    outline: none;
+		}
+		.phone{border: none;margin-right: 15px;font-size: 16px;width: 88px;text-align: right !important;}
+		.input-in{height: 40px;}
+		.lxdiv{margin-top: 10px !important;}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="conbody container-fluid">
+				<div class="list-title col-md-12">
+					<span><i></i>密码修改</span>
+				</div>
+				<div class="contact col-md-12">
+				<form action="../user/passwordChangePost" method="post" onsubmit="return verify()">
+					<div class="contact1 col-md-12">
+						<div class="col-md-6">
+							<h4 class="ctitle">密码修改信息填写</h4>
+							
+				        	<div class="form-group lxdiv col-md-12 pull-left">
+					            <div class="input-group">
+									<span class="input-group-addon phone">原密码</span>
+									<input type="password" class="form-control input-in" id="password" name="password" value=""onBlur="cleanValue()">
+								</div>
+							</div>
+				        	<div class="form-group lxdiv col-md-12 pull-left">
+					            <div class="input-group">
+									<span class="input-group-addon phone">新密码</span>
+									<input type="password" class="form-control input-in" id="newPassword" name="newPassword" value="" onBlur="newCheck()"/>
+								</div>
+							</div>
+				        	<div class="form-group lxdiv col-md-12 pull-left">
+					            <div class="input-group">
+									<span class="input-group-addon phone">确认密码</span>
+									<input type="password" class="form-control input-in" id="confirmPassword" name="confirmPassword" value="" onBlur="verify()"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<small><span id="message">${message}</span></small>					
+					<input class="xiugai" id="submit" type="submit" name="submit" value="保存修改"/>
+					<input class="xiugai xiugai2" type="reset" value="取消"/>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/password.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package org.bisa.hkshop.wqc.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class LoingController {
+
+}

@@ -1,0 +1,7 @@
+package com.bisa.hkshop.wqc.dao;
+
+public interface IActiveDao {
+	
+	public Active getActiveByNumber(String atcive_number);
+
+}

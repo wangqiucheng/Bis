@@ -1,0 +1,5 @@
+package com.bisa.hkshop.model;
+
+public class Comment {
+
+}
