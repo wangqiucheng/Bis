@@ -1,0 +1,9 @@
+package com.bisa.hkshop.wqc.dao;
+
+import com.bisa.hkshop.model.Banner;
+
+public interface IBannerDao {
+
+	public Banner getBanner();
+	
+}

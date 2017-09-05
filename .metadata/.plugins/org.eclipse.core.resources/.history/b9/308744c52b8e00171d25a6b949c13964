@@ -1,0 +1,17 @@
+package com.bisa.hkshop.wqc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.bisa.hkshop.model.Banner;
+
+import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+@Repository
+public class BannerDaoImpl extends BaseDao<Banner> implements IBannerDao {
+
+	@Override
+	public Banner getClassification() {
+		String sql = "select * from s_banner";
+		return super.queryObjectBySql(sql, new Object[]{}, Banner.class);
+	}
+
+}

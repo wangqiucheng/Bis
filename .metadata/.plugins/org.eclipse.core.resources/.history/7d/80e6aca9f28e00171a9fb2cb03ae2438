@@ -1,0 +1,19 @@
+package com.bisa.hkshop.wqc.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+
+public class ProductController {
+
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	public String requestReport(HttpServletRequest request){
+		String shopNumber=request.getParameter("shop_number");
+		return "shopping/product";
+	}
+	
+}

@@ -1,0 +1,20 @@
+package com.bisa.hkshop.wqc.service;
+
+import com.bisa.hkshop.model.Commodity;
+import com.bisa.hkshop.wqc.basic.model.Pager;
+
+public interface ICommodityService {
+
+	public Commodity getcommodity(String product_number);
+	//获取所有商品带分页的
+	public Pager<Commodity> getselCommodityPage();
+	//获取带标题搜索的商品（看是否按新品，价格排序）带分页
+	public Pager<Commodity> getselTitleCommmodity(String title,double selling_price);
+	//添加商品
+	public Commodity addCommodity(Commodity comm);
+	//修改商品
+	public Commodity updateCommodity(Commodity comm);
+	//删除上皮
+	public boolean delCommdity(Commodity comm);
+	
+}

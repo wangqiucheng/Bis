@@ -1,0 +1,10 @@
+package com.bisa.hkshop.wqc.service;
+
+import com.bisa.hkshop.model.Active;
+import com.bisa.hkshop.model.Classification;
+
+public interface IClassificationService {
+	
+	public Classification getClassification();
+
+}

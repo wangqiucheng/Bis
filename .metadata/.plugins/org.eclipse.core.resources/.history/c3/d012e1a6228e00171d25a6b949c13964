@@ -1,0 +1,17 @@
+package com.bisa.hkshop.wqc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.bisa.hkshop.model.Active;
+import com.bisa.hkshop.model.Classification;
+import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+@Repository
+public class ClassificationDaoImpl extends BaseDao<Classification> implements IActiveDao {
+
+	@Override
+	public Active getActiveByNumber(String active_number) {
+		String sql = "select * from s_classification";
+		return super.queryObjectBySql(sql, new Object[]{active_number}, Active.class);
+	}
+
+}

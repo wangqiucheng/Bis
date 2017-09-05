@@ -1,0 +1,8 @@
+package com.bisa.hkshop.wqc.service;
+
+import com.bisa.hkshop.model.Commodity;
+
+public interface ICommodityService {
+
+	public Commodity getcommodity(int product_number);
+}

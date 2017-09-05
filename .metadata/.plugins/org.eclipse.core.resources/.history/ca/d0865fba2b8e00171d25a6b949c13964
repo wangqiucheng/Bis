@@ -1,0 +1,9 @@
+package com.bisa.hkshop.wqc.dao;
+
+import com.bisa.hkshop.model.Classification;
+
+public interface IClassificationDao {
+
+	public Classification getClassification();
+	
+}

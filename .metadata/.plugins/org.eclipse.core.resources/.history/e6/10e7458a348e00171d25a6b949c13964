@@ -1,0 +1,19 @@
+package com.test.u;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bisa.hkshop.model.Banner;
+import com.bisa.hkshop.wqc.service.IBannerService;
+
+public class TTTTTTEST {
+	
+	
+	@Autowired
+	private IBannerService IBannerService;
+	public static List<Banner> getIb() {
+		List<Banner> banner=IBannerService.getBanner();
+		return banner;
+	}
+}

@@ -1,3 +1,14 @@
-com\bisa\hkshop\wqc\service\ActiveServiceImpl.class
-com\bisa\hkshop\wqc\service\App.class
+com\bisa\hkshop\wqc\service\CommodityServiceImpl.class
+com\bisa\hkshop\wqc\service\OrderServiceImpl.class
+com\bisa\hkshop\wqc\service\ICommodityService.class
+com\bisa\hkshop\wqc\service\IOrderService.class
+com\bisa\hkshop\wqc\service\ICommentService.class
+com\bisa\hkshop\wqc\service\AddressServiceImpl.class
+com\bisa\hkshop\wqc\service\CartServiceImpl.class
+com\bisa\hkshop\wqc\service\BannerServiceImpl.class
 com\bisa\hkshop\wqc\service\IActiveService.class
+com\bisa\hkshop\wqc\service\IBannerService.class
+com\bisa\hkshop\wqc\service\ActiveServiceImpl.class
+com\bisa\hkshop\wqc\service\CommentServiceImpl.class
+com\bisa\hkshop\wqc\service\IAddressService.class
+com\bisa\hkshop\wqc\service\ICartService.class

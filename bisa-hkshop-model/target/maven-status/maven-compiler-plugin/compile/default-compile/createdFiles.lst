@@ -1,0 +1,9 @@
+com\bisa\hkshop\model\Active.class
+com\bisa\hkshop\model\Classification.class
+com\bisa\hkshop\model\Comment.class
+com\bisa\hkshop\model\Product.class
+com\bisa\hkshop\model\Cart.class
+com\bisa\hkshop\model\Order.class
+com\bisa\hkshop\model\Banner.class
+com\bisa\hkshop\model\Address.class
+com\bisa\hkshop\model\Commodity.class

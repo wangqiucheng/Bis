@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=bisa-basic-wqc/src\/main\/java&lt;com.bisa.hkshop.wqc.basic.dao{BaseDao.java[BaseDao" modifiers="1" timestamp="1504081585287"/>
-<typeInfo handle="=bisa-model-wqc/src\/main\/java&lt;com.bisa.hkshop.wqc.dao{IActiveDao.java[IActiveDao" modifiers="513" timestamp="1504088104951"/>
-<typeInfo handle="=bisa-service-wqc/src\/main\/java&lt;com.bisa.hkshop.wqc.service{IActiveService.java[IActiveService" modifiers="513" timestamp="1504081331926"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

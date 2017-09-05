@@ -1,0 +1,10 @@
+package com.bisa.hkshop.wqc.dao;
+
+
+
+import com.bisa.hkshop.model.Commodity;
+
+public interface ICommodityDao {
+	public Commodity getcommodity(String product_number);
+	
+}

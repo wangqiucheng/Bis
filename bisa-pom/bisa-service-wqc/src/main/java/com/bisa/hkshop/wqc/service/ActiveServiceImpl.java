@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.bisa.hkshop.model.Active;
 import com.bisa.hkshop.wqc.dao.IActiveDao;
+
 @Service
 public class ActiveServiceImpl implements IActiveService {
 

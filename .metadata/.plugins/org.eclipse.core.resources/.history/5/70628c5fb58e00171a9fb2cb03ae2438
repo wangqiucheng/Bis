@@ -1,0 +1,29 @@
+package com.bisa.hkshop.wqc.util;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+
+import com.bisa.hkshop.model.Banner;
+import com.bisa.hkshop.wqc.service.IBannerService;
+
+
+public class bannerUtil {
+	
+
+
+	@Autowired
+	private IBannerService IBannerService;
+	
+	@Cacheable(value="spring_cache",key="#banner")
+	public  List<Banner> getIb(int bannerindex) {
+		if(bannerindex==1) {
+			List<Banner> banner=IBannerService.getBanner();
+			return banner;
+		}else {
+			return null;
+		}
+	
+	}
+}

@@ -1,0 +1,10 @@
+package com.bisa.hkshop.wqc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.bisa.hkshop.model.Commodity;
+@Repository
+public interface ICommodityDao {
+	public Commodity getcommodity(int product_number);
+	
+}
