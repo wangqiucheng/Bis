@@ -1,0 +1,11 @@
+package com.bisa.hkshop.wqc.web.dto;
+
+import com.bisa.hkshop.model.Commodity;
+
+public class CommodityDto {
+	private Commodity commodity;
+	private int commodityCount;2
+	private float pricre;
+	private float countp=commodityCount*pricre;
+	
+}

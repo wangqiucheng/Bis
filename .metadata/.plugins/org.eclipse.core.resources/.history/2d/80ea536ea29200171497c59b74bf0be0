@@ -1,0 +1,4 @@
+function add_shop(){
+	$("add_product").attr("disable",true);
+	
+}

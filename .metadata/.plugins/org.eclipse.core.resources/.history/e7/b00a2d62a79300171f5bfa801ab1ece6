@@ -1,0 +1,20 @@
+package com.bisa.hkshop.wqc.web.dto;
+
+import java.util.List;
+
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.model.Commodity;
+
+public class CarShopDto {
+	
+	private Cart cart;
+	
+	private List<CommodityDto> listCommodityDto;
+	
+	
+	/**
+	 * 
+	 */
+	
+	List<Commodity>
+}

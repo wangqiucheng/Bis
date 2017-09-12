@@ -1,0 +1,80 @@
+package com.bisa.hkshop.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+@Entity
+public class OrderDetail {
+	
+	private int id ;
+	private String OrderDetailGuid;//������ϸ���Ψһid
+	private String orderGuid;//�������е�guid,��ʾ�������Ǹ�����
+	private String ascription;//������Ʒ�����������ײͣ�1:��Ʒ,2:�ײͣ�;
+	private String ascriptionId;//��Ʒ�����ײ͵�guid
+	private int count;//�ײͻ�����Ʒ������
+	private String pic;//�ײͻ�����Ʒ�ĵ�ͼƬ
+	private String product_name;//��Ʒ�������ײ���
+	private String time;//����ʱ��
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getOrderDetailGuid() {
+		return OrderDetailGuid;
+	}
+	public void setOrderDetailGuid(String orderDetailGuid) {
+		OrderDetailGuid = orderDetailGuid;
+	}
+	public String getOrderGuid() {
+		return orderGuid;
+	}
+	public void setOrderGuid(String orderGuid) {
+		this.orderGuid = orderGuid;
+	}
+	public String getAscription() {
+		return ascription;
+	}
+	public void setAscription(String ascription) {
+		this.ascription = ascription;
+	}
+	public String getAscriptionId() {
+		return ascriptionId;
+	}
+	public void setAscriptionId(String ascriptionId) {
+		this.ascriptionId = ascriptionId;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getPic() {
+		return pic;
+	}
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
+	
+	
+	
+	
+}

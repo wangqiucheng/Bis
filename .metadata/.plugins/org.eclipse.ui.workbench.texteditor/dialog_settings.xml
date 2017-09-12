@@ -2,30 +2,34 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="cart-textbox" key="selection"/>
+		<item value="&lt;%=request.getContextPath() %&gt;/resources" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="../.."/>
+			<item value="del"/>
+			<item value="clear full-w bg-white mt-4 mb-4"/>
+			<item value="combotips-div-biaopei"/>
+			<item value="pro-submit-selid"/>
+			<item value="img-20-14 pos-r t--2--6-ipad"/>
+			<item value="../../"/>
+			<item value="Activ"/>
+			<item value="Active"/>
+			<item value="Commodity"/>
+			<item value="Cart"/>
+			<item value="car-combo-tips"/>
+			<item value="countalltips"/>
 			<item value="cart-textbox"/>
 			<item value="cart-combo-textbox"/>
-			<item value="car-checkall"/>
-			<item value="img-25 pull-right bg-9a9a9a text-center mt-3 car-checkall"/>
-			<item value="dis-n"/>
-			<item value="isE"/>
-			<item value="is"/>
-			<item value="queryListBySql"/>
-			<item value="pager"/>
-			<item value="maven-plugin"/>
-			<item value="summary"/>
-			<item value="service"/>
-			<item value="../.."/>
-			<item value="maven-compiler-plugin"/>
-			<item value="&lt;%=request.getContextPath() %&gt;/resources"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&lt;%=request.getContextPath() %&gt;/resources"/>
+			<item value=""/>
+			<item value="&lt;%=request.getContextPath() %&gt;/resources/"/>
+			<item value="Package"/>
+			<item value="Cart"/>
 			<item value="utf-8"/>
 		</list>
 	</section>
@@ -33,7 +37,7 @@
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="581" key="DIALOG_HEIGHT"/>
-		<item value="1422" key="DIALOG_X_ORIGIN"/>
-		<item value="382" key="DIALOG_Y_ORIGIN"/>
+		<item value="1263" key="DIALOG_X_ORIGIN"/>
+		<item value="306" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

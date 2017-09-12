@@ -1,0 +1,21 @@
+package com.bisa.hkshop.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Packdetails {
+	private int id;
+	private String pack_number;
+	private int packId;
+	private String pack_name;
+	private String pack_subname;
+	private String pack_descrition;
+	private String pack_subdetion;
+	private String pack_price;
+	private int pack_orderId;
+	private String main_picture;
+	private Date insert_time;
+	private Date update_time;
+}

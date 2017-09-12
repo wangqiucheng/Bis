@@ -3,78 +3,65 @@ package com.bisa.hkshop.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-/**
- * 导航表
- * @author Administrator
- *
- */
+
 @Entity
-@Table(name="s_banner",uniqueConstraints={@UniqueConstraint(columnNames={"parent_banner"})})
+@Table(name="s_banner")
 public class Banner {
-	private int id;
-	private int banner;	//子分类导航
-	private String name;//子类名字
-	private int parent_banner;//父类导航
-	private String url;//地址
+	
+	private	int	id;		//主键ID
+	/**
+	 * 一级导航（如1000、2000、3000、4000、5000、6000）
+	 * 二级导航（如2001、2002、2003、2004、2005、2006）
+	 */
+	private	int	banner_number;		
+	/**
+	 * 8	一级导航名称（如首页、关于碧沙、网上商城、健康咨询、购物指南、联系我们）
+	 * 二级导航名称（关于碧沙的二级导航：公司简介、服务宗旨、经营理念）
+	 */
+	private	String banner_name;		
+	private String url;		//	100	导航链接地址
+	
 	@Id
-	@GeneratedValue	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(length=20,nullable=false,unique=true)
-	public int getBanner() {
-		return banner;
+	public int getBanner_number() {
+		return banner_number;
 	}
-
-	public void setBanner(int banner) {
-		this.banner = banner;
+	public void setBanner_number(int banner_number) {
+		this.banner_number = banner_number;
 	}
-	@Column(length=64,nullable=false)
-	public String getName() {
-		return name;
+	@Column(length=8)
+	public String getBanner_name() {
+		return banner_name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setBanner_name(String banner_name) {
+		this.banner_name = banner_name;
 	}
-	@Column(length=36,nullable=false)
-	public int getParent_banner() {
-		return parent_banner;
-	}
-
-	public void setParent_banner(int parent_banner) {
-		this.parent_banner = parent_banner;
-	}
-	@Column(length=100,nullable=true)
+	@Column(length=100)
 	public String getUrl() {
 		return url;
 	}
-	
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
+	
 	public Banner() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	public Banner(int id, int banner, String name, int parent_banner) {
+	public Banner(int id, int banner_number, String banner_name, String url) {
 		super();
 		this.id = id;
-		this.banner = banner;
-		this.name = name;
-		this.parent_banner = parent_banner;
+		this.banner_number = banner_number;
+		this.banner_name = banner_name;
+		this.url = url;
 	}
-	
-	
-	
 	
 }

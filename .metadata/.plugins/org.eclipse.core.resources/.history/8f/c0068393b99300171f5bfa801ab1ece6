@@ -1,0 +1,27 @@
+package com.bisa.hkshop.wqc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.wqc.dao.IcartDao;
+
+
+@Repository
+public class CartServiceImpl implements ICartService{
+
+	@Autowired
+	private IcartDao ICartDao;
+	@Override
+	public Cart addCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return ICartDao.addCart(cart);
+	}
+
+	@Override
+	public void updateCart(Cart cart) {
+		// TODO Auto-generated method stub
+		ICartDao.updateCart(cart);
+	}
+
+}

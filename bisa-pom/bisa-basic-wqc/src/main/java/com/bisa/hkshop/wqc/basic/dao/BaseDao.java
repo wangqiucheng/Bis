@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 
+import com.bisa.hkshop.model.SystemContext;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
 
@@ -428,10 +429,6 @@ public class BaseDao<T> implements IBaseDao<T> {
 		return this.queryObject(hql,null,alias);
 	}
 
-	/*
-	 * Cust BySql
-	 */
-
 	
 	
 	public List<T> queryListBySql(String sql, Object[] args, Class<?> clz) {
@@ -457,7 +454,6 @@ public class BaseDao<T> implements IBaseDao<T> {
 			setParameter(query, args);
 		return query.executeUpdate();
 	}
-
 	public int delUpObjectBySql(String sql, Object[] args) {
 
 		SQLQuery query = getSession().createSQLQuery(sql);

@@ -47,18 +47,18 @@
                     <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">关于我们</a></li>
                     <li class="clear pt-20">
                         <div class="pull-left pr-20">
-                            <a href=""><img src="../img/index/sharetips1.png" alt=""></a>
+                            <a href=""><img src="<%=request.getContextPath() %>/resources/img/index/sharetips1.png" alt=""></a>
                         </div>
                         <div class="pull-left">
-                            <a href=""><img src="../img/index/sharetips2.png" alt=""></a>
+                            <a href=""><img src="<%=request.getContextPath() %>/resources/img/index/sharetips2.png" alt=""></a>
                         </div>
                     </li>
                     <li class="clear pt-10">
                         <div class="pull-left pr-20">
-                            <a href=""><img src="../img/index/sharetips3.png" alt=""></a>
+                            <a href=""><img src="<%=request.getContextPath() %>/resources/img/index/sharetips3.png" alt=""></a>
                         </div>
                         <div class="pull-left">
-                            <a href=""><img src="../img/index/sharetips4.png" alt=""></a>
+                            <a href=""><img src="<%=request.getContextPath() %>/resources/img/index/sharetips4.png" alt=""></a>
                         </div>
                     </li>
                 </ul>

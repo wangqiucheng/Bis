@@ -26,24 +26,6 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 		return super.findBySql(sql, Commodity.class, true);
 	}
 
-	@Override
-	public Pager<Commodity> getselTitleCommmodity(String title, String selling_price) {
-		String sql=null;
-		if(!StringUtils.isNotEmpty(selling_price)||StringUtil.isNotEmpty(title)) {
-			sql="select * from s_commodity where title like '%"+title+"%'";
-			return super.findBySql(sql, selling_price, Commodity.class, true);
-		}else if(StringUtils.isNotEmpty(selling_price)||!StringUtil.isNotEmpty(title)){
-			sql="select * from s_commodity where selling_price='%"+selling_price+"%'";
-			return super.findBySql(sql, title, Commodity.class, true);
-		}else if(StringUtil.isNotEmpty(selling_price)&&StringUtil.isNotEmpty(title)) {
-			sql="select * from s_commodity where selling_price='%"+selling_price+"%' and title like '%"+title+"%'";
-			return super.findBySql(sql, new Object[]{selling_price,title}, Commodity.class, true);
-		}else{
-			sql="select * from s_commodity";
-			return super.findBySql(sql, Commodity.class, true);
-		}
-		
-	}
 
 	@Override
 	public Commodity addCommodity(Commodity comm) {
@@ -68,6 +50,21 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 	public List<Commodity> getcommodity() {
 		String sql = "select * from s_commodity";
 		return super.queryListBySql(sql, null, Commodity.class);
+	}
+
+	@Override
+	public List<Commodity> selthreeCon(String shop_Number) {
+		// TODO Auto-generated method stub
+		String sql="select * from s_commodity where classification=? order by orderId desc";
+		return super.queryListBySql(sql, new Object[]{shop_Number}, Commodity.class);
+	}
+
+	@Override
+	public List<Commodity> getTypecommodity(String type) {
+		// TODO Auto-generated method stub
+		String sql="select * from s_commodity where type=? order by updatime desc";
+		
+		return super.queryListBySql(sql, new Object[]{type},Commodity.class);
 	}
 	
 

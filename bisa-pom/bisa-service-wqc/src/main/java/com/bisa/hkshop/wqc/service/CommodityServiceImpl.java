@@ -26,11 +26,7 @@ public class CommodityServiceImpl implements ICommodityService{
 		return iCommodityDao.getselCommodityPage();
 	}
 
-	@Override
-	public Pager<Commodity> getselTitleCommmodity(String title, String selling_price) {
-		// TODO Auto-generated method stub
-		return iCommodityDao.getselTitleCommmodity(title, selling_price);
-	}
+
 
 	@Override
 	public Commodity addCommodity(Commodity comm) {
@@ -54,6 +50,18 @@ public class CommodityServiceImpl implements ICommodityService{
 	public List<Commodity> getcommodity() {
 		// TODO Auto-generated method stub
 		return iCommodityDao.getcommodity();
+	}
+
+	@Override
+	public List<Commodity> selthreeCon(String shop_Number) {
+		// TODO Auto-generated method stub
+		return iCommodityDao.selthreeCon(shop_Number);
+	}
+
+	@Override
+	public List<Commodity> getTypecommodity(String type) {
+		// TODO Auto-generated method stub
+		return iCommodityDao.getTypecommodity(type);
 	}
 	
 

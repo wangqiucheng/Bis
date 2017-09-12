@@ -1,0 +1,32 @@
+package com.bisa.hkshop.wqc.web.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.bisa.hkshop.model.Commodity;
+
+public class CommodityDto {
+	private Commodity commodity;
+	private int commodityCount;
+	private float pricre;
+	private float countp=commodityCount*pricre;
+	
+	
+	public static  List<CommodityDto> toCon(List<Commodity> list) {
+		
+		List<CommodityDto> listDto=new ArrayList<CommodityDto>();
+
+		Commodity b=null;
+		
+		for(Commodity c : list) {
+			if(b==null) {
+				
+				b=c;
+				continue;
+			}
+			
+		
+		}
+		
+	}
+}

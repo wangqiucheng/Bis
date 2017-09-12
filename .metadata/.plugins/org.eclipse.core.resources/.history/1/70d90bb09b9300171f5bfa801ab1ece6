@@ -1,0 +1,10 @@
+package com.bisa.hkshop.wqc.dao;
+
+import com.bisa.hkshop.model.Active;
+
+public interface IPackageDao {
+	
+	public Active getActiveByNumber(String atcive_number);
+	
+
+}

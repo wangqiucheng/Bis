@@ -1,0 +1,7 @@
+package com.bisa.hkshop.wqc.web.dto;
+
+import com.bisa.hkshop.model.Commodity;
+
+public class CommodityDto {
+	private Commodity commodity;
+}

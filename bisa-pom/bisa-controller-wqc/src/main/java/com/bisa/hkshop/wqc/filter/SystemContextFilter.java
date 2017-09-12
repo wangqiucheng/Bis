@@ -10,7 +10,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.bisa.hkshop.wqc.basic.dao.SystemContext;
+import com.bisa.hkshop.model.SystemContext;
+
+
 
 
 public class SystemContextFilter implements Filter{

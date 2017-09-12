@@ -1,0 +1,44 @@
+package com.bisa.hkshop.wqc.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.model.Commodity;
+import com.bisa.hkshop.wqc.service.ICommodityService;
+
+@Controller
+
+public class CartController {
+	@Autowired
+	private ICommodityService ICommodityService;
+
+	@RequestMapping(value = "/Cart", method = RequestMethod.GET)
+	public String requestReport(HttpServletRequest request,Model model){
+		String shop_number=request.getParameter("shop_number");
+		String shop_num=request.getParameter("shop_num");
+		String userId=request.getParameter("userId");
+		String package_content=request.getParameter("package_content");
+		String serviceId=request.getParameter("serviceId");
+		String serviceNum=request.getParameter("serviceNum");
+		//获得主商品的信息
+		Commodity com=ICommodityService.getcommodity(shop_number);
+		double shop_price=com.getSelling_price();
+		
+		Cart cart=new Cart();
+		cart.setShop_number(shop_number);
+		cart.setUsername(userId);
+		cart.setNumber(Double.parseDouble(shop_num));
+		cart.setPrice(shop_price);
+		//计算商品总价
+		cart.setTotal(Double.parseDouble(shop_num)*shop_price);
+		
+		return "shopping/cart";
+	}
+	
+}

@@ -69,7 +69,7 @@ $(document).ready(function() {
                 var strisstopcheck = $(carkindsstr).hasClass("stop-check");
                 if (strisstopcheck) {
 
-                }else{
+                } else {
                     $(carkindsstr).removeClass("is-checkbox");
                     $(carkindsstr).find(".car-checktips").removeClass("is-check");
                     $(carkindsstr).find(".car-checktips").removeClass("bg-activate");
@@ -83,7 +83,7 @@ $(document).ready(function() {
                 var strisstopcheck = $(carkindsstr).hasClass("stop-check");
                 if (strisstopcheck) {
 
-                }else{
+                } else {
                     $(carkindsstr).addClass("is-checkbox");
                     $(carkindsstr).find(".car-checktips").addClass("is-check");
                     $(carkindsstr).find(".car-checktips").addClass("bg-activate");
@@ -109,13 +109,13 @@ $(document).ready(function() {
             thischecktips.addClass("bg-activate");
             thischecktips.parent().parent().parent().addClass("is-checkbox");
             var carkindslength = $(".car-kinds").length;
+
             function isallture() {
 
                 for (var i = 0; i < carkindslength; i++) {
                     carkindsstr = ".car-kinds:eq(" + i + ")";
                     var strisstopcheck = $(carkindsstr).hasClass("stop-check");
-                    if (strisstopcheck) {
-                    }else{
+                    if (strisstopcheck) {} else {
                         var truele = $(carkindsstr).hasClass("is-checkbox");
                         if (truele) {} else {
                             return false;
@@ -132,7 +132,7 @@ $(document).ready(function() {
         countalltips();
     });
     /*购物车页面计算总计和总件数等数据的函数*/
-    countalltips();//页面加载完毕进行调用一次计算总价
+    countalltips(); //页面加载完毕进行调用一次计算总价
     function countalltips() {
         var allcheckbox = $(".is-checkbox").length;
         var allnumofcase = 0;
@@ -141,22 +141,22 @@ $(document).ready(function() {
         for (var i = 0; i < allcheckbox; i++) {
             var carttextboxtips = ".is-checkbox:eq(" + i + ")";
             var hasstopcheck = $(carttextboxtips).hasClass("stop-check");
-            if (hasstopcheck) {}else{
-                combtextboxval = $(carttextboxtips).find(".cart-combo-textbox").val();//获取带服务的数量
-                textboxval = $(carttextboxtips).find(".cart-textbox").val();//获取不带服务的数量
-                if (textboxval=="" || isNaN(textboxval)) {//如果数量为0，价格就为0
-                    textboxval=0;
+            if (hasstopcheck) {} else {
+                combtextboxval = $(carttextboxtips).find(".cart-combo-textbox").val();
+                textboxval = $(carttextboxtips).find(".cart-textbox").val();
+                if (textboxval == "" || isNaN(textboxval)) {
+                    textboxval = 0;
                 }
-                if (combtextboxval=="" || isNaN(combtextboxval)) {//如果数量为0，价格就为0
-                    combtextboxval=0;
+                if (combtextboxval == "" || isNaN(combtextboxval)) {
+                    combtextboxval = 0;
                 }
-                allnumofcase = parseInt(combtextboxval) + parseInt(allnumofcase) + parseInt(textboxval);//所有商品的数量
-                allnumoftotprices += parseInt($(carttextboxtips).find(".cart-total").text());//总的价格
+                allnumofcase = parseInt(combtextboxval) + parseInt(allnumofcase) + parseInt(textboxval);
+                allnumoftotprices += parseInt($(carttextboxtips).find(".cart-total").text());
             }
         }
-        $(".tot-num-of-kinds").text(allcheckbox);//选择商品数量
-        $(".tot-num-of-goods").text(allnumofcase);//所有商品的（件数）数量
-        $(".tot-num-of-totprice").text(allnumoftotprices.toFixed(2));//总价
+        $(".tot-num-of-kinds").text(allcheckbox);
+        $(".tot-num-of-goods").text(allnumofcase);
+        $(".tot-num-of-totprice").text(allnumoftotprices.toFixed(2));
     }
     /*购物车套餐商品的价格计算以及其他部分*/
     $(".cart-combo-add").click(function() {
@@ -291,5 +291,150 @@ $(document).ready(function() {
         $(".servecontrolv3").show();
         countalltips();
     });
-
+    /*购物车页面提交封装*/
+    $(".HK-cartsubmit").click(function() {
+        /*定义一个json数组*/
+        var cartsubmitjson = {records: []};
+        /*套餐部分的id数量遍历出来推入json*/
+        var carcombokindslength = $(".car-combo").find(".car-kinds").length;
+        for (var i = 0; i < carcombokindslength; i++) {
+            var carcombokindsstr = ".car-kinds:eq("+i+")";
+            var carcombokinds = $(".car-combo").find(carcombokindsstr);
+            if (carcombokinds.hasClass("stop-check")) {
+                
+            }else{
+                if (carcombokinds.hasClass("is-checkbox")) {
+                    var cartcombokindsid = carcombokinds.find(".cart-tips-id").val();
+                    var cartcombokindsnum = carcombokinds.find(".cart-combo-textbox").val();
+                    var cartcombokindimg = carcombokinds.find(".cart-maintips-img").attr("src");
+                    var cartcombokinddir = carcombokinds.find(".cart-maintips-dir").text();
+                    var cartcombokindprice = carcombokinds.find(".cart-price").val();
+                    var row = {};
+                    row.cartid = cartcombokindsid;
+                    row.cartnum = cartcombokindsnum;
+                    row.cartkind = 1;
+                    row.cartimg = cartcombokindimg;
+                    row.cartdir = cartcombokinddir;
+                    row.cartprice = cartcombokindprice;
+                    cartsubmitjson.records.push(row);
+                }else{
+                };
+            }; 
+        };
+        /*单品部分的id数量遍历出来推入json*/
+        var carsinglekindslength = $(".car-single").find(".car-kinds").length;
+        for (var i = 0; i < carsinglekindslength; i++) {
+            var carsinglekindsstr = ".car-kinds:eq("+i+")";
+            var carsinglekinds = $(".car-single").find(carsinglekindsstr);
+            if (carsinglekinds.hasClass("stop-check")) {
+            }else{
+                if (carsinglekinds.hasClass("is-checkbox")) {
+                    var cartsinglekindsid = carsinglekinds.find(".cart-tips-id").val();
+                    var cartsinglekindsnum = carsinglekinds.find(".cart-textbox").val();
+                    var cartsinglekindimg = carsinglekinds.find(".cart-maintips-img").attr("src");
+                    var cartsinglekinddir = carsinglekinds.find(".cart-maintips-dir").text();
+                    var cartsinglekindprice = carsinglekinds.find(".cart-price").val();
+                    var row = {};
+                    row.cartid = cartsinglekindsid;
+                    row.cartnum = cartsinglekindsnum;
+                    row.cartkind = 0;
+                    row.cartimg = cartsinglekindimg;
+                    row.cartdir = cartsinglekinddir;
+                    row.cartprice = cartsinglekindprice;
+                    cartsubmitjson.records.push(row);
+                }else{
+                };
+            };
+        };
+        /*服务部分id数量推入json*/
+        if ($(".servestipsv1").hasClass("stop-check")) {
+        }else{
+            if ($(".servestipsv1").hasClass("is-checkbox")) {
+                var cartfuwuid = $(".servestipsv1").find(".cart-tips-id").val();
+                var cartfuwusnum =$(".servestipsv1").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv1").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv1").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv1").find(".cart-price").val();
+                var row = {};
+                row.cartid = cartfuwuid;
+                row.cartnum = cartfuwusnum;
+                row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
+                cartsubmitjson.records.push(row);
+            }else{
+            };
+        };
+        if ($(".servestipsv2").hasClass("stop-check")) {
+        }else{
+            if ($(".servestipsv2").hasClass("is-checkbox")) {
+                var cartfuwuid = $(".servestipsv2").find(".cart-tips-id").val();
+                var cartfuwusnum =$(".servestipsv2").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv2").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv2").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv2").find(".cart-price").val();
+                var row = {};
+                row.cartid = cartfuwuid;
+                row.cartnum = cartfuwusnum;
+                row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
+                cartsubmitjson.records.push(row);
+            }else{
+            };
+        };
+        if ($(".servestipsv3").hasClass("stop-check")) {
+        }else{
+            if ($(".servestipsv3").hasClass("is-checkbox")) {
+                var cartfuwuid = $(".servestipsv3").find(".cart-tips-id").val();
+                var cartfuwusnum =$(".servestipsv3").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv3").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv3").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv3").find(".cart-price").val();
+                var row = {};
+                row.cartid = cartfuwuid;
+                row.cartnum = cartfuwusnum;
+                row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
+                cartsubmitjson.records.push(row);
+            }else{
+            };
+        };
+        /*获取了全部的可选并选中的id，数量。封装在一个json里。在下面进行其他操作*/
+        var JSONcartsubmit = JSON.stringify(cartsubmitjson);
+        $(".HK-cartsubmitinput").val(JSONcartsubmit);
+        console.log(JSONcartsubmit);
+    });
+    /*当页面加载完毕之后，判断有没有购买悉心平安服务进行的一系列操作*/
+    charfuwuisbuy();
+    function charfuwuisbuy(){
+        var charfuwuisbuyid = $(".char-fuwu-isbuy-id").val();
+        var charfuwu1id = $(".servestipsv1").find(".cart-tips-id").val();
+        var charfuwu2id = $(".servestipsv2").find(".cart-tips-id").val();
+        var charfuwu3id = $(".servestipsv3").find(".cart-tips-id").val();
+        if (charfuwuisbuyid == charfuwu1id) {
+            $(".servecontrolv1").hide();
+            $(".servestipsv1").show();
+            $(".servestipsv1").removeClass("stop-check");
+            $(".servestipsv1").addClass("is-checkbox");
+            countalltips();
+        }else if (charfuwuisbuyid == charfuwu2id) {
+            $(".servecontrolv2").hide();
+            $(".servestipsv2").show();
+            $(".servestipsv2").removeClass("stop-check");
+            $(".servestipsv2").addClass("is-checkbox");
+            countalltips();
+        }else if (charfuwuisbuyid == charfuwu3id) {
+            $(".servecontrolv3").hide();
+            $(".servestipsv3").show();
+            $(".servestipsv3").removeClass("stop-check");
+            $(".servestipsv3").addClass("is-checkbox");
+            countalltips();
+        }else{
+        };
+    };
 });

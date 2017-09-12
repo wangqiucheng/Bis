@@ -1,0 +1,5 @@
+package com.bisa.hkshop.wqc.web.dto;
+
+public class CarShopDto {
+	private List<Commodity>
+}

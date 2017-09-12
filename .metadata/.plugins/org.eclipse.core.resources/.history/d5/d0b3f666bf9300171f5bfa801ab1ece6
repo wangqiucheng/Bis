@@ -1,0 +1,45 @@
+var path = "";
+
+$(document).ready(function() {
+	path=$("base").attr("href");
+});
+function add_shop(){
+	$("add_product").attr("disable",true);
+	if (this.ajaxRequest_ != undefined && this.ajaxRequest_.readyState < 4) {
+		layer.alert("请稍后", {
+			yes : function(ly) {
+				layer.close(ly);
+			}
+		})
+		return false;
+	}
+	var shop_number=$("input[name='shop_number']").val();
+	var shop_num=$("input[name='shop_num']").val();
+	var userId=$("input[name='userId']").val();
+	var package_content=$("input[name='package_content']").val();
+	if(package_content==null||package_content==""){
+		package_content="0";
+	}
+	var serviceId=$("input[name='serviceId']").val();
+	var serviceNum=$("input[name='serviceNum']").val();
+	$.ajax({
+		url : path + "Cart",
+		type : "post",
+		dataType : "json",
+		async : false,
+		data : {
+			"shop_number" : shop_number,
+			"shop_num":shop_num,
+			"userId":userId,
+			"package_content":package_content,
+			"serviceId":serviceId,
+			"serviceNum":serviceNum,
+		},
+		success : function(list) {
+			console.log(list);
+			
+			
+		}
+
+	});
+}

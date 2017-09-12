@@ -1,0 +1,109 @@
+package com.bisa.hkshop.wqc.controller;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.model.Commodity;
+import com.bisa.hkshop.model.Product;
+import com.bisa.hkshop.wqc.basic.dao.StringUtil;
+import com.bisa.hkshop.wqc.service.ICartService;
+import com.bisa.hkshop.wqc.service.ICommodityService;
+import com.mysql.fabric.xmlrpc.base.Array;
+
+@Controller
+
+public class CartController {
+	@Autowired
+	private ICommodityService ICommodityService;
+	@Autowired
+	private ICartService ICartService;
+
+	@RequestMapping(value = "/Cart", method = RequestMethod.POST)
+	@ResponseBody
+	public String requestReport(HttpServletRequest request,Model model){
+		/*String shop_number=request.getParameter("shop_number");
+		String userId=request.getParameter("userId");
+		String package_content=request.getParameter("package_content");
+		String serviceId=request.getParameter("serviceId");
+		String serviceNum=request.getParameter("serviceNum");
+		//获得主商品的信息
+		if(StringUtil.isNotEmpty(userId)) {
+			List<Cart> cart=ICartService.selCart(userId, shop_number);
+			Iterator it = cart.iterator();
+			while(it.hasNext()){
+				Cart cat = (Cart) it.next();
+				String shopnumber=cat.getShop_number();
+				if(shopnumber.equals(shop_number)) {
+					double i=cat.getNumber();
+					i++;
+					cat.setNumber(i);
+					cat.setPrice(cat.getPrice());
+					cat.setTotal(cat.getNumber()*cat.getPrice());
+					cat.
+				}
+				
+			}
+		}
+		//计算商品总价
+		cart.setTotal(Double.parseDouble(shop_num)*shop_price);
+		List<Cart> list=new ArrayList<Cart>();
+		list.add(cart);
+	
+		//这里是判断平安钟服务是否存在,如果存在就把他写进购物车里
+			if(StringUtil.isNotEmpty(serviceId)) {
+				Commodity comm=ICommodityService.getcommodity(serviceId);
+				double shop_price1=comm.getSelling_price();
+				Cart csCart= new Cart();
+				csCart.setShop_number(comm.getShop_number());
+				csCart.setUsername(userId);
+				csCart.setNumber(Double.parseDouble(serviceNum));
+				csCart.setPrice(shop_price1);
+				csCart.setTotal(shop_price1*Double.parseDouble(serviceNum));
+				csCart.setTitle(comm.getTitle());
+				list.add(csCart);
+			}	
+	
+		//这里是判断套餐的内容的
+		String[] productId=package_content.split(",");
+		for(int i=0;i<productId.length;i++) {
+			String pro=productId[i];
+			Commodity cdity=ICommodityService.getcommodity(pro);
+			Cart cart2=new Cart();
+			cart2.setShop_number(cdity.getShop_number());
+			cart2.setUsername(userId);
+			String s=String.valueOf(cdity.getNum());
+			cart2.setNumber(Double.parseDouble(s));
+			cart2.setPrice(cdity.getSelling_price());
+			cart2.setTotal(Double.parseDouble(s)*cdity.getSelling_price());
+			cart2.setTitle(cdity.getTitle());
+			list.add(cart2);
+			
+		}
+		
+		model.addAttribute("list", list);*/
+		Cart cart=new Cart();
+		cart.setCart_number(1005);
+		cart.setNumber(1.0);
+		cart.setPrice(1800.0);
+		cart.setTitle(null);
+		cart.setTotal(1.0*1800.0);
+		cart.setUsername("wc");
+		cart.setShop_number("1001");
+		cart.setPackage_id("1001-1002");
+		cart.setPackage_content("1002,1003,1005");
+		
+		return "shopping/cart";
+	}
+	
+}

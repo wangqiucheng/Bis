@@ -12,13 +12,16 @@ public interface ICommodityService {
 	public Pager<Commodity> getselCommodityPage();
 	//查询所有商品不带分页
 	public List<Commodity> getcommodity();
-	//获取带标题搜索的商品（看是否按新品，价格排序）带分页
-	public Pager<Commodity> getselTitleCommmodity(String title,String selling_price);
+
 	//添加商品
 	public Commodity addCommodity(Commodity comm);
 	//修改商品
 	public void updateCommodity(Commodity comm);
 	//删除商品
 	public void delCommdity(String shop_number);
+	//查询右侧的商品
+	public List<Commodity> selthreeCon(String shop_Number);
+	
+	public List<Commodity> getTypecommodity(String type);
 	
 }

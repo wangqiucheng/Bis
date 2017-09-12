@@ -1,0 +1,71 @@
+package com.bisa.hkshop.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+/**
+ * 套餐表
+ */
+@Entity
+@Table(name="s_package",uniqueConstraints={@UniqueConstraint(columnNames={"package_number"})},indexes={@Index(columnList="package_number")})
+public class Package {
+
+	private int id;
+	private String package_number;//套餐编号+主id
+	private String pmainId;//主套餐id
+	private String assistantId;//套餐内容
+	private double price;//单价
+	public Package() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Column(length=100,nullable=false,unique=true)
+	public String getPackage_number() {
+		return package_number;
+	}
+	public void setPackage_number(String package_number) {
+		this.package_number = package_number;
+	}
+	@Column(length=36,nullable=false)
+	public String getPmainId() {
+		return pmainId;
+	}
+	public void setPmainId(String pmainId) {
+		this.pmainId = pmainId;
+	}
+	public String getAssistantId() {
+		return assistantId;
+	}
+	public void setAssistantId(String assistantId) {
+		this.assistantId = assistantId;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public Package(int id, String package_number, String pmainId, String assistantId, double price) {
+		super();
+		this.id = id;
+		this.package_number = package_number;
+		this.pmainId = pmainId;
+		this.assistantId = assistantId;
+		this.price = price;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package com.bisa.hkshop.wqc.dao;
+
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.wqc.basic.model.Pager;
+
+public interface IcartDao {
+
+	//添加商品进购物车
+	public Cart addCart(Cart cart);
+	//删除商品在购物车
+	public void updateCart(Cart cart);
+	public List<Cart> selCart(String userId,String shop_number);
+	
+}

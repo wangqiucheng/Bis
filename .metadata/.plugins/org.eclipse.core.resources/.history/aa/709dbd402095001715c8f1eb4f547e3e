@@ -1,0 +1,13 @@
+package com.bisa.hkshop.wqc.dao;
+
+import java.util.List;
+
+import com.bisa.hkshop.model.Active;
+import com.bisa.hkshop.model.Package;
+
+public interface IPackageDao {
+	
+	public List<Package> getActiveByNumber(String pmainId);
+	
+
+}

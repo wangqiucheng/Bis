@@ -1,5 +1,7 @@
 package com.bisa.hkshop.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,17 +14,28 @@ import javax.persistence.UniqueConstraint;
  * @author wqc
  *
  */
+
 @Entity
-@Table(name="s_cart",uniqueConstraints={@UniqueConstraint(columnNames={"cart_number"})},indexes={@Index(columnList="username")})
+@Table(name="s_cart")
 public class Cart {
 	private int id;
 	private String cart_number;	//购物车编号
-	private Double number;//商品数量
-	private String title;	//商品标题
-	private Double price;	//商品价格
-	private Double total;	//商品总计
 	private String username;  //用户编号
+	private int number;//商品数量
+	private Double price;
+	private String packId;
+//	private int corderId;
+	private Double total;
+	private String title;
+	private String main_picture;
+	private String sing_cox;
+	private Date insert_time;
+	private Date update_time;
 	
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -31,61 +44,98 @@ public class Cart {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(length=36,nullable=false,unique=true)
 	public String getCart_number() {
 		return cart_number;
 	}
 	public void setCart_number(String cart_number) {
 		this.cart_number = cart_number;
 	}
-	@Column(length=50,nullable=false)
-	public Double getNumber() {
-		return number;
-	}
-	public void setNumber(Double number) {
-		this.number = number;
-	}
-	@Column(length=100,nullable=false)
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	@Column(columnDefinition = "double(10,2) default '1.00'",nullable=false)
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	@Column(columnDefinition = "double(10,2) default '1.00'",nullable=false)
-	public Double getTotal() {
-		return total;
-	}
-	public void setTotal(Double total) {
-		this.total = total;
-	}
-	@Column(length=100,nullable=false,unique=true)
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Cart() {
-		super();
-		// TODO Auto-generated constructor stub
+	
+	public int getNumber() {
+		return number;
 	}
-	public Cart(int id, String cart_number, Double number, String title, Double price, Double total, String username) {
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public String getPackId() {
+		return packId;
+	}
+	public void setPackId(String packId) {
+		this.packId = packId;
+	}
+	
+	public Double getTotal() {
+		return total;
+	}
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getMain_picture() {
+		return main_picture;
+	}
+	public void setMain_picture(String main_picture) {
+		this.main_picture = main_picture;
+	}
+	
+	public Date getInsert_time() {
+		return insert_time;
+	}
+	public void setInsert_time(Date insert_time) {
+		this.insert_time = insert_time;
+	}
+	public Date getUpdate_time() {
+		return update_time;
+	}
+	public void setUpdate_time(Date update_time) {
+		this.update_time = update_time;
+	}
+	
+	public String getSing_cox() {
+		return sing_cox;
+	}
+	public void setSing_cox(String sing_cox) {
+		this.sing_cox = sing_cox;
+	}
+	public Cart(int id, String cart_number, String username, int number, Double price, String packId,
+			Double total, String title, String main_picture, String sing_cox, Date insert_time, Date update_time) {
 		super();
 		this.id = id;
 		this.cart_number = cart_number;
-		this.number = number;
-		this.title = title;
-		this.price = price;
-		this.total = total;
 		this.username = username;
+		this.number = number;
+		this.price = price;
+		this.packId = packId;
+		//this.corderId = corderId;
+		this.total = total;
+		this.title = title;
+		this.main_picture = main_picture;
+		this.sing_cox = sing_cox;
+		this.insert_time = insert_time;
+		this.update_time = update_time;
 	}
+	
+
+	
+	
 	
 }

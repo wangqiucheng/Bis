@@ -1,0 +1,14 @@
+package com.bisa.hkshop.wqc.dao;
+
+import java.util.List;
+
+import com.bisa.hkshop.model.Active;
+import com.bisa.hkshop.model.Packdetails;
+import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+
+public interface IPackdetailsDao extends BaseDao<Packdetails> implements IPackdetailsDao{
+
+	List<Packdetails> getpackdetails(String packIds);
+	
+	
+}

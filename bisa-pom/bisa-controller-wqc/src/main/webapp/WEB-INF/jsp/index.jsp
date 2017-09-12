@@ -62,7 +62,7 @@
                             <div class="full-w pl-0 pr-0 bor bor-t-none bor-b-none bor-col-E9E9E9 protipssidev1 shodow-tip">
                                 <div class="clear ">
                                     <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/product?shop_number=1001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
+                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=1001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
                                     </div>
                                     <div class="clear pt-30 protipsplmedia cur-d pb-80">
                                         <p class="line-h-30 f-16 f-w col-252525">
@@ -87,7 +87,7 @@
                                            续航：无蓝牙120小时持续使用
                                         </p>
                                         <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/product">了解产品细节 ></a>
+                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=1001">了解产品细节 ></a>
                                         <!-- </p> -->
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                             <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip">
                                 <div class="clear shodow-tips">
                                     <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/product?shop_number=2001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips2.png" alt=""></a>
+                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=2001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips2.png" alt=""></a>
                                     </div>
                                     <div class="clear pt-30 protipsplmedia pb-80 cur-d">
                                         <p class="line-h-30 f-16 f-w col-252525">
@@ -122,7 +122,7 @@
                                            续航：无蓝牙120小时持续使用
                                         </p>
                                         <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="">了解产品细节 ></a>
+                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=2001">了解产品细节 ></a>
                                         </p>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                             <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip">
                                 <div class="clear shodow-tips">
                                     <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/product?shop_number=4001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
+                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
                                     </div>
                                     <div class="clear pt-30 protipsplmedia pb-80 cur-d">
                                         <p class="line-h-30 f-16 f-w col-252525">
@@ -157,7 +157,7 @@
                                            续航：无蓝牙120小时持续使用
                                         </p>
                                         <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="">了解产品细节 ></a>
+                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4001">了解产品细节 ></a>
                                         </p>
                                     </div>
                                 </div>    
@@ -167,7 +167,7 @@
                             <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tipv2">
                                 <div class="clear">
                                     <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/product?shop_number=3001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips3.png" alt=""></a>
+                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=3001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips3.png" alt=""></a>
                                     </div>
                                     <div class="clear pt-30 protipsplmedia cur-d pb-80">
                                         <p class="line-h-30 f-16 f-w col-252525">
@@ -192,7 +192,7 @@
                                            续航：无蓝牙120小时持续使用
                                         </p>
                                         <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="">了解产品细节 ></a>
+                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=3001">了解产品细节 ></a>
                                         </p>
                                     </div>
                                 </div>

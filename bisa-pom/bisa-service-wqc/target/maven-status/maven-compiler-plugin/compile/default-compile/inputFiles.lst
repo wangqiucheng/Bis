@@ -1,7 +1,10 @@
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IBannerService.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IActiveService.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IProductService.java
+D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\PackageServiceImpl.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IOrderService.java
+D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IPackageService.java
+D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IPackdetailsService.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\CartServiceImpl.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\ProductServiceImpl.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\CommodityServiceImpl.java
@@ -14,3 +17,4 @@ D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\serv
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\OrderServiceImpl.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\ICartService.java
 D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\ICommodityService.java
+D:\BisaJavaWork\bisa-pom\bisa-service-wqc\src\main\java\com\bisa\hkshop\wqc\service\IPackdetailsServiceImpl.java

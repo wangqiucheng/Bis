@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Product;
-import com.bisa.hkshop.wqc.basic.dao.SystemContext;
+import com.bisa.hkshop.model.Package;
+import com.bisa.hkshop.model.SystemContext;
+import com.bisa.hkshop.wqc.basic.dao.StringUtil;
 import com.bisa.hkshop.wqc.basic.model.Pager;
-import com.bisa.hkshop.wqc.dao.ICommodityDao;
+
 import com.bisa.hkshop.wqc.service.ICommodityService;
+import com.bisa.hkshop.wqc.service.IPackageService;
 import com.bisa.hkshop.wqc.service.IProductService;
 
 @Controller
@@ -27,6 +30,8 @@ public class CommodityController {
 	private ICommodityService iCommodityService;
 	@Autowired
 	private IProductService ProductService;
+	@Autowired
+	private IPackageService IPackageService;
 	/**
 	 *  获取所有商品列表(带分页)
 	 */
@@ -48,41 +53,17 @@ public class CommodityController {
 		String shop_Number=request.getParameter("shop_number");
 		Commodity commodity = iCommodityService.getcommodity(shop_Number);
 		model.addAttribute("commodity", commodity);
-		List<Product> product=ProductService.getProduct(shop_Number);
-		System.out.println("=======product"+product);
-	//	model.addAttribute("product", product);
-		List<Commodity> list=new ArrayList<Commodity>();
-		Iterator it = product.iterator();
-		Commodity shopNub=null;
-		while(it.hasNext()){
-			Product pro = (Product) it.next();
-			String assistant=pro.getAssistant();
-			shopNub=iCommodityService.getcommodity(assistant);
-			list.add(shopNub);
-			
-		}
-		//System.out.println("============="+list.size());
-		model.addAttribute("list", list);
+		List<Commodity> listproduct=iCommodityService.selthreeCon(shop_Number);
+		model.addAttribute("listproduct", listproduct);
+		List<Package> pack=IPackageService.getpackage(shop_Number);
+		model.addAttribute("pack", pack);
+		//悉心服务
+		Commodity comm = iCommodityService.getcommodity("4001");
+		model.addAttribute("comm", comm);
 		return "shopping/product";
 		
 	}
-	
-	/**
-	 * 获取所有商品列表(带分页)，其中包括是否根据分类，标题搜索
-	 * @return
-	 */
-	@RequestMapping(value="/shopping/getCommodity",method=RequestMethod.GET)
-	public String getCommmodity(HttpServletRequest request,Model model) {
-		
-		//SystemContext.setOrder("asc");//desc
-		//SystemContext.setSort("time");
-		//SystemContext.setPageSize(5);
-		//SystemContext.setPageOffset(1);
-	//	Pager<Commodity> cpager = iCommodityDao.getselCommodityPage();
-		
-		
-		return null;
-	}
+
 	/**
 	 * 添加商品
 	 * @param request

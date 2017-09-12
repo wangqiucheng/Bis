@@ -1,0 +1,102 @@
+package com.bisa.hkshop.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+/**
+ * 购物车
+ * @author wqc
+ *
+ */
+@Entity
+
+public class Cart {
+	private int id;
+	private String cart_number;	//购物车编号
+	private Double number;//商品数量
+	private String title;	//商品标题
+	private Double price;	//商品价格
+	private Double total;	//商品总计
+	private String username;  //用户编号
+	private String packId;//商品编号（主编号）
+	private String main_picture;//套餐内容
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCart_number() {
+		return cart_number;
+	}
+	public void setCart_number(String cart_number) {
+		this.cart_number = cart_number;
+	}
+	public Double getNumber() {
+		return number;
+	}
+	public void setNumber(Double number) {
+		this.number = number;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public Double getTotal() {
+		return total;
+	}
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPackId() {
+		return packId;
+	}
+	public void setPackId(String packId) {
+		this.packId = packId;
+	}
+	public String getMain_picture() {
+		return main_picture;
+	}
+	public void setMain_picture(String main_picture) {
+		this.main_picture = main_picture;
+	}
+	public Cart(int id, String cart_number, Double number, String title, Double price, Double total, String username,
+			String packId, String main_picture) {
+		super();
+		this.id = id;
+		this.cart_number = cart_number;
+		this.number = number;
+		this.title = title;
+		this.price = price;
+		this.total = total;
+		this.username = username;
+		this.packId = packId;
+		this.main_picture = main_picture;
+	}
+	
+	
+}
