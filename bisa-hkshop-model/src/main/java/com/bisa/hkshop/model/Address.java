@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class Address {
 	
 	private	int	Id;		//Id(自增id)
-	private	String addr_number;		//	64	地址编号
-	private	String username;		//	36	用户名
+	private	String addr_num;		//	64	地址编号
+	private	String user_guid;		//	36	用户名
 	private	String address;		//	100	详细地址
 	private	String tel;		//	20	电话
 	private	String name;		//	20	收货人
@@ -22,6 +22,8 @@ public class Address {
 	private	String province;		//	30	省  设置为可空
 	private	String city;		//	30	市   设置为可空
 	private	String county;		//	30	县  设置为可空
+	
+	
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -30,17 +32,17 @@ public class Address {
 	public void setId(int id) {
 		Id = id;
 	}
-	public String getAddr_number() {
-		return addr_number;
+	public String getAddr_num() {
+		return addr_num;
 	}
-	public void setAddr_number(String addr_number) {
-		this.addr_number = addr_number;
+	public void setAddr_num(String addr_num) {
+		this.addr_num = addr_num;
 	}
-	public String getUsername() {
-		return username;
+	public String getUser_guid() {
+		return user_guid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser_guid(String user_guid) {
+		this.user_guid = user_guid;
 	}
 	public String getAddress() {
 		return address;
@@ -102,6 +104,5 @@ public class Address {
 	public void setCounty(String county) {
 		this.county = county;
 	}
-	
 	
 }

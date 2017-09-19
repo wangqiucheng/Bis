@@ -9,6 +9,15 @@
   <packaging>war</packaging>
   
  <dependencies>
+ 
+ 	<!-- <dependency>
+	  <groupId>bisa-pom-hkshop</groupId>
+	  <artifactId>bisa-hkshop-controller-zj</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <type>war</type>
+	  <scope>runtime</scope>
+   </dependency> -->
+ 
    	<dependency>
 	   <groupId>com.bisa.hkshop</groupId>
 	   <artifactId>bisa-service-wqc</artifactId>
@@ -70,15 +79,15 @@
 					<warName>bisahealth-shopserver</warName>
 					<overlays>
 						
-						<!--  
-				 		 <overlay>
-							<groupId>com.bisa.health.teamb.controller</groupId>
-							<artifactId>bisa-teamb-controller</artifactId>
+						 
+				 		<!--  <overlay>
+							<groupId>bisa-pom-hkshop</groupId>
+	 						 <artifactId>bisa-hkshop-controller-zj</artifactId>
 							<excludes>
 								<exclude>WEB-INF/classes/resources.properties</exclude>
 							</excludes>
-						</overlay>   
-						-->
+						</overlay>    -->
+						
 					</overlays>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>

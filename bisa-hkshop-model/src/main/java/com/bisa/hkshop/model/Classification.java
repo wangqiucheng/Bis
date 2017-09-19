@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
  *
  */
 @Entity
-@Table(name="s_classification",uniqueConstraints={@UniqueConstraint(columnNames={"parent_code"})})
+@Table(name="s_classification")
 public class Classification {
 	private int id;
 	private int code;	//子分类的编号

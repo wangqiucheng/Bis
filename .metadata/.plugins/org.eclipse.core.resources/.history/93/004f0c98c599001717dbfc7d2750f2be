@@ -1,0 +1,10 @@
+$(document).ready(function() {
+	var path = "";
+	path=$("base").attr("href");
+	getCartnum();
+	
+});
+
+function getCartnum(){
+	window.location.href=path+"Cart?&userId="+userId;
+}

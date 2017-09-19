@@ -1,0 +1,10 @@
+$(document).ready(function() {
+	/*获取购物车数量以及赋值*/
+	getCartnum();
+	function getCartnum(){
+		var path = $("base").attr("href");
+		var userId = $("input[name='userId']").val();
+		window.location.href=path+"Cart?&userId="+userId;
+	};
+	
+});

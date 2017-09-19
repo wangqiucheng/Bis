@@ -14,5 +14,9 @@ public interface ICartService {
 	
 	public Cart getCart(String packId);
 	
+	public Cart updateCart(String packId);
+	
 	public int delCart(String deleteId);
+	
+	public int selCartNum(String userId);
 }

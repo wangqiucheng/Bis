@@ -15,10 +15,10 @@ import javax.persistence.UniqueConstraint;
  *
  */
 @Entity
-@Table(name="s_comment",uniqueConstraints={@UniqueConstraint(columnNames={"number"})})
+@Table(name="s_comment")
 public class Comment {
 	private int id;
-	private String username; //用户编号
+	private String guid; //用户编号
 	private String number;  //评价编号
 	private String cart_name; //分类id
 	private String comment_one; //评价
@@ -34,12 +34,12 @@ public class Comment {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(length=36,nullable=false,unique=true)
-	public String getUsername() {
-		return username;
+
+	public String getGuid() {
+		return guid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 	@Column(length=50,nullable=false,unique=true)
 	public String getNumber() {
@@ -87,18 +87,7 @@ public class Comment {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Comment(int id, String username, String number, String cart_name, String comment_one, String comment_two,
-			String insert_time, String update_time) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.number = number;
-		this.cart_name = cart_name;
-		this.comment_one = comment_one;
-		this.comment_two = comment_two;
-		this.insert_time = insert_time;
-		this.update_time = update_time;
-	}
+
 	
 	
 }

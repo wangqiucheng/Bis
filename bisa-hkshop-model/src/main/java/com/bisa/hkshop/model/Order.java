@@ -10,22 +10,26 @@ import javax.persistence.Table;
 public class Order {
 	
 	private	int	id; 	//	id
-	private	String orderGuid; 	//	32	订单号
-	private	String username; 	//	36	用户名
+	private	String order_no; 	//	32	订单号
+	private	String user_guid; 	//	36	用户
 	private	int tra_status; 	//	11	交易状态（1：未支付，2：已支付 3：未发货，4：已发货）
 	private	String addr_num; 	//	100	收货地址guid
 	private	String price; 	//	36	总价
-	private	String logistics_Number; 	//	100	物流单号
+	private int pay_type;     //付款方式(1001:微信 1002：支付宝）
+	private double reduced_price;   //优惠价格
+	private double post_price;   //邮费
+	private	String logistics_number; 	//	100	物流单号
 	private	String logistics_name; 	//	100	物流公司名
-	private	String startTime; 	//	50	创建时间
-	private String orderFailTime; //订单失效时间
-	private	String updatetime; 	//	50	订单更改时间
+	private	String start_time; 	//	50	创建时间
+	private String order_fail_time; //订单失效时间
+	private	String update_time; 	//	50	订单更改时间
 	private	String pay_ok_time; 	//	50	支付成功时间
 	private	String trade_ok_time; 	//	50	交易成功时间
 	private	String trade_false_time; 	//	50	交易失败时间
 	private String trade_fail_cause;//交易失败的原因
 	private	String invoice_title; 	//	50	发票抬头
 	private	int invoice_type; 	//	50	发票类型（0：增值税发票，1：普通发票）
+	private  int effective_statu; //订单是否有效，（1：有效，2：无效）
 	
 	
 	@Id
@@ -36,17 +40,17 @@ public class Order {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getOrderGuid() {
-		return orderGuid;
+	public String getOrder_no() {
+		return order_no;
 	}
-	public void setOrderGuid(String orderGuid) {
-		this.orderGuid = orderGuid;
+	public void setOrder_no(String order_no) {
+		this.order_no = order_no;
 	}
-	public String getUsername() {
-		return username;
+	public String getUser_guid() {
+		return user_guid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser_guid(String user_guid) {
+		this.user_guid = user_guid;
 	}
 	public int getTra_status() {
 		return tra_status;
@@ -66,11 +70,29 @@ public class Order {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getLogistics_Number() {
-		return logistics_Number;
+	public int getPay_type() {
+		return pay_type;
 	}
-	public void setLogistics_Number(String logistics_Number) {
-		this.logistics_Number = logistics_Number;
+	public void setPay_type(int pay_type) {
+		this.pay_type = pay_type;
+	}
+	public double getReduced_price() {
+		return reduced_price;
+	}
+	public void setReduced_price(double reduced_price) {
+		this.reduced_price = reduced_price;
+	}
+	public double getPost_price() {
+		return post_price;
+	}
+	public void setPost_price(double post_price) {
+		this.post_price = post_price;
+	}
+	public String getLogistics_number() {
+		return logistics_number;
+	}
+	public void setLogistics_number(String logistics_number) {
+		this.logistics_number = logistics_number;
 	}
 	public String getLogistics_name() {
 		return logistics_name;
@@ -78,23 +100,24 @@ public class Order {
 	public void setLogistics_name(String logistics_name) {
 		this.logistics_name = logistics_name;
 	}
-	public String getStartTime() {
-		return startTime;
+	public String getStart_time() {
+		return start_time;
 	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setStart_time(String start_time) {
+		this.start_time = start_time;
 	}
-	public String getOrderFailTime() {
-		return orderFailTime;
+	public String getOrder_fail_time() {
+		return order_fail_time;
 	}
-	public void setOrderFailTime(String orderFailTime) {
-		this.orderFailTime = orderFailTime;
+	public void setOrder_fail_time(String order_fail_time) {
+		this.order_fail_time = order_fail_time;
 	}
-	public String getUpdatetime() {
-		return updatetime;
+
+	public String getUpdate_time() {
+		return update_time;
 	}
-	public void setUpdatetime(String updatetime) {
-		this.updatetime = updatetime;
+	public void setUpdate_time(String update_time) {
+		this.update_time = update_time;
 	}
 	public String getPay_ok_time() {
 		return pay_ok_time;
@@ -132,8 +155,13 @@ public class Order {
 	public void setInvoice_type(int invoice_type) {
 		this.invoice_type = invoice_type;
 	}
+	public int getEffective_statu() {
+		return effective_statu;
+	}
+	public void setEffective_statu(int effective_statu) {
+		this.effective_statu = effective_statu;
+	}
 
-	
 	
 	
 }

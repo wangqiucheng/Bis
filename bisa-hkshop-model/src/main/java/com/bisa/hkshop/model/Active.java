@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 
 @Entity
-@Table(name="s_active",uniqueConstraints={@UniqueConstraint(columnNames={"active_number"})},indexes={@Index(columnList="service_guid")})
+@Table(name="s_active")
 public class Active {
 	private	int	Id;	
 	private	String active_number;	//	64唯一 	激活编号

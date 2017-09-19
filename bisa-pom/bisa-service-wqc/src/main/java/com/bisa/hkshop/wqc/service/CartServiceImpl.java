@@ -23,15 +23,17 @@ public class CartServiceImpl implements ICartService{
 	
 
 	@Override
-	public List<Cart> selCart(String userId) {
+	public List<Cart> selCart(String guid) {
 		// TODO Auto-generated method stub
-		return ICartDao.selCart(userId);
+		return ICartDao.selCart(guid);
 	}
 
 	@Override
 	public Cart getCart(String packId) {
 		// TODO Auto-generated method stub
-		return ICartDao.getCart(packId);
+		 Cart cart=ICartDao.getCart(packId);
+
+		return cart;
 	}
 
 
@@ -48,6 +50,22 @@ public class CartServiceImpl implements ICartService{
 	public void updateCart(Cart cart) {
 		// TODO Auto-generated method stub
 		ICartDao.updateCart(cart);
+	}
+
+
+
+	@Override
+	public Cart updateCart(String packId) {
+		 Cart cart=ICartDao.getCart(packId);
+		return cart;
+	}
+
+
+
+	@Override
+	public int selCartNum(String guid) {
+		// TODO Auto-generated method stub
+		return ICartDao.selCartNum(guid);
 	}
 
 }

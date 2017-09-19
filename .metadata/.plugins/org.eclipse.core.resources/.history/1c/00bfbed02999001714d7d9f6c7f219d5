@@ -1,0 +1,37 @@
+var path = "";
+
+$(document).ready(function() {
+	path=$("base").attr("href");
+});
+function add_shop(){
+	$("add_product").attr("disable",true);
+	var packId=$("input[name='packId']").val();
+	var userId=$("input[name='userId']").val();
+	var serviceId=$("input[name='serviceId']").val();
+	var issingleorcombo=$("input[name='issingleorcombo']").val();
+	var service_number=$("input[name='service_number']").val();
+
+	$.ajax({
+		url : path + "addCart",
+		type : "post",
+		dataType : "text",
+		async : false,
+		data : {
+			"packId" : packId,
+			"userId":userId,
+			"serviceId":serviceId,
+			"service_number":service_number,
+			"issingleorcombo":issingleorcombo,
+		},
+		success : function(success) {	
+			
+				window.location.href=path+"Cart?&userId="+userId;	
+
+		}
+
+	});
+	
+}
+
+	    
+	    

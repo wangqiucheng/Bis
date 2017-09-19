@@ -2,13 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="&lt;%=request.getContextPath() %&gt;/resources" key="selection"/>
+		<item value="del_shop" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="del_shop"/>
+			<item value="car-del-fuwuid"/>
+			<item value="立即购买"/>
+			<item value="&#x09;&lt;dependency&gt;"/>
+			<item value="HK-cartsubmit"/>
 			<item value="../.."/>
+			<item value="clear col-sm-12 pl-0 mb-10 pr-0 f-14-12-ipad bg-white h-60-40-ipad line-h-60-40-ipad car-combo-tips"/>
 			<item value="del"/>
 			<item value="clear full-w bg-white mt-4 mb-4"/>
 			<item value="combotips-div-biaopei"/>
@@ -17,12 +23,6 @@
 			<item value="../../"/>
 			<item value="Activ"/>
 			<item value="Active"/>
-			<item value="Commodity"/>
-			<item value="Cart"/>
-			<item value="car-combo-tips"/>
-			<item value="countalltips"/>
-			<item value="cart-textbox"/>
-			<item value="cart-combo-textbox"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&lt;%=request.getContextPath() %&gt;/resources"/>
@@ -37,7 +37,7 @@
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="581" key="DIALOG_HEIGHT"/>
-		<item value="1263" key="DIALOG_X_ORIGIN"/>
-		<item value="306" key="DIALOG_Y_ORIGIN"/>
+		<item value="201" key="DIALOG_X_ORIGIN"/>
+		<item value="246" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

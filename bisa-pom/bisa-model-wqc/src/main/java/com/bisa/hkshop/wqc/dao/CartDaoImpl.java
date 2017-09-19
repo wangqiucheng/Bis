@@ -12,10 +12,10 @@ public class CartDaoImpl extends BaseDao<Cart> implements IcartDao{
 
 
 	@Override
-	public List<Cart> selCart(String userId) {
+	public List<Cart> selCart(String guid) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_cart AS c where c.username=? order by c.update_time desc";
-		return super.queryListBySql(sql, new Object[]{userId}, Cart.class);
+		String sql="select * from s_cart AS c where c.guid=? order by c.update_time desc";
+		return super.queryListBySql(sql, new Object[]{guid}, Cart.class);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class CartDaoImpl extends BaseDao<Cart> implements IcartDao{
 	@Override
 	public int delCart(String deleteId) {
 		// TODO Auto-generated method stub
-		String sql="delete from s_cart where cart_number=?";
+		String sql="delete from s_cart where packId=?";
 		return super.delUpObjectBySql(sql, new Object[]{deleteId});
 	}
 
@@ -42,6 +42,13 @@ public class CartDaoImpl extends BaseDao<Cart> implements IcartDao{
 	public void updateCart(Cart cart) {
 		// TODO Auto-generated method stub
 		super.update(cart);
+	}
+
+	@Override
+	public int selCartNum(String guid) {
+		// TODO Auto-generated method stub
+		String sql="select count(*) from s_cart where guid=?";
+		return (int) super.queryTotal(sql, new Object[]{guid});
 	}
 	
 

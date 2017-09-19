@@ -14,6 +14,7 @@ import javax.persistence.UniqueConstraint;
  * 商品表
  */
 @Entity
+@Table(name="s_commodity")
 public class Commodity {
 	private int id;
 	private String shop_number; //商品编号

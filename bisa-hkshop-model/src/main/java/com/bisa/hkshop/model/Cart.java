@@ -1,12 +1,15 @@
 package com.bisa.hkshop.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 /**
@@ -20,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 public class Cart {
 	private int id;
 	private String cart_number;	//购物车编号
-	private String username;  //用户编号
+	private String guid;  //用户编号
 	private int number;//商品数量
 	private Double price;
 	private String packId;
@@ -32,9 +35,10 @@ public class Cart {
 	private Date insert_time;
 	private Date update_time;
 	
+
 	public Cart() {
 		super();
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub ieji
 	}
 	@Id
 	@GeneratedValue
@@ -50,13 +54,14 @@ public class Cart {
 	public void setCart_number(String cart_number) {
 		this.cart_number = cart_number;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	
+	
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
 	public int getNumber() {
 		return number;
 	}
@@ -116,23 +121,7 @@ public class Cart {
 	public void setSing_cox(String sing_cox) {
 		this.sing_cox = sing_cox;
 	}
-	public Cart(int id, String cart_number, String username, int number, Double price, String packId,
-			Double total, String title, String main_picture, String sing_cox, Date insert_time, Date update_time) {
-		super();
-		this.id = id;
-		this.cart_number = cart_number;
-		this.username = username;
-		this.number = number;
-		this.price = price;
-		this.packId = packId;
-		//this.corderId = corderId;
-		this.total = total;
-		this.title = title;
-		this.main_picture = main_picture;
-		this.sing_cox = sing_cox;
-		this.insert_time = insert_time;
-		this.update_time = update_time;
-	}
+
 	
 
 	

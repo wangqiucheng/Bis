@@ -37,11 +37,11 @@
 		</dependency>
 
 	</dependencies>
-	<!-- <distributionManagement> <repository> <id>releases</id> <name>Release</name> 
+	 <distributionManagement> <repository> <id>releases</id> <name>Release</name> 
 		<url>http://192.168.1.80:9000/nexus/content/repositories/releases/</url> 
 		</repository> <snapshotRepository> <id>snapshots</id> <name>Snapshots</name> 
 		<url>http://192.168.1.80:9000/nexus/content/repositories/snapshots/</url> 
-		</snapshotRepository> </distributionManagement> -->
+		</snapshotRepository> </distributionManagement> 
 
 	<build>
 		<plugins>

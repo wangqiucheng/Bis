@@ -1,0 +1,10 @@
+com\bisa\hkshop\wqc\dao\IcartDao.class
+com\bisa\hkshop\wqc\dao\IPackageDao.class
+com\bisa\hkshop\wqc\dao\ActiveDaoImpl.class
+com\bisa\hkshop\wqc\dao\ICommodityDao.class
+com\bisa\hkshop\wqc\dao\CommodityDaoImpl.class
+com\bisa\hkshop\wqc\dao\CartDaoImpl.class
+com\bisa\hkshop\wqc\dao\IActiveDao.class
+com\bisa\hkshop\wqc\dao\IPackdetailsDao.class
+com\bisa\hkshop\wqc\dao\PackageDaoImpl.class
+com\bisa\hkshop\wqc\dao\PackdetailsDaoImpl.class

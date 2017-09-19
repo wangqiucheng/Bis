@@ -14,6 +14,7 @@ import javax.persistence.UniqueConstraint;
  * 套餐表
  */
 @Entity
+@Table(name="s_package")
 public class Package {
 
 	private int id;
