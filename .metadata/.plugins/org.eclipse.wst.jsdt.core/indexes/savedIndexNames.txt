@@ -1,13 +1,7 @@
 INDEX VERSION 1.4+D:\BisaJavaWork\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4226778308.index
-2022347406.index
-3410493055.index
-3064591483.index
-634577977.index
-2323417362.index
-2750299681.index
-768066771.index
-2615429340.index
-301903693.index
-2759841166.index
 657626690.index
+2615429340.index
+768066771.index
+301903693.index
+3410493055.index
+186698552.index
