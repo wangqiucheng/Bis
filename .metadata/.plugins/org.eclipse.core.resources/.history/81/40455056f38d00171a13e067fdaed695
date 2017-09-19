@@ -1,9 +1,0 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/swiper.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/base.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/bootstrap.css">
-
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/comm/jquery.min.js"></script>
-

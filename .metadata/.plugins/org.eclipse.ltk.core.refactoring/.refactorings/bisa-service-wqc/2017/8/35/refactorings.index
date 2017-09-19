@@ -1,8 +1,0 @@
-1504055764789	Rename package 'org.bisa.service.wqc'
-1504085855782	Delete element
-1504086100050	Rename type 'IAddressDaoService'
-1504086277449	Rename type 'CommodityService'
-1504166573776	Copy compilation unit
-1504166633990	Copy compilation unit
-1504170471592	Rename type 'ClassificationServiceImpl'
-1504170513982	Rename type 'IClassificationService'

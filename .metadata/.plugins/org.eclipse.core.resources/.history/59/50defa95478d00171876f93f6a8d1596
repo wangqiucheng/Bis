@@ -1,8 +1,0 @@
-package com.bisa.hkshop.model;
-
-@Entity
-@Table(name="s_commodity",indexes={@Index(columnList="accessname")})
-public class Commodity {
-	
-	
-}
