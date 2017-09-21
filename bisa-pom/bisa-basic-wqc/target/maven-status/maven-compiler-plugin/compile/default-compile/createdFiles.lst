@@ -1,8 +1,0 @@
-com\bisa\hkshop\wqc\basic\dao\BaseDao.class
-com\bisa\hkshop\wqc\basic\dao\IBaseDao.class
-com\bisa\hkshop\wqc\basic\utility\GuidGenerator.class
-com\bisa\hkshop\wqc\basic\utility\JSONUtil.class
-com\bisa\hkshop\wqc\basic\dao\MD5Kit.class
-com\bisa\hkshop\wqc\basic\utility\AjaxJson.class
-com\bisa\hkshop\wqc\basic\model\Pager.class
-com\bisa\hkshop\wqc\basic\dao\StringUtil.class
