@@ -2,3 +2,6 @@
 .recommenders/
 bisa-pom/bisa-controller-wqc/target/
 bisa-pom/bisa-model-wqc/target/
+bisa-hkshop-model/target/
+bisa-pom/bisa-basic-wqc/target/
+bisa-pom/bisa-service-wqc/target/
