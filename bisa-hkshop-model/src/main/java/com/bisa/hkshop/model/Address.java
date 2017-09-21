@@ -1,5 +1,7 @@
 package com.bisa.hkshop.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,17 +14,17 @@ public class Address {
 	private	int	Id;		//Id(自增id)
 	private	String addr_num;		//	64	地址编号
 	private	String user_guid;		//	36	用户名
+	private String guid;           //当前服务器的唯一id
 	private	String address;		//	100	详细地址
 	private	String tel;		//	20	电话
 	private	String name;		//	20	收货人
 	private	String postcode;		//	10	邮政编码
-	private	String act_time;		//	50	最近使用时间
+	private	Date act_time;		//	50	最近使用时间
 	private int is_default;  //是否设置为默认地址
 	private String email;   //电子邮箱   设置为可空
 	private	String province;		//	30	省  设置为可空
 	private	String city;		//	30	市   设置为可空
-	private	String county;		//	30	县  设置为可空
-	
+	private	String county;
 	
 	@Id
 	@GeneratedValue
@@ -43,6 +45,12 @@ public class Address {
 	}
 	public void setUser_guid(String user_guid) {
 		this.user_guid = user_guid;
+	}
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 	public String getAddress() {
 		return address;
@@ -68,10 +76,10 @@ public class Address {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
-	public String getAct_time() {
+	public Date getAct_time() {
 		return act_time;
 	}
-	public void setAct_time(String act_time) {
+	public void setAct_time(Date act_time) {
 		this.act_time = act_time;
 	}
 	public int getIs_default() {
@@ -103,6 +111,9 @@ public class Address {
 	}
 	public void setCounty(String county) {
 		this.county = county;
-	}
+	}		//	30	县  设置为可空
+	
+	
+	
 	
 }

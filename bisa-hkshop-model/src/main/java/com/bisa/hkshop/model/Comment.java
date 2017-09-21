@@ -23,8 +23,8 @@ public class Comment {
 	private String cart_name; //分类id
 	private String comment_one; //评价
 	private String comment_two; //追评
-	private String insert_time; //插入时间
-	private String update_time;	//更改时间
+	private Date insert_time; //插入时间
+	private Date update_time;	//更改时间
 	
 	@Id
 	@GeneratedValue
@@ -69,18 +69,17 @@ public class Comment {
 	public void setComment_two(String comment_two) {
 		this.comment_two = comment_two;
 	}
-	@Column(length=50,nullable=false)
-	public String getInsert_time() {
+	
+	public Date getInsert_time() {
 		return insert_time;
 	}
-	public void setInsert_time(String insert_time) {
+	public void setInsert_time(Date insert_time) {
 		this.insert_time = insert_time;
 	}
-	@Column(length=50,nullable=false)
-	public String getUpdate_time() {
+	public Date getUpdate_time() {
 		return update_time;
 	}
-	public void setUpdate_time(String update_time) {
+	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
 	}
 	public Comment() {

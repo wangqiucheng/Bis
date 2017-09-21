@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
 
 
 @Repository
-public class OrderDetailDaoImpl extends BaseDao<OrderDetail> implements IOrderDetailDao{
+public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUserOrderDetailDao{
 
 	
 	
@@ -57,6 +58,9 @@ public class OrderDetailDaoImpl extends BaseDao<OrderDetail> implements IOrderDe
 		}
 		return true;
 	}
+
+
+	
 
 	
 	

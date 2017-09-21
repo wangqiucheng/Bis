@@ -1,6 +1,7 @@
 D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\dao\MD5Kit.java
 D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\dao\IBaseDao.java
-D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\dao\SystemContext.java
+D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\utility\JSONUtil.java
+D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\utility\AjaxJson.java
 D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\utility\GuidGenerator.java
 D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\dao\BaseDao.java
 D:\BisaJavaWork\bisa-pom\bisa-basic-wqc\src\main\java\com\bisa\hkshop\wqc\basic\dao\StringUtil.java

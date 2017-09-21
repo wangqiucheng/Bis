@@ -1,5 +1,7 @@
 package com.bisa.hkshop.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,8 +19,8 @@ public class OrderDetail {
 	private int count;//套餐或者商品的数量
 	private String pic;//套餐或者商品的的图片
 	private String product_name;//商品名或者套餐名
-	private String start_time;//创建时间
-	
+	private Date start_time;//创建时间
+	private double price;
 	
 	@Id
 	@GeneratedValue
@@ -70,12 +72,19 @@ public class OrderDetail {
 	public void setProduct_name(String product_name) {
 		this.product_name = product_name;
 	}
-	public String getStart_time() {
+	public Date getStart_time() {
 		return start_time;
 	}
-	public void setStart_time(String start_time) {
+	public void setStart_time(Date start_time) {
 		this.start_time = start_time;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}//价格
+	
 	
 	
 	

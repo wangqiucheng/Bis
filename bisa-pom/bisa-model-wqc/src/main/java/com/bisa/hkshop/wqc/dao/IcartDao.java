@@ -12,7 +12,7 @@ public interface IcartDao {
 	public Cart addCart(Cart cart);
 
 
-	public List<Cart> selCart(String guid);
+	public List<Cart> selCart(String user_guid);
 	
 	public Cart getCart(String packId);
 	
@@ -21,6 +21,6 @@ public interface IcartDao {
 
 	public void updateCart(Cart cart);
 	
-	public int selCartNum(String guid);
+	public int selCartNum(String user_guid);
 	
 }

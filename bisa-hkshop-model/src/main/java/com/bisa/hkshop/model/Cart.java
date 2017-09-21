@@ -32,6 +32,7 @@ public class Cart {
 	private String title;
 	private String main_picture;
 	private String sing_cox;
+	private	String user_guid; 	//	36	用户
 	private Date insert_time;
 	private Date update_time;
 	
@@ -120,6 +121,12 @@ public class Cart {
 	}
 	public void setSing_cox(String sing_cox) {
 		this.sing_cox = sing_cox;
+	}
+	public String getUser_guid() {
+		return user_guid;
+	}
+	public void setUser_guid(String user_guid) {
+		this.user_guid = user_guid;
 	}
 
 	
