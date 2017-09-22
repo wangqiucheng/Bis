@@ -53,12 +53,12 @@
                     <div class="clear mt-40-20-ipad f-20-14-ipad mb-30-20-ipad line-h-25">
                         <span class="col-333  col-active cur-p Order-control Order-controlv1" onclick="document.location='<%=request.getContextPath() %>/userOrder';">全部有效订单</span>
                         <span class="col-e9e9e9 mlr-20-10-ipad cur-d">|</span>
-                        <span class="col-333  cur-p Order-control Order-controlv2" onclick="document.location='<%=request.getContextPath() %>/userOrder1';">待支付（3）
+                        <span class="col-333  cur-p Order-control Order-controlv2" onclick="document.location='<%=request.getContextPath() %>/userOrder1';">待支付（${oListnum1 }）
                         </span>
                         <span class="col-e9e9e9 mlr-20-10-ipad cur-d">|</span>
-                        <span class="col-333 cur-p Order-control Order-controlv3" onclick="document.location='<%=request.getContextPath() %>/userOrder2';">待收货（2）</span>
+                        <span class="col-333 cur-p Order-control Order-controlv3" onclick="document.location='<%=request.getContextPath() %>/userOrder2';">待收货（${oListnum2 }）</span>
                         <span class="col-e9e9e9 mlr-20-10-ipad cur-d">|</span>
-                        <span class="col-333 cur-p Order-control Order-controlv4" onclick="document.location='<%=request.getContextPath() %>/userOrder3';">已关闭（1）</span>
+                        <span class="col-333 cur-p Order-control Order-controlv4" onclick="document.location='<%=request.getContextPath() %>/userOrder3';">已关闭（${oListnum3}）</span>
                     </div>
                     <div class="clear Order-tabtips Order-tabtipsv1">
                         <!--等待支付前-->
@@ -91,7 +91,7 @@
                                                 <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                     <div class="clear pull-left">
                                                         <div class="clear pull-left">
-                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                         </div>
                                                         <div class="clear pull-left cur-d">
                                                             <p class="pt-15 line-h-25 col-333 f-14">
@@ -150,7 +150,7 @@
                                                     <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                         <div class="clear pull-left">
                                                             <div class="clear pull-left">
-                                                                <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                                <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                             </div>
                                                             <div class="clear pull-left cur-d">
                                                                 <p class="pt-15 line-h-25 col-333 f-14">
@@ -205,7 +205,7 @@
                                                 <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                     <div class="clear pull-left">
                                                         <div class="clear pull-left">
-                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                         </div>
                                                         <div class="clear pull-left cur-d">
                                                             <p class="pt-15 line-h-25 col-333 f-14">
@@ -271,7 +271,7 @@
                                                     <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                         <div class="clear pull-left">
                                                             <div class="clear pull-left">
-                                                                <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                                <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                             </div>
                                                             <div class="clear pull-left cur-d">
                                                                 <p class="pt-15 line-h-25 col-333 f-14">
@@ -339,7 +339,7 @@
                                                 <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                     <div class="clear pull-left">
                                                         <div class="clear pull-left">
-                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                         </div>
                                                         <div class="clear pull-left cur-d">
                                                             <p class="pt-15 line-h-25 col-333 f-14">
@@ -404,7 +404,7 @@
                                                 <div class="clear pt-15 pb-15 plr-20-5-ipad">
                                                     <div class="clear pull-left">
                                                         <div class="clear pull-left">
-                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/img/user/Order/Order-Contertipsv1.png" alt="">
+                                                            <img class="img-80 cur-p" src="<%=request.getContextPath() %>/resources/${listordertails.pic}" alt="">
                                                         </div>
                                                         <div class="clear pull-left cur-d">
                                                             <p class="pt-15 line-h-25 col-333 f-14">

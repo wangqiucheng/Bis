@@ -32,9 +32,9 @@ public class Order {
 	private String trade_fail_cause;//交易失败的原因
 	private	String invoice_title; 	//	50	发票抬头
 	private	int invoice_type; 	//	50	发票类型（0：增值税发票，1：普通发票）
-	private  int effective_statu;
-	
-	
+	private int effective_statu;//订单是否有效 1:有效 2:无效
+
+		
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -170,6 +170,7 @@ public class Order {
 	public void setEffective_statu(int effective_statu) {
 		this.effective_statu = effective_statu;
 	} //订单是否有效，（1：有效，2：无效）
+
 	
 	
 	

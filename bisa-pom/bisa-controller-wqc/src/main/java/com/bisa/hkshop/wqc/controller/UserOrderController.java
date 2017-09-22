@@ -45,23 +45,8 @@ public class UserOrderController {
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
 				orderList=iUserOrderService.selPaOrder(guid);
-				/*//查询订单待支付
-				Pager<Order> orderList5=null;
-				SystemContext.setSort("start_time");
-				SystemContext.setOrder("desc");
-				orderList5=iUserOrderService.seltra_status1(guid,1);
-				//查询订单待收货
-				Pager<Order> orderList3=null;
-				SystemContext.setSort("start_time");
-				SystemContext.setOrder("desc");
-				orderList3=iUserOrderService.seltrastatus4(guid,4);
-				//查询订单关闭
-				Pager<Order> orderList4=null;
-				SystemContext.setSort("start_time");
-				SystemContext.setOrder("desc");
-				orderList4=iUserOrderService.seleffective_statu(guid,2);
 				//查询订单细节
-*/				List<Order> orderList2=iUserOrderService.loadOrderList(guid);
+				List<Order> orderList2=iUserOrderService.loadOrderList(guid);
 				Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
 				List<OrderDetail> listordertails=new ArrayList<>(); //
 				for(Order o:orderList2) {
@@ -72,9 +57,27 @@ public class UserOrderController {
 				model.addAttribute("listordertails", map);
 				model.addAttribute("orderList", orderList);
 				model.addAttribute("orderList2", orderList2);
-			/*	model.addAttribute("orderList3", orderList3);
-				model.addAttribute("orderList4", orderList4);
-				model.addAttribute("orderList5", orderList5);*/
+				//查询其他状态的总数
+				Pager<Order> orderList5=null;
+				SystemContext.setSort("start_time");
+				SystemContext.setOrder("desc");
+				orderList5=iUserOrderService.seltra_status1(guid,10);
+				long oListnum1=orderList5.getTotal();
+				model.addAttribute("oListnum1", oListnum1);
+
+				Pager<Order> orderList3=null;
+				SystemContext.setSort("start_time");
+				SystemContext.setOrder("desc");
+				orderList3=iUserOrderService.seltra_status4(guid, 2);
+				long oListnum2=orderList3.getTotal();
+				model.addAttribute("oListnum2", oListnum2);
+				 
+				Pager<Order> orderList4=null;
+				SystemContext.setSort("start_time");
+				SystemContext.setOrder("desc");
+				orderList4=iUserOrderService.seltra_status1(guid,50);
+				long oListnum3=orderList4.getTotal();
+				 model.addAttribute("oListnum3", oListnum3);
 			return "user/userOrder";
 		}
 	}
@@ -91,6 +94,8 @@ public class UserOrderController {
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
 		orderList5=iUserOrderService.seltra_status1(guid,10);
+		 long oListnum1=orderList5.getTotal();
+		 model.addAttribute("oListnum1", oListnum1);
 		model.addAttribute("orderList5", orderList5);
 		List<Order> orderList2=iUserOrderService.Ordertra_statusList(guid,10);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
@@ -101,6 +106,21 @@ public class UserOrderController {
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);
+		//查询其他的状态
+		Pager<Order> orderList3=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		long oListnum2=orderList3.getTotal();
+		model.addAttribute("oListnum2", oListnum2);
+		 
+		Pager<Order> orderList4=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList4=iUserOrderService.seltra_status1(guid,50);
+		long oListnum3=orderList4.getTotal();
+		 model.addAttribute("oListnum3", oListnum3);
+		 
 		return "user/userOrder";
 		}
 	}
@@ -117,6 +137,8 @@ public class UserOrderController {
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
 		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		long oListnum2=orderList3.getTotal();
+		 model.addAttribute("oListnum2", oListnum2);
 		model.addAttribute("orderList3", orderList3);
 		List<Order> orderList2=iUserOrderService.Ordertra_statusList2(guid,2);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
@@ -127,6 +149,22 @@ public class UserOrderController {
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);
+		
+		//查询其他状态的总数
+		Pager<Order> orderList5=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList5=iUserOrderService.seltra_status1(guid,10);
+		long oListnum1=orderList5.getTotal();
+		model.addAttribute("oListnum1", oListnum1);
+		
+		Pager<Order> orderList4=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList4=iUserOrderService.seltra_status1(guid,50);
+		long oListnum3=orderList4.getTotal();
+		 model.addAttribute("oListnum3", oListnum3);
+		 
 		return "user/userOrder";
 		}
 	}
@@ -143,6 +181,8 @@ public class UserOrderController {
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
 		orderList4=iUserOrderService.seltra_status1(guid,50);
+		long oListnum3=orderList4.getTotal();
+		 model.addAttribute("oListnum3", oListnum3);
 		model.addAttribute("orderList4", orderList4);
 		List<Order> orderList2=iUserOrderService.Ordertra_statusList(guid,50);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
@@ -153,6 +193,20 @@ public class UserOrderController {
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);
+		//查询其他的状态
+		Pager<Order> orderList5=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList5=iUserOrderService.seltra_status1(guid,10);
+		long oListnum1=orderList5.getTotal();
+		model.addAttribute("oListnum1", oListnum1);
+
+		Pager<Order> orderList3=null;
+		SystemContext.setSort("start_time");
+		SystemContext.setOrder("desc");
+		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		long oListnum2=orderList3.getTotal();
+		model.addAttribute("oListnum2", oListnum2);
 		return "user/userOrder";
 		}
 	}

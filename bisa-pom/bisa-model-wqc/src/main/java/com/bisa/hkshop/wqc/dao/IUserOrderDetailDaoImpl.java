@@ -2,11 +2,11 @@ package com.bisa.hkshop.wqc.dao;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
-
-import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 
 
 @Repository
@@ -58,6 +58,26 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		}
 		return true;
 	}
+
+
+	@Override
+	public Pager<OrderDetail> loadOderPage(String order_no) {
+		// TODO Auto-generated method stub
+		String sql="select od.* from s_order_detail od where order_no=?";
+		return super.findBySql(sql, new Object[]{order_no},OrderDetail.class, true);
+	
+	}
+
+
+	@Override
+	public Pager<OrderDetail> pageuserdetails(String guid, int tra_status, int appraise_isnot, int appraise_status) {
+		// TODO Auto-generated method stub
+		/*String sql="SELECT od.* FROM s_order AS o,s_order_detail AS od where o.user_guid=? and o.tra_status=? and o.appraise_isnot=? and o.appraise_status=? and od.order_no=o.order_no";
+		return super.findBySql(sql, new Object[]{guid,tra_status,appraise_isnot,appraise_status},OrderDetail.class, true);*/
+		String sql="SELECT od.* FROM s_order AS o,s_order_detail AS od where od.order_no=o.order_no";
+		return super.findBySql(sql, null,OrderDetail.class, true);
+	}
+	
 
 
 	
