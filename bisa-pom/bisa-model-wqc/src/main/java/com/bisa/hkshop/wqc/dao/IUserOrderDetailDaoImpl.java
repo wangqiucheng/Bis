@@ -31,7 +31,7 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 	public OrderDetail loadOrderDetail(String order_detail_guid) {
 		OrderDetail orderDetail = null;
 		try{
-			String sql = "select * from s_order_detail where orderDetailGuid=?";
+			String sql = "select * from s_order_detail where order_detail_guid=?";
 			orderDetail = this.queryObjectBySql(sql, new Object[]{order_detail_guid},OrderDetail.class);
 		}catch(Exception e){
 			return null;

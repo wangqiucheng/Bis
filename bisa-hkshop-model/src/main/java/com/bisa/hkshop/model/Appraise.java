@@ -18,12 +18,12 @@ public class Appraise {
     private String title;    //标题
     private String appraise_one;     //评价
     private String appraise_two;     //追评
-    private String appraise_degree;   //评价程度
-    private String appraise_status;    //评价状态
+    private String appraise_degree;   //评价程度 （失望：1,一般：2,满意：3,喜爱：4,超爱：5）
+    private String appraise_status;    //评价状态（1：评价  2:追评)
     private String user_guid;         //用户编号
     private Date insert_time;       //插入时间
     private Date update_time;        //更新时间
-    private String order_no;         //更新时间
+    private String order_detail_guid;         //订单详细编号
 	@Id
 	@GeneratedValue
     public int getId() {
@@ -104,11 +104,12 @@ public class Appraise {
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
 	}
-	public String getOrder_no() {
-		return order_no;
+	public String getOrder_detail_guid() {
+		return order_detail_guid;
 	}
-	public void setOrder_no(String order_no) {
-		this.order_no = order_no;
+	public void setOrder_detail_guid(String order_detail_guid) {
+		this.order_detail_guid = order_detail_guid;
 	}
+	
     
 }
