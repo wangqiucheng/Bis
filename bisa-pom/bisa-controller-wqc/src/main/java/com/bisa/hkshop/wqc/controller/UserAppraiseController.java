@@ -38,10 +38,41 @@ public class UserAppraiseController {
 			return null;
 		}else {
 			List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
+			List<OrderDetail> ordertails=new ArrayList<OrderDetail>();
 			List<Order> listorder=new ArrayList<Order>();
-			//listordertails=IUserOrderDetailService.loadList();
-			
+			Pager<OrderDetail> odtail=null;
+			SystemContext.setSort("start_time");
+			SystemContext.setOrder("desc");
+			listorder=IUserOrderService.Ordertra_statusList(guid,30);
+			listordertails=IUserOrderDetailService.pageuserdetails(guid, 1);
+			for(OrderDetail od: listordertails) {
+				for(Order o:listorder) {
+					if(od.getOrder_no()==o.getOrder_no()) {
+						ordertails.add(od);
+					}
+				 }
+			}
+			odtail.setDatas(ordertails);
+			model.addAttribute(odtail);
 			return "user/useAppraiseList";
 		}
+	}
+	@RequestMapping(value = "/useAppraise1", method = RequestMethod.GET)
+	public String useAppraise1(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		session.setAttribute("guid", "wc");
+		String guid=(String) session.getAttribute("guid");
+		if(!"wc".equals(guid)) {
+			System.out.println("请去登录");
+			return null;
+		}else {
+			List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
+			listordertails=IUserOrderDetailService.pageuserdetails(guid, 0);
+			Pager<OrderDetail> odtail=null;
+			SystemContext.setSort("start_time");
+			SystemContext.setOrder("desc");
+			odtail.setDatas(listordertails);
+			model.addAttribute(odtail);
+		}
+		return "user/useAppraiseList";
 	}
 }

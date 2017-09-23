@@ -110,6 +110,7 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 		String sql="select * from s_order o where o.user_guid=? and (o.tra_status=20 || o.tra_status=21)";
 		return super.queryListBySql(sql, new Object[]{guid}, Order.class);
 	}
+	
 
 
 	

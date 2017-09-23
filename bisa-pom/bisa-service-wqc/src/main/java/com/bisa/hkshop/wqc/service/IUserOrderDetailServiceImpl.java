@@ -44,9 +44,9 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 	}
 
 	@Override
-	public Pager<OrderDetail> pageuserdetails(String guid, int tra_status, int appraise_isnot, int appraise_status) {
+	public List<OrderDetail> pageuserdetails(String guid,int appraise_isnot) {
 		// TODO Auto-generated method stub
-		return IUserOrderDetailDao.pageuserdetails(guid, tra_status, appraise_isnot,appraise_status);
+		return IUserOrderDetailDao.pageuserdetails(guid, appraise_isnot);
 	}
 
 	

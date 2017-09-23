@@ -70,12 +70,12 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 
 
 	@Override
-	public Pager<OrderDetail> pageuserdetails(String guid, int tra_status, int appraise_isnot, int appraise_status) {
+	public List<OrderDetail> pageuserdetails(String guid,int appraise_isnot) {
 		// TODO Auto-generated method stub
 		/*String sql="SELECT od.* FROM s_order AS o,s_order_detail AS od where o.user_guid=? and o.tra_status=? and o.appraise_isnot=? and o.appraise_status=? and od.order_no=o.order_no";
 		return super.findBySql(sql, new Object[]{guid,tra_status,appraise_isnot,appraise_status},OrderDetail.class, true);*/
-		String sql="SELECT od.* FROM s_order AS o,s_order_detail AS od where od.order_no=o.order_no";
-		return super.findBySql(sql, null,OrderDetail.class, true);
+		String sql="SELECT od.* FROM s_order_detail AS od where od.user_guid=? and od.appraise_isnot=?";
+		return super.queryListBySql(sql, new Object[]{guid,appraise_isnot},OrderDetail.class);
 	}
 	
 
