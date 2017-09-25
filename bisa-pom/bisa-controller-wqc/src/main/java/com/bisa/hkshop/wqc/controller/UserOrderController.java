@@ -13,15 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisa.hkshop.wqc.service.IUserOrderDetailService;
 import com.bisa.hkshop.wqc.service.IUserOrderService;
-
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.model.SystemContext;
-import com.bisa.hkshop.wqc.basic.dao.StringUtil;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
 @Controller

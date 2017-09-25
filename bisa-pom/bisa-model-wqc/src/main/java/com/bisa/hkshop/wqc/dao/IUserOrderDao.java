@@ -10,13 +10,13 @@ public interface IUserOrderDao {
 
 	public List<Order> loadOrderList(int user_guid);
 	
-	public  Order  loadOrderByname(int user_guid);
+	public  Order loadOrderByname(int user_guid);
 	
-	public  Order  loadOrderByOrderId (String  order_no);
+	public  Order loadOrderByOrderId (String  order_no);
 	
-	public  Boolean  addOrder(Order  order);
+	public  int addOrder(Order  order);
 	
-	public  Boolean  updateOrder (Order order);
+	public  int updateOrder (Order order);
 
 	public Pager<Order> selPaOrder(int user_guid);
 
@@ -26,8 +26,10 @@ public interface IUserOrderDao {
 
 	public Pager<Order> seleffective_statu(int user_guid, int effective_statu);
 
-	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int effective_statu);
+	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int appraise_status);
 
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status);
+	
+	public int delOrder(Order order);
 
 }

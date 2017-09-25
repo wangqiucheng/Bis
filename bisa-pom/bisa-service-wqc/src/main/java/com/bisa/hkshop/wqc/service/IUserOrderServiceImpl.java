@@ -42,12 +42,12 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 	}
 
 	@Override
-	public Boolean addOrder(Order order) {
+	public int addOrder(Order order) {
 		return orderDao.addOrder(order);
 	}
 
 	@Override
-	public Boolean updateOrder(Order order) {
+	public int updateOrder(Order order) {
 		return orderDao.updateOrder(order);
 	}
 
@@ -77,15 +77,21 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 	}
 
 	@Override
-	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int effective_statu) {
+	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int appraise_status) {
 		// TODO Auto-generated method stub
-		return orderDao.Ordertra_statusList(user_guid,tra_status,effective_statu);
+		return orderDao.Ordertra_statusList(user_guid,tra_status,appraise_status);
 	}
 
 	@Override
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status) {
 		// TODO Auto-generated method stub
 		return orderDao.Ordertra_statusList2(user_guid,tra_status);
+	}
+
+	@Override
+	public int delOrder(Order order) {
+		// TODO Auto-generated method stub
+		return orderDao.delOrder(order);
 	}
 
 	

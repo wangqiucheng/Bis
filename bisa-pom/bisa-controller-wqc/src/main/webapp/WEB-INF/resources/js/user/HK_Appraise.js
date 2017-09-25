@@ -115,8 +115,7 @@ $(document).ready(function() {
         var speed = 200;
         $('body,html').animate({ scrollTop: 0 }, speed);
     });
-    /*返回顶部按钮隐藏显示*/
-    backscrollshow();
+     backscrollshow();
     function backscrollshow(){
         //获取网页的总高度 
         var htmlHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
@@ -124,15 +123,76 @@ $(document).ready(function() {
         var clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
         //获取滚动条的top位置，  
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        var footerheight = $(".footer").height()
-        var backscroll = htmlHeight-scrollTop-clientHeight+70;
-        if (backscroll >= footerheight) {
-            $(".appraise-backup").show();
-        }
-        if (backscroll < footerheight) {
-            $(".appraise-backup").hide();
+        var posaapprightofftop = $("header").height();
+        var posabottomofftop = htmlHeight - $(".footer").height() - 790;
+        //console.log(posabottomofftop);
+        //console.log($(".posa-appraiselist-rightbottom").offset().top);
+        //console.log($(".aff-appraiselist-right").offset().top);
+        if (scrollTop<posaapprightofftop) {
+            $(".aff-tit").hide();
+            $(".posa-appraiselist-righttop").show();
+            $(".aff-appraiselist-right").hide();
+            $(".posa-appraiselist-rightbottom").hide();
+        } else if (scrollTop >=posaapprightofftop && scrollTop<posabottomofftop) {
+            $(".aff-tit").show();
+            $(".posa-appraiselist-righttop").hide();
+            $(".aff-appraiselist-right").show();
+            $(".posa-appraiselist-rightbottom").hide();
+        }else if (scrollTop>=posabottomofftop){
+            $(".posa-appraiselist-righttop").hide();
+            $(".aff-appraiselist-right").hide();
+            $(".posa-appraiselist-rightbottom").show();
+        }else{
+            $(".posa-appraiselist-righttop").show();
+            $(".aff-appraiselist-right").hide();
+            $(".posa-appraiselist-rightbottom").hide();
         }
     }
-   
+   /*评价成功部分表情*/
+    appraissuccessstate();
+    function appraissuccessstate(){
+        var statelength = $(".appraisesuccess-state").length;
+        for (var i = 0; i < statelength; i++) {
+            var statestr = ".appraisesuccess-state:eq("+i+")"
+            var state = parseInt($(statestr).val());
+            switch (state) {
+                case 0:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("超爱");
+                    break;
+                case 1:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-facev1");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("失望");
+                    break;
+                case 2:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-facev2");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("一般");
+                    break;
+                case 3:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-facev3");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("满意");
+                    break;
+                case 4:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-facev4");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("喜欢");
+                    break;
+                case 5:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("超爱");
+                    break;
+                default:
+                    $(statestr).parent().find(".appraisesuccess-stateface").removeClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-stateface").addClass("bg-faceauto");
+                    $(statestr).parent().find(".appraisesuccess-statetext").text("超爱");
+                    break;
+            };
+        }        
+    }
 });
    

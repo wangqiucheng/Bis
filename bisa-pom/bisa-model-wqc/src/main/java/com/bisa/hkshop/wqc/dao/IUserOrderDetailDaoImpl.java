@@ -40,23 +40,27 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 	}
 
 	@Override
-	public Boolean addOrderDetail(OrderDetail orderDetail) {
-		try{
-			this.add(orderDetail);
-		}catch(Exception e){
-			return false;
-		}
-		return true;
+	public int addOrderDetail(OrderDetail orderDetail) {
+		String sql = "insert into s_order_detail(s.order_detail.id,s_order_detail.ascription,s_order_detail.ascription_guid,"
+				+ "s_order_detail.count,s_order_detail.order_detail_guid,s_order_detail.order_no,s_order_detail.pic,"
+				+ "s_order_detail.product_name,s_order_detail.start_time,s_order_detail.price,s_order_detail.appraise_isnot,"
+				+ "s_order_detail.user_guid) values(?,?,?,?,?,?,?,?,?,?,?)";
+		return super.addObjectBySql(sql, new Object[]{orderDetail.getId(),orderDetail.getAscription(),orderDetail.getAscription_guid()
+				,orderDetail.getCount(),orderDetail.getOrder_detail_guid(),orderDetail.getOrder_no(),
+				orderDetail.getPic(),orderDetail.getProduct_name(),orderDetail.getStart_time(),orderDetail.getPrice(),orderDetail.getAppraise_isnot()
+				,orderDetail.getUser_guid()});
 	}
 
 	@Override
-	public Boolean updateActive(OrderDetail orderDetail) {
-		try{
-			this.update(orderDetail);
-		}catch(Exception e){
-			return false;
-		}
-		return true;
+	public int updateActive(OrderDetail orderDetail) {
+		String sql = "update s_order_detail set s_order_detail.ascription=?,s_order_detail.ascription_guid=?,"
+				+ "s_order_detail.count=?,s_order_detail.order_detail_guid=?,s_order_detail.order_no=?,s_order_detail.pic=?,"
+				+ "s_order_detail.product_name=?,s_order_detail.start_time=?,s_order_detail.price=?,s_order_detail.appraise_isnot=?,"
+				+ "s_order_detail.user_guid=? where s_order_detail.od.order_detail_guid=?";
+		return super.addObjectBySql(sql, new Object[]{orderDetail.getAscription(),orderDetail.getAscription_guid()
+				,orderDetail.getCount(),orderDetail.getOrder_detail_guid(),orderDetail.getOrder_no(),
+				orderDetail.getPic(),orderDetail.getProduct_name(),orderDetail.getStart_time(),orderDetail.getPrice(),orderDetail.getAppraise_isnot()
+				,orderDetail.getUser_guid(),orderDetail.getOrder_detail_guid()});
 	}
 
 
@@ -84,6 +88,14 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		// TODO Auto-generated method stub
 		String sql = "select * from s_order_detail where user_guid=?";
 		return super.queryListBySql(sql, new Object[]{user_guid},OrderDetail.class);
+	}
+
+
+	@Override
+	public int delOdtail(OrderDetail orderDetail) {
+		// TODO Auto-generated method stub
+		String sql="delete from s_order_detail  od where od.order_detail_guid=?";
+		return super.delUpObjectBySql(sql, new Object[]{orderDetail.getOrder_detail_guid()});
 	}
 	
 

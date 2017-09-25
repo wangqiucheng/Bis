@@ -26,13 +26,13 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 	}
 
 	@Override
-	public Boolean addOrderDetail(OrderDetail orderDetail) {
+	public int addOrderDetail(OrderDetail orderDetail) {
 		// TODO Auto-generated method stub
 		return IUserOrderDetailDao.addOrderDetail(orderDetail);
 	}
 
 	@Override
-	public Boolean updateActive(OrderDetail orderDetail) {
+	public int updateActive(OrderDetail orderDetail) {
 		// TODO Auto-generated method stub
 		return IUserOrderDetailDao.updateActive(orderDetail);
 	}
@@ -53,6 +53,13 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 	public List<OrderDetail> getOrderDetail(int user_guid) {
 		// TODO Auto-generated method stub
 		return IUserOrderDetailDao.getOrderDetail(user_guid);
+	}
+
+
+	@Override
+	public int delOdtail(OrderDetail orderDetail) {
+		// TODO Auto-generated method stub
+		return IUserOrderDetailDao.delOdtail(orderDetail);
 	}
 
 	
