@@ -9,18 +9,18 @@ public interface IcartDao {
 
 	//添加商品进购物车
 	//public Cart addCart(Cart cart);
-	public Cart addCart(Cart cart);
+	public int addCart(Cart cart);
 
 
-	public List<Cart> selCart(String user_guid);
+	public List<Cart> selCart(int user_guid);
 	
 	public Cart getCart(String packId);
 	
 	public int delCart(String deleteId);
 
 
-	public void updateCart(Cart cart);
+	public int updateCart(Cart cart);
 	
-	public int selCartNum(String user_guid);
+	public int selCartNum(int user_guid);
 	
 }

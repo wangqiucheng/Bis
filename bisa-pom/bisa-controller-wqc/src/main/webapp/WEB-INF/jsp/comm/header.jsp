@@ -11,7 +11,6 @@
             <div class="col-xs-12 pt-20 pl-0 pr-0">
                 <ul class="clear h-30 line-h-30 pull-right">
                     <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">注册</a></li>
-                 <!--   <input type="hidden" name="guid" value="wc">  -->
                     <li class="pull-left pr-10"><a class="col-333 hovecol-black" href=""><!--登录  -->小明</a></li>
                     <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">简</a></li>
                     <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">繁</a></li>

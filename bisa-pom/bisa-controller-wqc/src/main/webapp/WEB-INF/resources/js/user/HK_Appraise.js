@@ -1,4 +1,5 @@
 $(document).ready(function() { 
+	
     /*评价部分js*/
     $(".appraise-protips").mouseenter(function() {
         $(this).find(".appraise-btninto").stop(true);
@@ -22,27 +23,27 @@ $(document).ready(function() {
             switch (thisindex) {
                 case 0:
                     $(".face-item").text("失望");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev1.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev1.png)");
                     break;
                 case 1:
                     $(".face-item").text("一般");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev2.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev2.png)");
                     break;
                 case 2:
                     $(".face-item").text("满意");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev3.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev3.png)");
                     break;
                 case 3:
                     $(".face-item").text("喜欢");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev4.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev4.png)");
                     break;
                 case 4:
                     $(".face-item").text("超爱");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev5.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev5.png)");
                     break;
                 default:
                     $(".face-item").text("超爱");
-                    $(".face-tips").css("background-image","url(../../img/user/Appraise/facev5.png)");
+                    $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev5.png)");
                     break;
             };
         };
@@ -53,20 +54,20 @@ $(document).ready(function() {
             case 0:
                 $(".star-tips").removeClass("bg-starsel");
                 $(".face-item").text("超爱");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev5.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev5.png)");
                 break;
             case 1:
                 $(".star-tips").removeClass("bg-starsel");
                 $(".star-tipsv1").addClass("bg-starsel");
                 $(".face-item").text("失望");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev1.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev1.png)");
                 break;
             case 2:
                 $(".star-tips").removeClass("bg-starsel");
                 $(".star-tipsv1").addClass("bg-starsel");
                 $(".star-tipsv2").addClass("bg-starsel");
                 $(".face-item").text("一般");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev2.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev2.png)");
                 break;
             case 3:
                 $(".star-tips").removeClass("bg-starsel");
@@ -74,7 +75,7 @@ $(document).ready(function() {
                 $(".star-tipsv2").addClass("bg-starsel");
                 $(".star-tipsv3").addClass("bg-starsel");
                 $(".face-item").text("满意");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev3.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev3.png)");
                 break;
             case 4:
                 $(".star-tips").removeClass("bg-starsel");
@@ -83,7 +84,7 @@ $(document).ready(function() {
                 $(".star-tipsv3").addClass("bg-starsel");
                 $(".star-tipsv4").addClass("bg-starsel");
                 $(".face-item").text("喜欢");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev4.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev4.png)");
                 break;
             case 5:
                 $(".star-tips").removeClass("bg-starsel");
@@ -93,12 +94,12 @@ $(document).ready(function() {
                 $(".star-tipsv4").addClass("bg-starsel");
                 $(".star-tipsv5").addClass("bg-starsel");
                 $(".face-item").text("超爱");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev5.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev5.png)");
                 break;
             default:
                 $(".star-tips").removeClass("bg-starsel");
                 $(".face-item").text("超爱");
-                $(".face-tips").css("background-image","url(../../img/user/Appraise/facev5.png)");
+                $(".face-tips").css("background-image","url(/bisa-controller-wqc/resources/img/user/Appraise/facev5.png)");
                 break;
         };
     });

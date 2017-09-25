@@ -7,19 +7,20 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface ICommodityService {
 
+	//根据商品编号获取商品详情
 	public Commodity getcommodity(String product_number);
-	//获取所有商品带分页的
-	public Pager<Commodity> getselCommodityPage();
 	//查询所有商品不带分页
 	public List<Commodity> getcommodity();
+	//获取所有商品带分页的
+	public Pager<Commodity> getselCommodityPage();
 
 	//添加商品
-	public Commodity addCommodity(Commodity comm);
+	public int addCommodity(Commodity comm);
 	//修改商品
-	public void updateCommodity(Commodity comm);
+	public int updateCommodity(Commodity comm);
 	//删除商品
-	public void delCommdity(String shop_number);
-	//查询右侧的商品
+	public int delCommdity(String shop_number);
+	
 	public List<Commodity> selthreeCon(String shop_Number);
 	
 	public List<Commodity> getTypecommodity(String type);

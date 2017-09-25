@@ -8,9 +8,9 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 public interface IUserOrderDao {
 	
 
-	public List<Order> loadOrderList(String user_guid);
+	public List<Order> loadOrderList(int user_guid);
 	
-	public  Order  loadOrderByname(String user_guid);
+	public  Order  loadOrderByname(int user_guid);
 	
 	public  Order  loadOrderByOrderId (String  order_no);
 	
@@ -18,16 +18,16 @@ public interface IUserOrderDao {
 	
 	public  Boolean  updateOrder (Order order);
 
-	public Pager<Order> selPaOrder(String guid);
+	public Pager<Order> selPaOrder(int user_guid);
 
-	public Pager<Order> seltra_status1(String guid, int tra_status);
+	public Pager<Order> seltra_status1(int user_guid, int tra_status);
 
-	public Pager<Order> seltra_status4(String guid, int tra_status);
+	public Pager<Order> seltra_status4(int user_guid, int tra_status);
 
-	public Pager<Order> seleffective_statu(String guid, int effective_statu);
+	public Pager<Order> seleffective_statu(int user_guid, int effective_statu);
 
-	public List<Order> Ordertra_statusList(String guid, int tra_status);
+	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int effective_statu);
 
-	public List<Order> Ordertra_statusList2(String guid, int tra_status);
+	public List<Order> Ordertra_statusList2(int user_guid, int tra_status);
 
 }

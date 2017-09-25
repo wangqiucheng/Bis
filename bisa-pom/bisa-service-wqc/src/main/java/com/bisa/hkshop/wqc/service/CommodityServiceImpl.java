@@ -29,21 +29,21 @@ public class CommodityServiceImpl implements ICommodityService{
 
 
 	@Override
-	public Commodity addCommodity(Commodity comm) {
+	public int addCommodity(Commodity comm) {
 		// TODO Auto-generated method stub
 		return iCommodityDao.addCommodity(comm);
 	}
 
 	@Override
-	public void updateCommodity(Commodity comm) {
-		 iCommodityDao.updateCommodity(comm);
+	public int updateCommodity(Commodity comm) {
+		 return iCommodityDao.updateCommodity(comm);
 		
 	}
 
 	@Override
-	public void delCommdity(String shop_number) {
+	public int delCommdity(String shop_number) {
 		// TODO Auto-generated method stub
-		iCommodityDao.delCommdity(shop_number);
+		return iCommodityDao.delCommdity(shop_number);
 	}
 
 	@Override

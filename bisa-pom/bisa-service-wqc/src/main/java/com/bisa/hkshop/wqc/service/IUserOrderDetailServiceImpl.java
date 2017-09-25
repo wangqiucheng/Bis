@@ -44,9 +44,15 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 	}
 
 	@Override
-	public List<OrderDetail> pageuserdetails(String guid,int appraise_isnot) {
+	public List<OrderDetail> pageuserdetails(int user_guid,int appraise_isnot) {
 		// TODO Auto-generated method stub
-		return IUserOrderDetailDao.pageuserdetails(guid, appraise_isnot);
+		return IUserOrderDetailDao.pageuserdetails(user_guid, appraise_isnot);
+	}
+
+	@Override
+	public List<OrderDetail> getOrderDetail(int user_guid) {
+		// TODO Auto-generated method stub
+		return IUserOrderDetailDao.getOrderDetail(user_guid);
 	}
 
 	

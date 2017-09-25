@@ -28,22 +28,30 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 
 
 	@Override
-	public Commodity addCommodity(Commodity comm) {
+	public int addCommodity(Commodity comm) {
 		// TODO Auto-generated method stub
-		return super.add(comm);
+		String sql="insert into s_commodity(id,shop_number,title,subtitle,description,selling_price,classification,orderId,"
+				+ "type,main_picture,pic1_picture,pic2_picture,pic3_picture,pic4_picture,insertime,updatime) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		return super.addObjectBySql(sql, new Object[] {comm.getId(),comm.getShop_number(),comm.getTitle(),comm.getSubtitle(),comm.getDescription(),comm.getSelling_price(),
+				comm.getClassification(),comm.getOrderId(),comm.getType(),comm.getMain_picture(),comm.getPic1_picture(),comm.getPic2_picture(),comm.getPic3_picture(),
+				comm.getPic4_picture(),comm.getInsertime(),comm.getUpdatime()});
 	}
 
 	@Override
-	public void updateCommodity(Commodity comm) {
+	public int updateCommodity(Commodity comm) {
 		// TODO Auto-generated method stub
-		super.update(comm);
+		String sql="update s_commodity as c set c.id=?,c.shop_number=?,c.title=?,c.subtitle=?,c.description=?,c.selling_price=?,c.classification=?,"
+				+ "c.orderId=?,c.type=?,c.main_picture=?,c.pic1_picture=?,c.pic2_picture=?,c.pic3_picture=?,c.pic4_picture=?,c.insertime=?,c.updatetime=?";
+		return super.delUpObjectBySql(sql, new Object[] {comm.getId(),comm.getShop_number(),comm.getTitle(),comm.getSubtitle(),comm.getDescription(),comm.getSelling_price(),
+				comm.getClassification(),comm.getOrderId(),comm.getType(),comm.getMain_picture(),comm.getPic1_picture(),comm.getPic2_picture(),comm.getPic3_picture(),
+				comm.getPic4_picture(),comm.getInsertime(),comm.getUpdatime()});
 	}
 
 	@Override
-	public void delCommdity(String shop_number) {
+	public int delCommdity(String shop_number) {
 		// TODO Auto-generated method stub
-		int i=Integer.parseInt(shop_number);
-		super.delete(i);
+		String sql="delete from s_commodity s where s.shop_number=?";
+		return super.delUpObjectBySql(sql,new Object[]{shop_number});
 	}
 
 	@Override
@@ -62,8 +70,7 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 	@Override
 	public List<Commodity> getTypecommodity(String type) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_commodity where type=? order by updatime desc";
-		
+		String sql="select * from s_commodity where type=? order by updatime desc";	
 		return super.queryListBySql(sql, new Object[]{type},Commodity.class);
 	}
 	

@@ -19,7 +19,9 @@ public interface IUserOrderDetailDao {
 
 	public Pager<OrderDetail> loadOderPage(String order_no);
 
-	public List<OrderDetail> pageuserdetails(String guid, int appraise_isnot);
+	public List<OrderDetail> pageuserdetails(int user_guid, int appraise_isnot);
+
+	public List<OrderDetail> getOrderDetail(int user_guid);
 
 	
 }

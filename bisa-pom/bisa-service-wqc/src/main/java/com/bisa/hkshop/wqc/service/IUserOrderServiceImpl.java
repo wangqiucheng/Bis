@@ -22,24 +22,16 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 	@Autowired
 	private IUserOrderDao orderDao;
 	
-	@Autowired
-	private ICommodityDao commodityDao;
-	
-	@Autowired
-	private IPackageDao packageDao;
-	
-	@Autowired
-	private IUserOrderDetailDao orderDetailDao;
 	
 
 	@Override
-	public List<Order> loadOrderList(String user_guid) {
+	public List<Order> loadOrderList(int user_guid) {
 		
 		return orderDao.loadOrderList(user_guid);
 	}
 
 	@Override
-	public Order loadOrderByname(String user_guid) {
+	public Order loadOrderByname(int user_guid) {
 		
 		return orderDao.loadOrderByname(user_guid);
 	}
@@ -60,40 +52,40 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 	}
 
 	@Override
-	public Pager<Order> selPaOrder(String guid) {
+	public Pager<Order> selPaOrder(int user_guid) {
 		// TODO Auto-generated method stub
-		return orderDao.selPaOrder(guid);
+		return orderDao.selPaOrder(user_guid);
 	}
 
 	@Override
-	public Pager<Order> seltra_status1(String guid, int tra_status) {
+	public Pager<Order> seltra_status1(int user_guid, int tra_status) {
 		// TODO Auto-generated method stub
-		return orderDao.seltra_status1(guid,tra_status);
+		return orderDao.seltra_status1(user_guid,tra_status);
 	}
 
 
 	@Override
-	public Pager<Order> seleffective_statu(String guid, int effective_statu) {
+	public Pager<Order> seleffective_statu(int user_guid, int effective_statu) {
 		// TODO Auto-generated method stub
-		return orderDao.seleffective_statu(guid,effective_statu);
+		return orderDao.seleffective_statu(user_guid,effective_statu);
 	}
 
 	@Override
-	public Pager<Order> seltra_status4(String guid, int tra_status) {
+	public Pager<Order> seltra_status4(int user_guid, int tra_status) {
 		// TODO Auto-generated method stub
-		return orderDao.seltra_status4(guid,tra_status);
+		return orderDao.seltra_status4(user_guid,tra_status);
 	}
 
 	@Override
-	public List<Order> Ordertra_statusList(String guid, int tra_status) {
+	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int effective_statu) {
 		// TODO Auto-generated method stub
-		return orderDao.Ordertra_statusList(guid,tra_status);
+		return orderDao.Ordertra_statusList(user_guid,tra_status,effective_statu);
 	}
 
 	@Override
-	public List<Order> Ordertra_statusList2(String guid, int tra_status) {
+	public List<Order> Ordertra_statusList2(int user_guid, int tra_status) {
 		// TODO Auto-generated method stub
-		return orderDao.Ordertra_statusList2(guid,tra_status);
+		return orderDao.Ordertra_statusList2(user_guid,tra_status);
 	}
 
 	

@@ -1,12 +1,10 @@
 
 $(document).ready(function() {
 	var path=$("base").attr("href");
-	//console.log(path);
 	//点击服务加入购物车
 	$(".car-del-fuwuid").click(function() {
 		var cardelvalid = $(this).parent().parent().parent().find(".cart-serve-cid").val();
 		console.log(cardelvalid);
-		//var userId=$("input[name='userId']").val();
 		var service_number=cardelvalid;
 		var cart_product=1;
 		$.ajax({
@@ -16,8 +14,6 @@ $(document).ready(function() {
 			async : false,
 			data : {
 				"service_number" : service_number,
-				//"userId":userId,
-				//"serviceId":serviceId,
 				"cart_product":cart_product,
 			},
 			success : function(success) {

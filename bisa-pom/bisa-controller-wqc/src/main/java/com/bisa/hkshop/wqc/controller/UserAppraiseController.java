@@ -2,15 +2,12 @@ package com.bisa.hkshop.wqc.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +35,10 @@ public class UserAppraiseController {
 	
 	@RequestMapping(value = "/useAppraise", method = RequestMethod.GET)
 	public String useAppraise(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -50,8 +48,8 @@ public class UserAppraiseController {
 			Pager<OrderDetail> odtail=new Pager<OrderDetail>();
 			SystemContext.setSort("start_time");
 			SystemContext.setOrder("desc");
-			listorder=IUserOrderService.Ordertra_statusList(guid,30);
-			listordertails=IUserOrderDetailService.pageuserdetails(guid, 1);
+			listorder=IUserOrderService.Ordertra_statusList(user_guid,30,1);
+			listordertails=IUserOrderDetailService.pageuserdetails(user_guid, 1);
 			for(OrderDetail od: listordertails) {
 				for(Order o:listorder) {
 					if(od.getOrder_no().equals(o.getOrder_no())){
@@ -68,14 +66,15 @@ public class UserAppraiseController {
 	}
 	@RequestMapping(value = "/useAppraise1", method = RequestMethod.GET)
 	public String useAppraise1(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
 			List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
-			listordertails=IUserOrderDetailService.pageuserdetails(guid, 0);
+			listordertails=IUserOrderDetailService.pageuserdetails(user_guid, 0);
 			Pager<OrderDetail> odpingjia=new Pager<OrderDetail>();
 			SystemContext.setSort("start_time");
 			SystemContext.setOrder("desc");
@@ -85,6 +84,39 @@ public class UserAppraiseController {
 		}
 		return "user/useAppraiseList";
 	}
+	
+	@RequestMapping(value = "/useAppraise2", method = RequestMethod.GET)
+	public String useAppraise2(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		session.setAttribute("guid", "10");
+		String guid=(String) session.getAttribute("guid");
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
+			System.out.println("请去登录");
+			return null;
+		}else {
+			List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
+			List<Order> listorder=new ArrayList<Order>();
+			List<OrderDetail> odtas=new ArrayList<OrderDetail>();
+			listorder=IUserOrderService.Ordertra_statusList(user_guid,30,2);
+			listordertails=IUserOrderDetailService.getOrderDetail(user_guid);
+			Pager<OrderDetail> odtail=new Pager<OrderDetail>();
+			SystemContext.setSort("start_time");
+			SystemContext.setOrder("desc");
+			for(OrderDetail od: listordertails) {
+				for(Order o:listorder) {
+					if(od.getOrder_no().equals(o.getOrder_no())){
+						odtas.add(od);
+
+					}
+				 }
+			}
+			odtail.setTotal(odtas.size());
+			odtail.setDatas(odtas);
+			model.addAttribute("odtas",odtail);
+		}
+		return "user/useAppraiseList";
+	}
+	
 	
 	@RequestMapping(value = "/goAppraise", method = RequestMethod.GET)
 	public String goAppraise(HttpServletRequest request,Model model,HttpSession session) throws Exception{
@@ -104,7 +136,9 @@ public class UserAppraiseController {
 		Double price=od.getPrice();
 		String title=od.getProduct_name();
 		String product_number=od.getAscription_guid();
-		String user_guid=od.getUser_guid();
+		int user_guid=od.getUser_guid();
+		session.setAttribute("userImg", "/img/user/Appraise/appraise-portraitv3.png");
+		String userImg=(String) session.getAttribute("userImg");
 		//把值设置进评价信息
 		Appraise appraise=new Appraise();
 		appraise.setAppraise_no(GuidGenerator.generate());
@@ -118,13 +152,20 @@ public class UserAppraiseController {
 		appraise.setTitle(title);
 		appraise.setProduct_number(product_number);
 		appraise.setUser_guid(user_guid);
+		appraise.setUserImg(userImg);
 		IAppraiseService.addAppraise(appraise);
+		//把订单详情 的状态改变，成已评价的商品
+		OrderDetail ods=IUserOrderDetailService.loadOrderDetail(order_detail_guid);
+		ods.setAppraise_isnot(0);
+		IUserOrderDetailService.updateActive(ods);
 		return "success";
 	}
 	@RequestMapping(value = "/AppraiseSuccess", method = RequestMethod.GET)
 	public String AppraiseSuccess(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		
-		return null;
+		String order_detail_guid=request.getParameter("order_detail_guid");
+		Appraise appraise=IAppraiseService.loadAppraise(order_detail_guid);
+		model.addAttribute("appraise", appraise);
+		return "user/userAppraiseSuceess";
 		
 	}
 }

@@ -34,9 +34,10 @@ public class UserOrderController {
 	
 	@RequestMapping(value = "/userOrder", method = RequestMethod.GET)
 	public String userOrder(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -44,9 +45,9 @@ public class UserOrderController {
 				Pager<Order> orderList=null;
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				orderList=iUserOrderService.selPaOrder(guid);
+				orderList=iUserOrderService.selPaOrder(user_guid);
 				//查询订单细节
-				List<Order> orderList2=iUserOrderService.loadOrderList(guid);
+				List<Order> orderList2=iUserOrderService.loadOrderList(user_guid);
 				Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
 				List<OrderDetail> listordertails=new ArrayList<>(); //
 				for(Order o:orderList2) {
@@ -61,21 +62,21 @@ public class UserOrderController {
 				Pager<Order> orderList5=null;
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				orderList5=iUserOrderService.seltra_status1(guid,10);
+				orderList5=iUserOrderService.seltra_status1(user_guid,10);
 				long oListnum1=orderList5.getTotal();
 				model.addAttribute("oListnum1", oListnum1);
 
 				Pager<Order> orderList3=null;
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				orderList3=iUserOrderService.seltra_status4(guid, 2);
+				orderList3=iUserOrderService.seltra_status4(user_guid, 2);
 				long oListnum2=orderList3.getTotal();
 				model.addAttribute("oListnum2", oListnum2);
 				 
 				Pager<Order> orderList4=null;
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				orderList4=iUserOrderService.seltra_status1(guid,50);
+				orderList4=iUserOrderService.seltra_status1(user_guid,50);
 				long oListnum3=orderList4.getTotal();
 				 model.addAttribute("oListnum3", oListnum3);
 			return "user/userOrder";
@@ -83,9 +84,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder1", method = RequestMethod.GET)
 	public String userOrder1(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -93,11 +95,11 @@ public class UserOrderController {
 		Pager<Order> orderList5=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList5=iUserOrderService.seltra_status1(guid,10);
+		orderList5=iUserOrderService.seltra_status1(user_guid,10);
 		 long oListnum1=orderList5.getTotal();
 		 model.addAttribute("oListnum1", oListnum1);
 		model.addAttribute("orderList5", orderList5);
-		List<Order> orderList2=iUserOrderService.Ordertra_statusList(guid,10);
+		List<Order> orderList2=iUserOrderService.Ordertra_statusList(user_guid,10,1);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
 		List<OrderDetail> listordertails=new ArrayList<>(); //
 		for(Order o:orderList2) {
@@ -110,14 +112,14 @@ public class UserOrderController {
 		Pager<Order> orderList3=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		orderList3=iUserOrderService.seltra_status4(user_guid, 2);
 		long oListnum2=orderList3.getTotal();
 		model.addAttribute("oListnum2", oListnum2);
 		 
 		Pager<Order> orderList4=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList4=iUserOrderService.seltra_status1(guid,50);
+		orderList4=iUserOrderService.seltra_status1(user_guid,50);
 		long oListnum3=orderList4.getTotal();
 		 model.addAttribute("oListnum3", oListnum3);
 		 
@@ -126,9 +128,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder2", method = RequestMethod.GET)
 	public String userOrder2(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -136,11 +139,11 @@ public class UserOrderController {
 		Pager<Order> orderList3=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		orderList3=iUserOrderService.seltra_status4(user_guid, 2);
 		long oListnum2=orderList3.getTotal();
 		 model.addAttribute("oListnum2", oListnum2);
 		model.addAttribute("orderList3", orderList3);
-		List<Order> orderList2=iUserOrderService.Ordertra_statusList2(guid,2);
+		List<Order> orderList2=iUserOrderService.Ordertra_statusList2(user_guid,2);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
 		List<OrderDetail> listordertails=new ArrayList<>(); //
 		for(Order o:orderList2) {
@@ -154,14 +157,14 @@ public class UserOrderController {
 		Pager<Order> orderList5=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList5=iUserOrderService.seltra_status1(guid,10);
+		orderList5=iUserOrderService.seltra_status1(user_guid,10);
 		long oListnum1=orderList5.getTotal();
 		model.addAttribute("oListnum1", oListnum1);
 		
 		Pager<Order> orderList4=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList4=iUserOrderService.seltra_status1(guid,50);
+		orderList4=iUserOrderService.seltra_status1(user_guid,50);
 		long oListnum3=orderList4.getTotal();
 		 model.addAttribute("oListnum3", oListnum3);
 		 
@@ -170,9 +173,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder3", method = RequestMethod.GET)
 	public String userOrder3(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -180,13 +184,13 @@ public class UserOrderController {
 		Pager<Order> orderList4=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList4=iUserOrderService.seltra_status1(guid,50);
+		orderList4=iUserOrderService.seltra_status1(user_guid,50);
 		long oListnum3=orderList4.getTotal();
 		 model.addAttribute("oListnum3", oListnum3);
 		model.addAttribute("orderList4", orderList4);
-		List<Order> orderList2=iUserOrderService.Ordertra_statusList(guid,50);
+		List<Order> orderList2=iUserOrderService.Ordertra_statusList(user_guid,50,1);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
-		List<OrderDetail> listordertails=new ArrayList<>(); //
+		List<OrderDetail> listordertails=new ArrayList<>(); 
 		for(Order o:orderList2) {
 			String oi=o.getOrder_no();
 			listordertails=IUserOrderDetailService.loadOrderDetailList(oi);
@@ -197,14 +201,14 @@ public class UserOrderController {
 		Pager<Order> orderList5=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList5=iUserOrderService.seltra_status1(guid,10);
+		orderList5=iUserOrderService.seltra_status1(user_guid,10);
 		long oListnum1=orderList5.getTotal();
 		model.addAttribute("oListnum1", oListnum1);
 
 		Pager<Order> orderList3=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
-		orderList3=iUserOrderService.seltra_status4(guid, 2);
+		orderList3=iUserOrderService.seltra_status4(user_guid, 2);
 		long oListnum2=orderList3.getTotal();
 		model.addAttribute("oListnum2", oListnum2);
 		return "user/userOrder";

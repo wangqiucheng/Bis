@@ -77,13 +77,12 @@
                         <form action="">
                             <!-- 0位未评级，1位一颗星，2位两颗星，3位三颗星等 -->
                             <input class="record-face" type="hidden" value="0">
-                            <textarea class="form-control f-16 full-w appraises-one" rows="10" maxlength="500" placeholder="外形如何，品质如何，好用吗，写点您真实的使用感受吧"></textarea>
+                            <textarea class="form-control f-16 full-w appraises-one" rows="10" maxlength="500" placeholder="外形如何，品质如何，好用吗，写点您真实的使用感受吧" id="appraises-one"></textarea>
                             <input type="hidden"  class="text-appraise" value="">
                             <input type="hidden"  class="text-orderguid" value="${od.order_detail_guid}">
                         </form>
                         <div class="clear pt-15 ">
-                            <button class="pull-right h-30 w-110 text-center f-12 col-white bg-309DE2 hovbg-2D90CF bor-none"
-                            onclick="appraisespro();">
+                            <button class="pull-right h-30 w-110 text-center f-12 col-white bg-309DE2 hovbg-2D90CF bor-none submit-sh">
                                 发表评价
                             </button>
                         </div>

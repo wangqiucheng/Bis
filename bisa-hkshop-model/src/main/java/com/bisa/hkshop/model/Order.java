@@ -13,7 +13,7 @@ public class Order {
 	
 	private	int	id; 	//	id
 	private	String order_no; 	//	32	订单号
-	private	String user_guid; 	//	36	用户
+	private	int user_guid; 	//	36	用户
 	private String guid ;      // 区域服务器的唯一id
 	private	int tra_status; 	//	11	交易状态（1：未支付，2：已支付 3：未发货，4：已发货）
 	private	String addr_num; 	//	100	收货地址guid
@@ -33,7 +33,7 @@ public class Order {
 	private	String invoice_title; 	//	50	发票抬头
 	private	int invoice_type; 	//	50	发票类型（0：增值税发票，1：普通发票）
 	private int effective_statu;//订单是否有效 1:有效 2:无效
-
+	private int appraise_status; //评价是否：1有效2：无效
 		
 	@Id
 	@GeneratedValue
@@ -49,10 +49,11 @@ public class Order {
 	public void setOrder_no(String order_no) {
 		this.order_no = order_no;
 	}
-	public String getUser_guid() {
+	
+	public int getUser_guid() {
 		return user_guid;
 	}
-	public void setUser_guid(String user_guid) {
+	public void setUser_guid(int user_guid) {
 		this.user_guid = user_guid;
 	}
 	public String getGuid() {
@@ -170,6 +171,12 @@ public class Order {
 	public void setEffective_statu(int effective_statu) {
 		this.effective_statu = effective_statu;
 	} //订单是否有效，（1：有效，2：无效）
+	public int getAppraise_status() {
+		return appraise_status;
+	}
+	public void setAppraise_status(int appraise_status) {
+		this.appraise_status = appraise_status;
+	}
 
 	
 	

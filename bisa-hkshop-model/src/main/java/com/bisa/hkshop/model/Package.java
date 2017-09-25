@@ -21,7 +21,6 @@ public class Package {
 	private String package_number;
 	private String package_name;
 	private String patitle;
-	
 	private String sub_descrition;
 	private Double price;
 	private int product_id;

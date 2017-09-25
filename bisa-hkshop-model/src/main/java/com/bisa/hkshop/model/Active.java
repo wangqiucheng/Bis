@@ -1,91 +1,100 @@
 package com.bisa.hkshop.model;
 
-import javax.persistence.Column;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.Id;
-import javax.persistence.Index;
+import javax.persistence.Table;
+
 
 @Entity
 @Table(name="s_active")
 public class Active {
-	private	int	Id;	
-	private	String active_number;	//	64唯一 	激活编号
-	private	String active_code;	//	16非空 	激活码
-	private	int	status;	//	10非空 	激活状态（0：未激活，1：激活，2、失效）
-	private	String active_time;	//	50	激活时间
-	private	int service_diff;	//	5非空	月数（一共几个月）
-	private	String service_guid;	//	64非空	服务Guid
+	
+	private int id;
+	private int user_guid;   //服务器的用户id
+	private String guid;        //用户的uuid
+	private String active_code; //激活码
+	private Date start_time;  //创建时间
+	private Date active_time; //激活时间
+	private Date active_life; //激活期限
+	private int active_statu; //激活状态
+	private String service_name; //服务名称
+	private String service_guid; //服务的guid
+	private int service_number; //购买服务的数量
+	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
-	
-	@Column(length=64,unique=true)
-	public String getActive_number() {
-		return active_number;
+	public int getUser_guid() {
+		return user_guid;
 	}
-	public void setActive_number(String active_number) {
-		this.active_number = active_number;
+	public void setUser_guid(int user_guid) {
+		this.user_guid = user_guid;
 	}
-	@Column(length=16,nullable=false)
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
 	public String getActive_code() {
 		return active_code;
 	}
 	public void setActive_code(String active_code) {
 		this.active_code = active_code;
 	}
-	@Column(nullable=false)
-	public int getStatus() {
-		return status;
+	public Date getStart_time() {
+		return start_time;
 	}
-	public void setStatus(int status) {
-		this.status = status;
+	public void setStart_time(Date start_time) {
+		this.start_time = start_time;
 	}
-	@Column(length=50)
-	public String getActive_time() {
+	public Date getActive_time() {
 		return active_time;
 	}
-	public void setActive_time(String active_time) {
+	public void setActive_time(Date active_time) {
 		this.active_time = active_time;
 	}
-	@Column(nullable=false)
-	public int getService_diff() {
-		return service_diff;
+	public Date getActive_life() {
+		return active_life;
 	}
-	public void setService_diff(int service_diff) {
-		this.service_diff = service_diff;
+	public void setActive_life(Date active_life) {
+		this.active_life = active_life;
 	}
-	@Column(length=64,nullable=false)
+	public int getActive_statu() {
+		return active_statu;
+	}
+	public void setActive_statu(int active_statu) {
+		this.active_statu = active_statu;
+	}
+	public String getService_name() {
+		return service_name;
+	}
+	public void setService_name(String service_name) {
+		this.service_name = service_name;
+	}
 	public String getService_guid() {
 		return service_guid;
 	}
 	public void setService_guid(String service_guid) {
 		this.service_guid = service_guid;
 	}
-	public Active() {
-		super();
+	public int getService_number() {
+		return service_number;
 	}
-	public Active(int id, String active_number, String active_code, int status, String active_time, int service_diff,
-			String service_guid) {
-		super();
-		Id = id;
-		this.active_number = active_number;
-		this.active_code = active_code;
-		this.status = status;
-		this.active_time = active_time;
-		this.service_diff = service_diff;
-		this.service_guid = service_guid;
+	public void setService_number(int service_number) {
+		this.service_number = service_number;
 	}
 	
 	
-
+	
+	
 }

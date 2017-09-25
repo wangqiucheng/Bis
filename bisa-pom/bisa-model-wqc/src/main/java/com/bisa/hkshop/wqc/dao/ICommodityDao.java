@@ -16,11 +16,11 @@ public interface ICommodityDao {
 	public Pager<Commodity> getselCommodityPage();
 
 	//添加商品
-	public Commodity addCommodity(Commodity comm);
+	public int addCommodity(Commodity comm);
 	//修改商品
-	public void updateCommodity(Commodity comm);
+	public int updateCommodity(Commodity comm);
 	//删除商品
-	public void delCommdity(String shop_number);
+	public int delCommdity(String shop_number);
 	
 	public List<Commodity> selthreeCon(String shop_Number);
 	

@@ -20,10 +20,11 @@ public class Appraise {
     private String appraise_two;     //追评
     private String appraise_degree;   //评价程度 （失望：1,一般：2,满意：3,喜爱：4,超爱：5）
     private String appraise_status;    //评价状态（1：评价  2:追评)
-    private String user_guid;         //用户编号
+    private int user_guid;         //用户编号
     private Date insert_time;       //插入时间
     private Date update_time;        //更新时间
     private String order_detail_guid;         //订单详细编号
+    private String userImg;    //用户头像
 	@Id
 	@GeneratedValue
     public int getId() {
@@ -86,10 +87,11 @@ public class Appraise {
 	public void setAppraise_status(String appraise_status) {
 		this.appraise_status = appraise_status;
 	}
-	public String getUser_guid() {
+	
+	public int getUser_guid() {
 		return user_guid;
 	}
-	public void setUser_guid(String user_guid) {
+	public void setUser_guid(int user_guid) {
 		this.user_guid = user_guid;
 	}
 	public Date getInsert_time() {
@@ -110,6 +112,13 @@ public class Appraise {
 	public void setOrder_detail_guid(String order_detail_guid) {
 		this.order_detail_guid = order_detail_guid;
 	}
+	public String getUserImg() {
+		return userImg;
+	}
+	public void setUserImg(String userImg) {
+		this.userImg = userImg;
+	}
+
 	
     
 }

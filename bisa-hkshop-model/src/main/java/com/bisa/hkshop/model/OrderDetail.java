@@ -21,7 +21,7 @@ public class OrderDetail {
 	private String product_name;//商品名或者套餐名
 	private Date start_time;//创建时间
 	private double price;
-	private	String user_guid; 	//	36	用户
+	private	int user_guid; 	//	36	用户
 	private int appraise_isnot; //是否评价 0：评价 1为没评价
 	
 	@Id
@@ -86,10 +86,11 @@ public class OrderDetail {
 	public void setPrice(double price) {
 		this.price = price;
 	}//价格
-	public String getUser_guid() {
+
+	public int getUser_guid() {
 		return user_guid;
 	}
-	public void setUser_guid(String user_guid) {
+	public void setUser_guid(int user_guid) {
 		this.user_guid = user_guid;
 	}
 	public int getAppraise_isnot() {

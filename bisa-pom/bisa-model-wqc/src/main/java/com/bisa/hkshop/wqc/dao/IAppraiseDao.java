@@ -4,6 +4,13 @@ import com.bisa.hkshop.model.Appraise;
 
 public interface IAppraiseDao {
 
-	public Appraise addAppraise(Appraise appraise);
+	public int addAppraise(Appraise appraise);
+
+	public Appraise loadAppraise(String order_detail_guid);
+	
+	public int upAppraise(Appraise appraise);
+	
+	public int delAppraise(Appraise appraise);
+	
 
 }

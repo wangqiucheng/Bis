@@ -46,10 +46,10 @@ public class CartController {
 		Date date=new Date();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String packId=request.getParameter("packId");
-		//String guid=request.getParameter("userId");
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -63,7 +63,6 @@ public class CartController {
 				if("1".equals(issingleorcombo)) {
 				Package pack=IPackageService.getpackages(packId);
 				Cart cart=ICartService.getCart(packId);
-			
 					if(cart==null) {
 						cart=new Cart();//这里是空的，就set,肯定空异常
 						cart.setCart_number(GuidGenerator.generate());
@@ -71,7 +70,7 @@ public class CartController {
 						cart.setPrice(pack.getPrice());
 						cart.setTitle(pack.getPatitle());
 					//	cart.setTotal(pack.getPrice()*1.0);
-						cart.setGuid(guid);
+						cart.setUser_guid(user_guid);
 						cart.setPackId(packId);
 						cart.setMain_picture(pack.getMain_picture());
 						cart.setSing_cox("1");
@@ -99,7 +98,7 @@ public class CartController {
 						cart2.setPrice(commodity.getSelling_price());
 						cart2.setTitle(commodity.getTitle());
 					//	cart.setTotal(commodity.getPrice()*1.0);
-						cart2.setGuid(guid);
+						cart2.setUser_guid(user_guid);
 						cart2.setPackId(commodity.getShop_number());
 						cart2.setMain_picture(commodity.getMain_picture());
 						cart2.setInsert_time(df.parse(df.format(date)));
@@ -116,7 +115,7 @@ public class CartController {
 							cart3.setPrice(commo.getSelling_price());
 							cart3.setTitle(commo.getTitle());
 						//	cart.setTotal(commo.getPrice()*1.0);
-							cart3.setGuid(guid);
+							cart3.setUser_guid(user_guid);
 							cart3.setPackId(commo.getShop_number());
 							cart3.setMain_picture(commo.getMain_picture());
 							cart3.setInsert_time(df.parse(df.format(date)));
@@ -146,7 +145,7 @@ public class CartController {
 							cart3.setPrice(commo.getSelling_price());
 							cart3.setTitle(commo.getTitle());
 						//	cart.setTotal(commo.getPrice()*1.0);
-							cart3.setGuid(guid);
+							cart3.setUser_guid(user_guid);
 							cart3.setPackId(commo.getShop_number());
 							cart3.setMain_picture(commo.getMain_picture());
 							cart3.setInsert_time(df.parse(df.format(date)));
@@ -174,7 +173,7 @@ public class CartController {
 					cart3.setPrice(commo.getSelling_price());
 					cart3.setTitle(commo.getTitle());
 				//	cart.setTotal(commo.getPrice()*1.0);
-					cart3.setGuid(guid);
+					cart3.setUser_guid(user_guid);
 					cart3.setPackId(commo.getShop_number());
 					cart3.setMain_picture(commo.getMain_picture());
 					cart3.setInsert_time(df.parse(df.format(date)));
@@ -199,15 +198,16 @@ public class CartController {
 	public String getCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 		//String packId=request.getParameter("packId");
 		//String guid=request.getParameter("userId");
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
 			//查看购物车
 			//遍历购物车商品
-			List<Cart> listcart=ICartService.selCart(guid);
+			List<Cart> listcart=ICartService.selCart(user_guid);
 			int cartNum=listcart.size();
 			//遍历是否有套餐
 			List<Packdetails> listPackdetails=new ArrayList<>(); //
@@ -244,20 +244,22 @@ public class CartController {
 	@RequestMapping(value = "/upCart", method = RequestMethod.POST)
 	@ResponseBody
 	public String upCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-	//	String guid=request.getParameter("userId");
-		session.setAttribute("guid", "wc");
+		session.setAttribute("guid", "10");
 		String guid=(String) session.getAttribute("guid");
-		if(!"wc".equals(guid)) {
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
 			System.out.println("请去登录");
 			return null;
 		}else {
 		String num=request.getParameter("num");
 		String productId=request.getParameter("packId");
 		String result=null;
-		Cart product=ICartService.updateCart(productId);
+		Cart product=ICartService.getCart(productId);
 		product.setNumber(Integer.parseInt(num));
-		ICartService.updateCart(product);
-		result="success";
+		int i=ICartService.updateCart(product);
+		if(i>0) {
+			result="success";
+		}
 		return result;
 		}
 	}

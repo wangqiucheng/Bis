@@ -1,8 +1,9 @@
 $(document).ready(function() {
-	userAppraiseInfo();
-	function userAppraiseInfo(){
-	    var i=$(".appraises-one").val();
-	    var appraise_one=$(".text-appraise").val(i);
+	//userAppraiseInfo();
+	var path=$("base").attr("href");
+	$(".submit-sh").click(function() {
+		//var userId=$("input[name='userId']").val();
+	    var appraise_one=$("#appraises-one").val();
 	    var appraise_degree=$(".record-face").val();
 	    var order_detail_guid=$(".text-orderguid").val();
 		$.ajax({
@@ -16,11 +17,11 @@ $(document).ready(function() {
 				"order_detail_guid":order_detail_guid,
 			},
 			success : function(success) {
-				window.location.href=path+"AppraiseSuccess";	
+				window.location.href=path+"AppraiseSuccess?order_detail_guid="+order_detail_guid;	
 			},error:function(){
 			}
 
 		});
 	    
-	}
+	});
 });

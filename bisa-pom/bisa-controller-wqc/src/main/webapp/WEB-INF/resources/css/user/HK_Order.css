@@ -124,7 +124,6 @@
 .bg-83c441{background-color: #83c441}
 .col-424242{color: #424242;}
 .col-757575{color: #757575;}
-.col-b0b0b0{color: #b0b0b0;}
 /* 订单详细页部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.img-60-35-ipad{width: 35px;height: 35px;}
@@ -161,11 +160,11 @@
 .pt-70{padding-top: 70px;}
 .bg-starun{background-image: url(../../img/user/Appraise/star-un.png);}
 .bg-starsel{background-image: url(../../img/user/Appraise/star-sel.png) !important;}
-.bg-facev1{background-image: url(../../img/user/Appraise/facev1.png);}
-.bg-facev2{background-image: url(../../img/user/Appraise/facev2.png);}
-.bg-facev3{background-image: url(../../img/user/Appraise/facev3.png);}
-.bg-facev4{background-image: url(../../img/user/Appraise/facev4.png);}
-.bg-facev5{background-image: url(../../img/user/Appraise/facev5.png);}
+.bg-facev1{background-image: url(../../img/user/Appraise/facev1.png) !important;}
+.bg-facev2{background-image: url(../../img/user/Appraise/facev2.png) !important;}
+.bg-facev3{background-image: url(../../img/user/Appraise/facev3.png) !important;}
+.bg-facev4{background-image: url(../../img/user/Appraise/facev4.png) !important;}
+.bg-facev5{background-image: url(../../img/user/Appraise/facev5.png) !important;}
 .bg-faceauto{background-image: url(../../img/user/Appraise/facev5.png);}
 .pr-120{padding-right: 120px;}
 .h-120{height: 120px;}
@@ -284,6 +283,7 @@
 .img-100{width: 100px;height: 100px;}
 .mt-70{margin-top: 70px;}
 .ml-800{margin-left: 800px;}
+.mt-100{margin-top: 100px;}
 /* 评价列表部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
@@ -304,4 +304,36 @@
 	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
 	.line-h-40-30-ipad{line-height: 40px;}
 	.h-40-30-ipad{height: 40px;}
+}
+/* 服务列表部分CSS */
+.bg-76bd27{background-color: #76bd27;}
+.bor-col-76bd27{border-color: #76db27;}
+.hovcol-76bd27:hover{color: #76bd27;}
+.hovebg-89D92E:hover{background-color: #89D92E;}
+.bor-col-b0b0b0{border-color: #b0b0b0;}
+.min-h-400{min-height: 400px;}
+.f-40{font-size: 40px;}
+.h-100{height: 100px;}
+.line-h-100{line-height: 100px;}
+.t-10{top: 10px;}
+/* 服务列表部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.pd-30-10-ipad{padding: 10px;}
+	.plr-15-5-ipad{padding-left: 5px;padding-right: 5px;}
+	.pd-50-10-ipad{padding-top: 50px; padding-left: 10px;padding-right: 10px; padding-bottom: 50px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.pd-30-10-ipad{padding: 30px;}
+	.plr-15-5-ipad{padding-left: 15px;padding-right: 15px;}
+	.pd-50-10-ipad{padding: 50px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.pd-30-10-ipad{padding: 30px;}
+	.plr-15-5-ipad{padding-left: 15px;padding-right: 15px;}
+	.pd-50-10-ipad{padding: 50px;}
+}
+@media (min-width:1300px) {
+	.pd-30-10-ipad{padding: 30px;}
+	.plr-15-5-ipad{padding-left: 15px;padding-right: 15px;}
+	.pd-50-10-ipad{padding: 50px;}
 }

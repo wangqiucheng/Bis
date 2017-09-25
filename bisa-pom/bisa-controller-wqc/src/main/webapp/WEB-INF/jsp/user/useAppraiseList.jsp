@@ -126,24 +126,30 @@
                     <!-- 评价失效商品部分 -->
                     <div class="clear Appraise-tabtips Appraise-tabtipsv3 dis-n">
                         <div class="clear full-w">
+                         <c:forEach var="odtas" items="${odtas.datas}">
                             <!-- 已评价部分的循环体和待评价部分的不同，少了评价按钮 -->
                             <div class="clear col-sm-4 pd-20 text-center bor bor-b bor-col-f5f5f5">
                                 <a href="">
-                                    <img class="img-200-100-ipad min-h-200-100-ipad" src="<%=request.getContextPath() %>/resources/img/user/Appraise/appraisetipsv1.png" alt="">
+                                    <img class="img-200-100-ipad min-h-200-100-ipad" src="<%=request.getContextPath() %>/resources/${odtas.pic}" alt="">
                                 </a>
                                 <p class="f-16-12-ipad col-333 mt-20 cur-p">
-                                    HC3A250 悉心心电记录仪
+                                    ${odtas.product_name}
                                 </p>
                                 <p class="col-309DE2 f-14-12-ipad mt-10 cur-d">
-                                    1180元
+                                    ${odtas.price}元
                                 </p>
                                 <div class="clear full-w pb-10 pt-10 min-h-40">
                                 </div>
-                            </div> 
+                            </div>
+                        </c:forEach>  
                         </div>
                         <!-- 循环结束，这里放分页。最多四行。四行之后分页。 -->
                         <div class="clear full-w text-center f-16 col-333 mt-20">
-                            
+                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
+			                   <jsp:include page="../comm/pager.jsp">
+			                       <jsp:param name="url" value="useAppraise2"/>
+			                       <jsp:param name="items" value="${odtas.total}"/>
+                    		   </jsp:include>
                         </div>
                     </div>
                 </div>
