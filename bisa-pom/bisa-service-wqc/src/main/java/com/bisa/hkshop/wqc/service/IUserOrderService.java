@@ -8,7 +8,7 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IUserOrderService {
 	
-public List<Order> loadOrderList(int user_guid);
+	public List<Order> loadOrderList(int user_guid);
 	
 	public  Order loadOrderByname(int user_guid);
 	
@@ -31,6 +31,8 @@ public List<Order> loadOrderList(int user_guid);
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status);
 	
 	public int delOrder(Order order);
+
+	public List<Order> Otra_effective_statu(int user_guid, int tra_status,int effective_statu);
 
 	
 }

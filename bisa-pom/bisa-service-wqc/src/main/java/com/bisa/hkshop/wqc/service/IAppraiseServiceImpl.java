@@ -1,5 +1,7 @@
 package com.bisa.hkshop.wqc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,12 @@ public class IAppraiseServiceImpl implements IAppraiseService{
 	public int delAppraise(Appraise appraise) {
 		// TODO Auto-generated method stub
 		return IAppraiseDao.delAppraise(appraise);
+	}
+
+	@Override
+	public List<Appraise> loadAppraiseList(String productId) {
+		// TODO Auto-generated method stub
+		return IAppraiseDao.loadAppraiseList(productId);
 	}
 
 }

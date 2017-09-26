@@ -26,4 +26,9 @@ $(document).ready(function() {
         });
 
     });
+    $(".user-appraise").click(function(){
+    	var path = $("base").attr("href");
+    	var productId=$("#productId").val();
+    	window.location.href=path+"shopping/Uappraise?productId="+productId;
+    });
 });

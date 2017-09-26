@@ -96,7 +96,8 @@ public class UserOrderController {
 		 long oListnum1=orderList5.getTotal();
 		 model.addAttribute("oListnum1", oListnum1);
 		model.addAttribute("orderList5", orderList5);
-		List<Order> orderList2=iUserOrderService.Ordertra_statusList(user_guid,10,1);
+		List<Order> orderList2=iUserOrderService.Otra_effective_statu(user_guid,10,1);
+	//	List<Order> orderList2=iUserOrderService.Ordertra_statusList(user_guid,10,1);
 		Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
 		List<OrderDetail> listordertails=new ArrayList<>(); //
 		for(Order o:orderList2) {

@@ -32,4 +32,6 @@ public interface IUserOrderDao {
 	
 	public int delOrder(Order order);
 
+	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu);
+
 }

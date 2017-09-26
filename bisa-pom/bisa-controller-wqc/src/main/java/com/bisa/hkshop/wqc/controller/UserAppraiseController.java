@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisa.hkshop.model.Appraise;
+import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.model.SystemContext;
@@ -153,6 +154,7 @@ public class UserAppraiseController {
 		appraise.setProduct_number(product_number);
 		appraise.setUser_guid(user_guid);
 		appraise.setUserImg(userImg);
+		appraise.setPrice(price);
 		IAppraiseService.addAppraise(appraise);
 		//把订单详情 的状态改变，成已评价的商品
 		OrderDetail ods=IUserOrderDetailService.loadOrderDetail(order_detail_guid);
@@ -168,5 +170,12 @@ public class UserAppraiseController {
 		return "user/userAppraiseSuceess";
 		
 	}
-	
+	@RequestMapping(value = "/selAppraise", method = RequestMethod.GET)
+	public String selAppraise(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		String order_detail_guid=request.getParameter("order_detail_guid");
+		Appraise productDto=IAppraiseService.loadAppraise(order_detail_guid);
+		model.addAttribute("productDto", productDto);
+		return "user/userAppraise";
+		
+	}
 }

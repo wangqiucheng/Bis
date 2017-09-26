@@ -90,7 +90,7 @@
             <span>|</span>
             <span class="t-nonehove hovecol-309DE2 col-black cur-p sf-pointer">参数</span>
             <span>|</span>
-            <span class="t-nonehove hovecol-309DE2 col-black cur-p">用户评价</span>
+            <span class="t-nonehove hovecol-309DE2 col-black cur-p user-appraise">用户评价</span>
             </span>
         </div>
     </div>
@@ -148,10 +148,10 @@
                                 <div class="clear full-w combomainbox">
                                     <div class="col-sm-4 text-center cur-p pl-0 combotips">
                                         <div class="clear bor-col-B2B2B2 bor-col-activate bor h-40-30-ipad line-h-40-30-ipad f-18-14-ipad col-black combotips-div combotips-div-biaopei">
-                                            标&nbsp;&nbsp;配
+                                          	  标&nbsp;&nbsp;配
                                         </div>
                                         <!-- 数据库的ID -->
-                                        <input class="comboiput-cid" type="hidden" value="${commodity.shop_number }">
+                                        <input class="comboiput-cid" type="hidden" id="productId" value="${commodity.shop_number }">
                                         <!-- 单价 -->
                                         <input class="comboiput-price" type="hidden" value="${commodity.selling_price }">
                                         <!-- 主标题 -->

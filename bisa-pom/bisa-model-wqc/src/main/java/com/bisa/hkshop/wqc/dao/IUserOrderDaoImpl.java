@@ -124,6 +124,13 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 		return super.delUpObjectBySql(sql, new Object[]{order.getOrder_no()});
 	}
 
+	@Override
+	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu) {
+		// TODO Auto-generated method stub
+		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.effective_statu=?";
+		return super.queryListBySql(sql, new Object[]{user_guid,tra_status,effective_statu}, Order.class);
+	}
+
 
 	
 	

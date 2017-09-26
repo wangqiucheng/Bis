@@ -1,5 +1,6 @@
 package com.bisa.hkshop.wqc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Package;
+import com.bisa.hkshop.wqc.basic.dao.StringUtil;
+import com.bisa.hkshop.wqc.service.IAppraiseService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IPackageService;
 
@@ -21,6 +27,8 @@ public class CommodityController {
 
 	@Autowired
 	private IPackageService IPackageService;
+	@Autowired
+	private IAppraiseService IAppraiseService;
 	/**
 	 *  获取所有商品列表(带分页)
 	 */
@@ -77,6 +85,55 @@ public class CommodityController {
 	 */
 	@RequestMapping(value="/shopping/delCommodity",method=RequestMethod.POST)
 	public String delCommmodity(HttpServletRequest request,Model model) {
+		return null;
+	}
+	/**
+	 * 查看用户评价
+	 */
+	@RequestMapping(value="/shopping/Uappraise",method=RequestMethod.GET)
+	public String Uappraise(HttpServletRequest request,Model model) {
+		String productId=request.getParameter("productId");
+		String appraise_more=request.getParameter("appraise_more");
+		//用来区别是第一次加载还是第二次加载
+		if("1".equals(appraise_more)) {
+			
+			Commodity commodity=iCommodityService.getcommodity(productId);
+			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(productId);
+			List<Package> packageList=IPackageService.getpackage(productId);
+			List<Appraise> productDto=new ArrayList<Appraise>();
+			for(Package p:packageList) {
+				String pack_number=p.getPackage_number();
+				List<Appraise> packList=IAppraiseService.loadAppraiseList(pack_number);
+				for(Appraise a:packList) {
+					productDto.add(a);
+				}
+				}
+			for(Appraise ae:userAppraise) {
+				productDto.add(ae);
+			}
+			model.addAttribute("comm", commodity);
+			model.addAttribute("productDto", productDto);
+			return "shopping/Uappraise";
+		}else {
+			
+			Commodity commodity=iCommodityService.getcommodity(productId);
+			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(productId);
+			List<Appraise> productDto=new ArrayList<Appraise>();
+			for(Appraise ae:userAppraise) {
+				productDto.add(ae);
+			}
+			model.addAttribute("comm", commodity);
+			model.addAttribute("productDto", productDto);
+			return "shopping/Uappraise";
+		}
+	}
+	@RequestMapping(value="/shopping/Uappraise1",method=RequestMethod.POST)
+	@ResponseBody
+	public String Uappraise1(HttpServletRequest request,Model model) {
+		String appraise_more=request.getParameter("appraise_more");
+		if("1".equals(appraise_more)) {
+			return appraise_more;
+		}
 		return null;
 	}
 	

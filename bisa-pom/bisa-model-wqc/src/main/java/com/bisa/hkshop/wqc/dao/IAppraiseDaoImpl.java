@@ -1,5 +1,7 @@
 package com.bisa.hkshop.wqc.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.bisa.hkshop.model.Appraise;
@@ -12,7 +14,7 @@ public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 		// TODO Auto-generated method stub
 		String sql="insert into s_appraise(id,appraise_no,product_number,main_picture,price,"
 				+ "title,appraise_one,appraise_two,appraise_degree,appraise_status,user_guid,"
-				+ "insert_time,update_time,order_detail_guid,userImg) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "insert_time,update_time,order_detail_guid,userImg) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		return super.addObjectBySql(sql, new Object[] {appraise.getId(),appraise.getAppraise_no(),appraise.getProduct_number(),appraise.getMain_picture(),
 				appraise.getPrice(),appraise.getTitle(),appraise.getAppraise_one(),appraise.getAppraise_two(),appraise.getAppraise_degree(),
 				appraise.getAppraise_status(),appraise.getUser_guid(),appraise.getInsert_time(),appraise.getUpdate_time(),
@@ -44,6 +46,13 @@ public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 		// TODO Auto-generated method stub
 		String sql="delete from s_appraise a where  a.appraise_no=?";
 		return super.delUpObjectBySql(sql, new Object[] {appraise.getAppraise_no()});
+	}
+
+	@Override
+	public List<Appraise> loadAppraiseList(String productId) {
+		// TODO Auto-generated method stub
+		String sql="select * from s_appraise a where a.product_number=?";
+		return super.queryListBySql(sql, new Object[]{productId}, Appraise.class);
 	}
 	
 

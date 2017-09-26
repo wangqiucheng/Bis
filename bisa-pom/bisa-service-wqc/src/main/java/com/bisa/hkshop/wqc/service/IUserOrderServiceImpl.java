@@ -94,6 +94,12 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 		return orderDao.delOrder(order);
 	}
 
+	@Override
+	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu) {
+		// TODO Auto-generated method stub
+		return orderDao.Otra_effective_statu(user_guid,tra_status,effective_statu);
+	}
+
 	
 	
 	

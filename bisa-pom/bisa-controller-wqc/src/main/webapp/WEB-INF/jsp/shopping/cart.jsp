@@ -3,7 +3,6 @@
 
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
 	<base href="<%=basePath%>">
     <meta charset="utf-8">

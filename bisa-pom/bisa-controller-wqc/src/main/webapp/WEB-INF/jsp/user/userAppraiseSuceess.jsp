@@ -73,21 +73,31 @@
                                 ${appraise.appraise_one}
                             </p>
                         </div>
-                        <div class="clear col-sm-3 pl-0 pr-0">
-                            <!-- 状态码默认0超爱，1失望，2一般，3满意，4喜欢，5超爱 -->
-                        <input type="hidden" class="appraisesuccess-state" value=" ${appraise.appraise_degree}">
-                            <span class="img-20 pull-left mr-10 cur-d bg-facev5 mt-3 appraisesuccess-stateface">
-                            </span>
-                            <span class="f-20 col-ffd600 mt-2 pull-left cur-d mr-10">
-                              	  <c:if test="${appraise.appraise_degree==1 }">失望</c:if>
-                              	  <c:if test="${appraise.appraise_degree==2 }">一般</c:if>
-                              	  <c:if test="${appraise.appraise_degree==3 }">满意</c:if>
-                              	  <c:if test="${appraise.appraise_degree==4 }">喜爱</c:if>
-                              	  <c:if test="${appraise.appraise_degree==5 }">超爱</c:if>
-                            </span>
-                        </div>
-                        <div class="clear col-sm-12 bor bor-b bor-col-e0e0e0 mt-50">
-                        </div>
+                    <div class="clear col-sm-3 pl-0 pr-0">
+                        <!-- 状态码默认0超爱，1失望，2一般，3满意，4喜欢，5超爱 -->
+                        <input type="hidden" class="appraisesuccess-state" value="${appraise.appraise_degree}">
+                        <span class="img-20 pull-left mr-10 cur-d bg-faceauto mt-3 appraisesuccess-stateface">
+                        </span>
+                        <span class="f-20 col-ffd600 mt-2 pull-left cur-d mr-10 appraisesuccess-statetext">
+                            <c:if test="${appraise.appraise_degree==1 }">
+                               失望
+                            </c:if>
+                            <c:if test="${appraise.appraise_degree==2 }">
+                               一般
+                            </c:if>
+                            <c:if test="${appraise.appraise_degree==3 }">
+                              满意
+                            </c:if>
+                            <c:if test="${appraise.appraise_degree==4 }">
+                               喜爱
+                            </c:if>
+                            <c:if test="${appraise.appraise_degree==5 }">
+                               超爱
+                            </c:if>
+                        </span>
+                    </div>
+                    <div class="clear col-sm-12 bor bor-b bor-col-e0e0e0 mt-50">
+                    </div>
                     </div>
                     <div class="col-sm-1 pt-70 pb-30 pl-0">
                         

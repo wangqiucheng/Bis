@@ -106,7 +106,7 @@
                                              ${odpingjia.price}元
                                         </p>
                                         <div class="clear full-w pb-10 pt-10 min-h-40">
-                                            <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto">
+                                            <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto" onclick="window.location.href='<%=request.getContextPath() %>/selAppraise?order_detail_guid=${odpingjia.order_detail_guid}'">
                                                 查看评价
                                             </button>
                                         </div>
