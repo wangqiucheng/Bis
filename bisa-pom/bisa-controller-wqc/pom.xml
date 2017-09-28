@@ -23,6 +23,15 @@
 	   <artifactId>bisa-service-wqc</artifactId>
 	   <version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
+  	<dependency>
+		  <groupId>com.bisa.sso</groupId>
+		  <artifactId>health-sso-server</artifactId>
+		  <version>0.0.2-SNAPSHOT</version>
+		  <type>war</type>
+		  <scope>runtime</scope>
+		</dependency>
+		
   	<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -78,7 +87,14 @@
 				<configuration>
 					<warName>bisahealth-shopserver</warName>
 					<overlays>
-						
+					  <overlay>
+						<groupId>com.bisa.sso</groupId>
+							<artifactId>health-sso-server</artifactId>
+							<excludes>
+								<exclude>WEB-INF/classes/resources.properties</exclude>
+								<exclude>WEB-INF/classes/log4j2.xml</exclude>
+							</excludes>
+						</overlay>
 						 
 				 		<!--  <overlay>
 							<groupId>bisa-pom-hkshop</groupId>

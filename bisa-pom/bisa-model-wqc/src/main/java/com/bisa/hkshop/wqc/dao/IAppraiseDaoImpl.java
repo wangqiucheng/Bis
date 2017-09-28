@@ -51,7 +51,7 @@ public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 	@Override
 	public List<Appraise> loadAppraiseList(String productId) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_appraise a where a.product_number=?";
+		String sql="select * from s_appraise a where a.product_number=? order by update_time desc";
 		return super.queryListBySql(sql, new Object[]{productId}, Appraise.class);
 	}
 	

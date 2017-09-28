@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bisa.health.entity.SystemContext;
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
-import com.bisa.hkshop.model.SystemContext;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
 import com.bisa.hkshop.wqc.service.IAppraiseService;
@@ -79,6 +79,7 @@ public class UserAppraiseController {
 			Pager<OrderDetail> odpingjia=new Pager<OrderDetail>();
 			SystemContext.setSort("start_time");
 			SystemContext.setOrder("desc");
+			
 			odpingjia.setTotal(listordertails.size());
 			odpingjia.setDatas(listordertails);
 			model.addAttribute("odpingjia",odpingjia);

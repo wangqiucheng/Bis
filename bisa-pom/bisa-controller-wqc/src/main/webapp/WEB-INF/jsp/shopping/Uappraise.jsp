@@ -33,7 +33,7 @@
     <div class="wrap clear bg-f5f5f5">
         <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 bg-white top-tit">
             <div class="container pt-10 pb-10 clear line-h-30 plr-0-10-ipad">
-            	<input type="hidden" id="productId" value=""
+            	<input type="hidden" id="productId" value="${comm.shop_number }">
                 <span class="col-black family-h pull-left cur-d f-20">${comm.title}</span>
                 <span class="col-black family-h pull-right f-12">
                 <span class="t-nonehove hovecol-309DE2 col-black cur-p">概述</span>
@@ -54,6 +54,7 @@
         </div>
         <div class="container pl-0 pr-0 pos-r">
            <div class="col-sm-8 pt-30 pl-20 pr-10 mb-20">
+           	<c:if test="${productDtoSize<=2}">
                <c:forEach var="productDto" items="${ productDto }">
                        <div class="clear mt-20 full-w bg-white pt-40 pb-35 pr-15">
                            <div class="clear col-sm-2 pl-0 pr-0">
@@ -94,9 +95,12 @@
                            </div>
                        </div>
                </c:forEach>
-               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p appraise-more">
-                   	加载更多
-               </div>
+               </c:if>
+               <c:if test="${productDtoSize>2}">
+	               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p appraise-more">
+	                   	加载更多
+	               </div>
+               </c:if>
            </div>
            <!-- 一下4个浮标嵌入的数据一致 -->
            <!--在ipad下显示的右浮标-->
@@ -114,7 +118,7 @@
                         ${comm.selling_price}元
                    </p>
                    <div class="clear mt-40 text-center pl-30 pr-30">
-                       <button class="h-40-30-ipad full-w text-center line-h-40-30-ipad col-white bg-309DE2 bor-none hovbg-2D90CF f-14-12-ipad" onclick="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${comm.shop_number}">
+                       <button class="h-40-30-ipad full-w text-center line-h-40-30-ipad col-white bg-309DE2 bor-none hovbg-2D90CF f-14-12-ipad" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${comm.shop_number}'">
                            了解详情
                        </button>
                    </div>
@@ -133,7 +137,7 @@
                        ${comm.selling_price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${comm.shop_number}'">
                            了解详情
                        </button>
                    </div>
@@ -155,7 +159,7 @@
                        ${comm.selling_price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${comm.shop_number}'">
                            了解详情
                        </button>
                    </div>
@@ -177,7 +181,7 @@
                       ${comm.selling_price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${comm.shop_number}'">
                            了解详情
                        </button>
                    </div>

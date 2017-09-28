@@ -99,7 +99,11 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 		// TODO Auto-generated method stub
 		return orderDao.Otra_effective_statu(user_guid,tra_status,effective_statu);
 	}
-
+	@Override
+	public int Ordertra_statusCount(int user_guid, int tra_status,int appraise_status) {
+		// TODO Auto-generated method stub
+		return orderDao.Ordertra_statusCount(user_guid,tra_status,appraise_status);
+	}
 	
 	
 	

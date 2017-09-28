@@ -14,6 +14,7 @@ import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.wqc.basic.dao.StringUtil;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.service.IAppraiseService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IPackageService;
@@ -34,6 +35,7 @@ public class CommodityController {
 	 */
 	@RequestMapping(value = "/shopping", method = RequestMethod.GET)
 	public String requestReport(String sort, String order,Model model,HttpServletRequest request){
+		
 		return "shopping/shopping";
 	}
 	/**
@@ -96,7 +98,6 @@ public class CommodityController {
 		String appraise_more=request.getParameter("appraise_more");
 		//用来区别是第一次加载还是第二次加载
 		if("1".equals(appraise_more)) {
-			
 			Commodity commodity=iCommodityService.getcommodity(productId);
 			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(productId);
 			List<Package> packageList=IPackageService.getpackage(productId);
@@ -111,6 +112,13 @@ public class CommodityController {
 			for(Appraise ae:userAppraise) {
 				productDto.add(ae);
 			}
+			
+			Pager<Appraise> appraisedto=new Pager<Appraise>();
+			appraisedto.setDatas(productDto);
+			appraisedto.setTotal(productDto.size());
+			appraisedto.setOffset(2);
+			appraisedto.setSize(1);
+			
 			model.addAttribute("comm", commodity);
 			model.addAttribute("productDto", productDto);
 			return "shopping/Uappraise";
@@ -122,6 +130,7 @@ public class CommodityController {
 			for(Appraise ae:userAppraise) {
 				productDto.add(ae);
 			}
+			model.addAttribute("productDtoSize", productDto.size());
 			model.addAttribute("comm", commodity);
 			model.addAttribute("productDto", productDto);
 			return "shopping/Uappraise";

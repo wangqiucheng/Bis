@@ -33,6 +33,14 @@ public interface IUserOrderService {
 	public int delOrder(Order order);
 
 	public List<Order> Otra_effective_statu(int user_guid, int tra_status,int effective_statu);
+	/**
+	 * 待收货待支付都用这个
+	 * @param user_guid
+	 * @param tra_status
+	 * @param appraise_status
+	 * @return
+	 */
+	public int Ordertra_statusCount(int user_guid, int tra_status,int appraise_status);
 
 	
 }

@@ -5,7 +5,11 @@
   <version>0.0.1-SNAPSHOT</version>
   
   	<dependencies>
-		
+		<dependency>
+		  <groupId>com.bisa.health.model</groupId>
+		  <artifactId>health-model</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.jasig.cas.health.entity</groupId>
 			<artifactId>cas-health-entity</artifactId>

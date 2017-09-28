@@ -1,8 +1,16 @@
 $(document).ready(function() {
 	
-	$(".appraise-more").click(function(){
+/*	$(".appraise-more").click(function(){
 		var path = $("base").attr("href");
 		var productId=$("#productId").val();
+		var page_num = 0;
+		var page_size=2;
+  	   	var flag = Math.ceil(page_total/page_size);
+  	   	var page_offset;
+  	   	if(page_num == 0 ){
+  		 page_offset =page_num;
+  	   	}if(page_num != 0 ){
+  		   page_offset = (page_num) * page.size;
 		var appraise_more=1;
 		$.ajax({
             url: path +"shopping/Uappraise1",
@@ -19,4 +27,4 @@ $(document).ready(function() {
             }
         });
 	});
-})
+})*/

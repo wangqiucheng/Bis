@@ -40,7 +40,7 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	public Order loadOrderByOrderId(String order_no) {
 		Order order = null;
 		try{
-			String sql = "select * from s_order where order_no=?";
+			String sql = "select * from s_order where order_no=? order by update_time desc";
 			order = this.queryObjectBySql(sql, new Object[]{order_no},Order.class);
 		}catch(Exception e){
 			return null;
@@ -109,14 +109,14 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	@Override
 	public List<Order> Ordertra_statusList(int user_guid, int tra_status,int appraise_status) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.appraise_status=?";
+		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.appraise_status=? order by o.update_time desc";
 		return super.queryListBySql(sql, new Object[]{user_guid,tra_status,appraise_status}, Order.class);
 	}
 
 	@Override
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_order o where o.user_guid=? and (o.tra_status=20 || o.tra_status=21)";
+		String sql="select * from s_order o where o.user_guid=? and (o.tra_status=20 || o.tra_status=21) order by o.update_time desc";
 		return super.queryListBySql(sql, new Object[]{user_guid}, Order.class);
 	}
 	public int delOrder(Order order) {
@@ -127,8 +127,15 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	@Override
 	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.effective_statu=?";
+		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.effective_statu=? order by o.update_time desc";
 		return super.queryListBySql(sql, new Object[]{user_guid,tra_status,effective_statu}, Order.class);
+	}
+
+	@Override
+	public int Ordertra_statusCount(int user_guid, int tra_status, int appraise_status) {
+		// TODO Auto-generated method stub
+		String sql="select count(*) from s_order o where o.user_guid=? and o.tra_status=? and o.appraise_status=? order by o.update_time desc";
+		return (int) super.queryTotal(sql, new Object[]{user_guid,tra_status,appraise_status});
 	}
 
 

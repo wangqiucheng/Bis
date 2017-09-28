@@ -108,7 +108,7 @@
                         ${productDto.price}元
                    </p>
                    <div class="clear mt-40 text-center pl-30 pr-30">
-                       <button class="h-40-30-ipad full-w text-center line-h-40-30-ipad col-white bg-309DE2 bor-none hovbg-2D90CF f-14-12-ipad" onclick="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${productDto.product_number}">
+                       <button class="h-40-30-ipad full-w text-center line-h-40-30-ipad col-white bg-309DE2 bor-none hovbg-2D90CF f-14-12-ipad" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${productDto.product_number}'">
                            了解详情
                        </button>
                    </div>
@@ -127,7 +127,7 @@
                        ${productDto.price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${productDto.product_number}'">
                            了解详情
                        </button>
                    </div>
@@ -149,7 +149,7 @@
                        ${productDto.price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${productDto.product_number}'">
                            了解详情
                        </button>
                    </div>
@@ -171,7 +171,7 @@
                       ${productDto.price}元
                    </p>
                    <div class="clear mt-40 text-center">
-                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14">
+                       <button class="h-40 w-225 text-center line-h-40 col-white bg-309DE2 bor-none hovbg-2D90CF f-14" onclick="window.location.href='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${productDto.product_number}'">
                            了解详情
                        </button>
                    </div>

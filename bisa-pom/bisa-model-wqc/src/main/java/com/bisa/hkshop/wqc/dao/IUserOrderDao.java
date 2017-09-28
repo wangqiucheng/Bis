@@ -34,4 +34,6 @@ public interface IUserOrderDao {
 
 	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu);
 
+	public int Ordertra_statusCount(int user_guid, int tra_status, int appraise_status);
+
 }
