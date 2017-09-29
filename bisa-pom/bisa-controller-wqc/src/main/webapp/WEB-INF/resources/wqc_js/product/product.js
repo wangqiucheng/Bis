@@ -8,7 +8,7 @@ $(document).ready(function() {
         var issingleorcombo = $("input[name='issingleorcombo']").val();
         var service_number = $("input[name='service_number']").val();
 		$.ajax({
-            url: path + "addCart",
+            url: path + "l/addCart",
             type: "post",
             dataType: "text",
             async: false,
@@ -20,7 +20,7 @@ $(document).ready(function() {
                 "issingleorcombo": issingleorcombo,
             },
             success: function(success) {
-                var i = "Cart";
+                var i = "l/Cart";
                 window.location.href = path + i;
             }
         });

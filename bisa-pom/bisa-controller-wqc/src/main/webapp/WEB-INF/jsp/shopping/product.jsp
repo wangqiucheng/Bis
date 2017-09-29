@@ -1,5 +1,5 @@
 <%@ page language="java"  pageEncoding="UTF-8"%>
-<%@page import="com.bisa.hkshop.model.SystemContext"%>
+<%@page import="com.bisa.health.entity.SystemContext"%>
 <%@ include file="../comm/tag.jsp" %>
 
 <% String menuType = "sys3"; %>
@@ -281,7 +281,7 @@
                         </div>
                             <c:forEach var="listproduct" items="${listproduct }">
                                 <div class="clear pos-r bor bor-col-B2B2B2 pull-left mt-10 mb-10 cur-p">
-                                    <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${listproduct.shop_number}"><img class="full-wh" src="<%=request.getContextPath() %>/resources/${listproduct.main_picture}" alt=""></a>
+                                    <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=${listproduct.shop_number}"><img class="full-wh" src="<%=request.getContextPath() %>/resources/${listproduct.main_picture}" alt=""></a>
                                     <div class="clear h-25 line-h-25 rgba-d2d2d2-20 pos-a b-0 l-0 pl-10 pr-10 full-w hidden-sm hidden-md">
                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=${listproduct.shop_number}">
                                        <span class="col-727272 t-nonehove hovecol-309DE2"> 

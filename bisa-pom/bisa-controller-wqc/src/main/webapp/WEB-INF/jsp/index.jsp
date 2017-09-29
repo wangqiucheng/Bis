@@ -87,7 +87,7 @@
                                            续航：无蓝牙120小时持续使用
                                         </p>
                                         <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=1001">了解产品细节 ></a>
+                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=1001">了解产品细节 ></a>
                                         <!-- </p> -->
                                     </div>
                                 </div>

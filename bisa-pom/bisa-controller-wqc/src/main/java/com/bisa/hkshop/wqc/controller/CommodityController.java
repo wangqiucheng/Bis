@@ -21,7 +21,7 @@ import com.bisa.hkshop.wqc.service.IPackageService;
 
 
 @Controller
-
+@RequestMapping("/l")
 public class CommodityController {
 	@Autowired
 	private ICommodityService iCommodityService;

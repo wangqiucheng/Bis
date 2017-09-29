@@ -12,11 +12,11 @@ public interface IUserOrderService {
 	
 	public  Order loadOrderByname(int user_guid);
 	
-	public  Order loadOrderByOrderId (String  order_no);
+	public  Order loadOrderByOrderId (int user_guid,String  order_no);
 	
-	public  int addOrder(Order  order);
+	public  int addOrder(int user_guid,Order  order);
 	
-	public  int updateOrder (Order order);
+	public  int updateOrder (int user_guid,Order order);
 
 	public Pager<Order> selPaOrder(int user_guid);
 
@@ -30,7 +30,7 @@ public interface IUserOrderService {
 
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status);
 	
-	public int delOrder(Order order);
+	public int delOrder(int user_guid,Order order);
 
 	public List<Order> Otra_effective_statu(int user_guid, int tra_status,int effective_statu);
 	/**

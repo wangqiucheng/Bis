@@ -7,19 +7,16 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IcartDao {
 
-	//添加商品进购物车
-	//public Cart addCart(Cart cart);
-	public int addCart(Cart cart);
-
+	public int addCart(int user_guid,Cart cart);
 
 	public List<Cart> selCart(int user_guid);
 	
-	public Cart getCart(String packId);
+	public Cart getCart(int user_guid,String packId);
 	
-	public int delCart(String deleteId);
+	public int delCart(int user_guid,String deleteId);
 
 
-	public int updateCart(Cart cart);
+	public int updateCart(int user_guid,Cart cart);
 	
 	public int selCartNum(int user_guid);
 	

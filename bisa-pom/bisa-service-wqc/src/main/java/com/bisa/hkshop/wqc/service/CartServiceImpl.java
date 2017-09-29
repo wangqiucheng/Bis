@@ -5,33 +5,40 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bisa.health.routing.annotation.DataGuid;
+import com.bisa.health.routing.annotation.DataRouting;
+import com.bisa.health.routing.annotation.RoutingTab;
+import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Cart;
 import com.bisa.hkshop.wqc.dao.IcartDao;
 
 
 @Repository
+@RoutingTab(TableEnum.SWITCH)
 public class CartServiceImpl implements ICartService{
 
 	@Autowired
 	private IcartDao ICartDao;
 	@Override
-	public int addCart(Cart cart) {
+	@DataRouting("user_guid")
+	public int addCart(@DataGuid("user_guid") int user_guid,Cart cart) {
 		// TODO Auto-generated method stub
-		return ICartDao.addCart(cart);
+		return ICartDao.addCart(user_guid,cart);
 	}
 
 	
-
 	@Override
-	public List<Cart> selCart(int user_guid) {
+	@DataRouting("user_guid")
+	public List<Cart> selCart(@DataGuid("user_guid") int user_guid) {
 		// TODO Auto-generated method stub
 		return ICartDao.selCart(user_guid);
 	}
 
 	@Override
-	public Cart getCart(String packId) {
+	@DataRouting("user_guid")
+	public Cart getCart(@DataGuid("user_guid") int user_guid,String packId) {
 		// TODO Auto-generated method stub
-		 Cart cart=ICartDao.getCart(packId);
+		 Cart cart=ICartDao.getCart(user_guid,packId);
 
 		return cart;
 	}
@@ -39,17 +46,19 @@ public class CartServiceImpl implements ICartService{
 
 
 	@Override
-	public int delCart(String deleteId) {
+	@DataRouting("user_guid")
+	public int delCart(@DataGuid("user_guid") int user_guid,String deleteId) {
 		// TODO Auto-generated method stub
-		return ICartDao.delCart(deleteId);
+		return ICartDao.delCart(user_guid,deleteId);
 	}
 
 
 
 	@Override
-	public int updateCart(Cart cart) {
+	@DataRouting("user_guid")
+	public int updateCart(@DataGuid("user_guid") int user_guid,Cart cart) {
 		// TODO Auto-generated method stub
-		return ICartDao.updateCart(cart);
+		return ICartDao.updateCart(user_guid,cart);
 	}
 
 

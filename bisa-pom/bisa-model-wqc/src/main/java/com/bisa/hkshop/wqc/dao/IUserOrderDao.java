@@ -7,16 +7,15 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IUserOrderDao {
 	
-
-	public List<Order> loadOrderList(int user_guid);
+public List<Order> loadOrderList(int user_guid);
 	
 	public  Order loadOrderByname(int user_guid);
 	
-	public  Order loadOrderByOrderId (String  order_no);
+	public  Order loadOrderByOrderId (int user_guid,String  order_no);
 	
-	public  int addOrder(Order  order);
+	public  int addOrder(int user_guid,Order  order);
 	
-	public  int updateOrder (Order order);
+	public  int updateOrder (int user_guid,Order order);
 
 	public Pager<Order> selPaOrder(int user_guid);
 
@@ -30,10 +29,17 @@ public interface IUserOrderDao {
 
 	public List<Order> Ordertra_statusList2(int user_guid, int tra_status);
 	
-	public int delOrder(Order order);
+	public int delOrder(int user_guid,Order order);
 
-	public List<Order> Otra_effective_statu(int user_guid, int tra_status, int effective_statu);
+	public List<Order> Otra_effective_statu(int user_guid, int tra_status,int effective_statu);
+	/**
+	 * 待收货待支付都用这个
+	 * @param user_guid
+	 * @param tra_status
+	 * @param appraise_status
+	 * @return
+	 */
+	public int Ordertra_statusCount(int user_guid, int tra_status,int appraise_status);
 
-	public int Ordertra_statusCount(int user_guid, int tra_status, int appraise_status);
 
 }

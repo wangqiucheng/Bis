@@ -29,6 +29,7 @@ import com.bisa.hkshop.wqc.service.IPackageService;
 
 
 @Controller
+@RequestMapping("/l")
 public class CartController {
 	@Autowired
 	private ICartService ICartService;
@@ -62,7 +63,7 @@ public class CartController {
 				//是否是单品还是套餐
 				if("1".equals(issingleorcombo)) {
 				Package pack=IPackageService.getpackages(packId);
-				Cart cart=ICartService.getCart(packId);
+				Cart cart=ICartService.getCart(user_guid,packId);
 					if(cart==null) {
 						cart=new Cart();//这里是空的，就set,肯定空异常
 						cart.setCart_number(GuidGenerator.generate());
@@ -78,18 +79,18 @@ public class CartController {
 						//插入更新时间
 						cart.setInsert_time(df.parse(df.format(date)));
 						cart.setUpdate_time(df.parse(df.format(date)));
-						ICartService.addCart(cart);
+						ICartService.addCart(user_guid,cart);
 					}else {
 						cart.setNumber(cart.getNumber()+1);
 						String i=String.valueOf(cart.getNumber());
 						cart.setTotal(Double.parseDouble(i)*cart.getPrice());
 						cart.setUpdate_time(df.parse(df.format(date)));
-						ICartService.updateCart(cart);
+						ICartService.updateCart(user_guid,cart);
 					}
 				}
 				if("1".equals(serviceId) || "0".equals(issingleorcombo)) {
-					Cart cart2=ICartService.getCart(packId);
-					Cart cart3=ICartService.getCart(service_number);
+					Cart cart2=ICartService.getCart(user_guid,packId);
+					Cart cart3=ICartService.getCart(user_guid,service_number);
 					if(cart2==null) {
 						cart2=new Cart();
 					 Commodity commodity=iCommodityService.getcommodity(packId);
@@ -105,7 +106,7 @@ public class CartController {
 						cart2.setUpdate_time(df.parse(df.format(date)));
 						cart2.setTotal(1.0*cart2.getPrice());
 						cart2.setSing_cox("0");
-						ICartService.addCart(cart2);
+						ICartService.addCart(user_guid,cart2);
 						//判断服务
 						if(cart3==null) {
 							cart3=new Cart();
@@ -122,20 +123,20 @@ public class CartController {
 							cart3.setUpdate_time(df.parse(df.format(date)));
 							cart3.setTotal(1.0*cart3.getPrice());
 							cart3.setSing_cox("2");
-							ICartService.addCart(cart3);
+							ICartService.addCart(user_guid,cart3);
 						}else{
 							cart3.setNumber(cart3.getNumber()+1);
 							String i=String.valueOf(cart3.getNumber());
 							cart3.setTotal(Double.parseDouble(i)*cart3.getPrice());
 							cart3.setUpdate_time(df.parse(df.format(date)));
-							ICartService.updateCart(cart3);
+							ICartService.updateCart(user_guid,cart3);
 						}
 					}else {
 						cart2.setNumber(cart2.getNumber()+1);
 						String i=String.valueOf(cart2.getNumber());
 						cart2.setTotal(Double.parseDouble(i)*cart2.getPrice());
 						cart2.setUpdate_time(df.parse(df.format(date)));
-						ICartService.updateCart(cart2);
+						ICartService.updateCart(user_guid,cart2);
 						//判断服务
 						if(cart3==null) {
 							cart3=new Cart();
@@ -152,19 +153,19 @@ public class CartController {
 							cart3.setUpdate_time(df.parse(df.format(date)));
 							cart3.setTotal(1.0*cart3.getPrice());
 							cart3.setSing_cox("2");
-							ICartService.addCart(cart3);
+							ICartService.addCart(user_guid,cart3);
 						}else{
 							cart3.setNumber(cart3.getNumber()+1);
 							String w=String.valueOf(cart3.getNumber());
 							cart3.setTotal(Double.parseDouble(w)*cart3.getPrice());
 							cart3.setUpdate_time(df.parse(df.format(date)));
-							ICartService.updateCart(cart3);
+							ICartService.updateCart(user_guid,cart3);
 						
 						}
 					}
 				}
 			}else {
-				Cart cart3=ICartService.getCart(service_number);
+				Cart cart3=ICartService.getCart(user_guid,service_number);
 				if(cart3==null) {
 					cart3=new Cart();
 					Commodity commo=iCommodityService.getcommodity(service_number);
@@ -180,13 +181,13 @@ public class CartController {
 					cart3.setUpdate_time(df.parse(df.format(date)));
 					cart3.setTotal(1.0*cart3.getPrice());
 					cart3.setSing_cox("2");
-					ICartService.addCart(cart3);
+					ICartService.addCart(user_guid,cart3);
 				}else{
 					cart3.setNumber(cart3.getNumber()+1);
 					String w=String.valueOf(cart3.getNumber());
 					cart3.setTotal(Double.parseDouble(w)*cart3.getPrice());
 					cart3.setUpdate_time(df.parse(df.format(date)));
-					ICartService.updateCart(cart3);
+					ICartService.updateCart(user_guid,cart3);
 				
 				}
 			}
@@ -230,16 +231,24 @@ public class CartController {
 }
 	@RequestMapping(value = "/delCart", method = RequestMethod.POST)
 	@ResponseBody
-	public String delCart(HttpServletRequest request,Model model) throws Exception{
-		String deleteId=request.getParameter("deleteId");
-		int i=ICartService.delCart(deleteId);
-		String result=null;
-		if(i>0) {
-			result="success";
+	public String delCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
+		session.setAttribute("guid", "10");
+		String guid=(String) session.getAttribute("guid");
+		int user_guid=Integer.parseInt(guid);
+		if(user_guid!=10) {
+			System.out.println("请去登录");
+			return null;
 		}else {
-			result="false";
+			String deleteId=request.getParameter("deleteId");
+			int i=ICartService.delCart(user_guid,deleteId);
+			String result=null;
+			if(i>0) {
+				result="success";
+			}else {
+				result="false";
+			}
+			return result;
 		}
-		return result;
 	}
 	@RequestMapping(value = "/upCart", method = RequestMethod.POST)
 	@ResponseBody
@@ -254,9 +263,9 @@ public class CartController {
 		String num=request.getParameter("num");
 		String productId=request.getParameter("packId");
 		String result=null;
-		Cart product=ICartService.getCart(productId);
+		Cart product=ICartService.getCart(user_guid,productId);
 		product.setNumber(Integer.parseInt(num));
-		int i=ICartService.updateCart(product);
+		int i=ICartService.updateCart(user_guid,product);
 		if(i>0) {
 			result="success";
 		}

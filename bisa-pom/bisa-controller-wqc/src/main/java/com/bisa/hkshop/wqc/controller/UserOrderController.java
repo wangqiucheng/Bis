@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bisa.hkshop.wqc.service.IUserOrderDetailService;
 import com.bisa.hkshop.wqc.service.IUserOrderService;
+import com.bisa.health.entity.SystemContext;
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.model.OrderDetail;
-import com.bisa.hkshop.model.SystemContext;
+
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
 @Controller
@@ -49,7 +50,7 @@ public class UserOrderController {
 				List<OrderDetail> listordertails=new ArrayList<>(); //
 				for(Order o:orderList2) {
 					String oi=o.getOrder_no();
-					listordertails=IUserOrderDetailService.loadOrderDetailList(oi);
+					listordertails=IUserOrderDetailService.loadOrderDetailList(user_guid,oi);
 					map.put(oi, listordertails);		
 				}
 				model.addAttribute("listordertails", map);
@@ -102,7 +103,7 @@ public class UserOrderController {
 		List<OrderDetail> listordertails=new ArrayList<>(); //
 		for(Order o:orderList2) {
 			String oi=o.getOrder_no();
-			listordertails=IUserOrderDetailService.loadOrderDetailList(oi);
+			listordertails=IUserOrderDetailService.loadOrderDetailList(user_guid,oi);
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);
@@ -146,7 +147,7 @@ public class UserOrderController {
 		List<OrderDetail> listordertails=new ArrayList<>(); //
 		for(Order o:orderList2) {
 			String oi=o.getOrder_no();
-			listordertails=IUserOrderDetailService.loadOrderDetailList(oi);
+			listordertails=IUserOrderDetailService.loadOrderDetailList(user_guid,oi);
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);
@@ -191,7 +192,7 @@ public class UserOrderController {
 		List<OrderDetail> listordertails=new ArrayList<>(); 
 		for(Order o:orderList2) {
 			String oi=o.getOrder_no();
-			listordertails=IUserOrderDetailService.loadOrderDetailList(oi);
+			listordertails=IUserOrderDetailService.loadOrderDetailList(user_guid,oi);
 			map.put(oi, listordertails);		
 		}
 		model.addAttribute("listordertails", map);

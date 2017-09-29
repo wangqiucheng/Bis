@@ -23,6 +23,14 @@
 		<log4j.version>2.8.2</log4j.version>
 	</properties>
 	<dependencies>
+	
+		<dependency>
+			<groupId>com.bisa.health.routing</groupId>
+			<artifactId>health-routing</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 
 @Controller
+@RequestMapping("/l")
 public class IndexController {
 
 	@Autowired
@@ -18,8 +19,6 @@ public class IndexController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String requestReport(Model model){
-		/*List<Commodity> cm=	ICommodityService.getcommodity();
-		model.addAttribute("cm",cm);*/
 		return "index";
 	}
 }

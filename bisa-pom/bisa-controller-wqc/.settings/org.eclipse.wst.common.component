@@ -4,9 +4,22 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test"/>
+        <dependent-module archiveName="bisa-service-wqc-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bisa-service-wqc/bisa-service-wqc">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bisa-remoteservice-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bisa-remoteservice/bisa-remoteservice">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bisa-model-wqc-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bisa-model-wqc/bisa-model-wqc">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bisa-basic-wqc-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bisa-basic-wqc/bisa-basic-wqc">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bisa-hkshop-model-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bisa-hkshop-model/bisa-hkshop-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/com/bisa/sso/health-sso-server/0.0.2-SNAPSHOT/health-sso-server-0.0.2-SNAPSHOT.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=WEB-INF/classes/resources.properties;WEB-INF/classes/log4j2.xml">
             <dependency-type>consumes</dependency-type>
         </dependent-module>

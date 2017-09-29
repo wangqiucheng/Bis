@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bisa.health.routing.annotation.RoutingTab;
+import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.dao.ICommodityDao;
 
 @Service
+@RoutingTab(TableEnum.MASTER)
 public class CommodityServiceImpl implements ICommodityService{
 	@Autowired
 	private ICommodityDao iCommodityDao;

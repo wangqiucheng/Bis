@@ -9,20 +9,20 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IUserOrderDetailService {
 
-	public  List<OrderDetail>  loadOrderDetailList(String  order_no);
+	public  List<OrderDetail>  loadOrderDetailList(int user_guid,String  order_no);
 	
-	public  OrderDetail  loadOrderDetail (String  order_detail_guid);
+	public  OrderDetail  loadOrderDetail (int user_guid,String  order_detail_guid);
 	
-	public  int addOrderDetail (OrderDetail  orderDetail);
+	public  int addOrderDetail (int user_guid,OrderDetail  orderDetail);
 
-	public  int updateActive(OrderDetail  orderDetail);
+	public  int updateActive(int user_guid,OrderDetail  orderDetail);
 
-	public Pager<OrderDetail> loadOderPage(String order_no);
+	public Pager<OrderDetail> loadOderPage(int user_guid,String order_no);
 
 	public List<OrderDetail> pageuserdetails(int user_guid, int appraise_isnot);
 
 	public List<OrderDetail> getOrderDetail(int user_guid);
 	
-	public int delOdtail(OrderDetail  orderDetail);
+	public int delOdtail(int user_guid,OrderDetail  orderDetail);
 
 }

@@ -19,37 +19,37 @@ public class CartDaoImpl extends BaseDao<Cart> implements IcartDao{
 	}
 
 	@Override
-	public int addCart(Cart cart) {
+	public int addCart(int user_guid,Cart cart) {
 		// TODO Auto-generated method stub
 		String sql="insert into s_cart(id,cart_number,number,price,title,total,guid,"
 				+ "packId,main_picture,insert_time,update_time,sing_cox,user_guid) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		return super.addObjectBySql(sql, new Object[]{cart.getId(),cart.getCart_number(),cart.getNumber(),cart.getPrice(),cart.getTitle(),
 				cart.getTotal(),cart.getGuid(),cart.getPackId(),cart.getMain_picture(),cart.getInsert_time(),cart.getUpdate_time(),
-				cart.getSing_cox(),cart.getUser_guid()});
+				cart.getSing_cox(),user_guid});
 	}
 
 	@Override
-	public Cart getCart(String packId) {
+	public Cart getCart(int user_guid,String packId) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_cart where packId=?";
-		return super.queryObjectBySql(sql, new Object[]{packId}, Cart.class);
+		String sql="select * from s_cart where user_guid=? and packId=?";
+		return super.queryObjectBySql(sql, new Object[]{user_guid,packId}, Cart.class);
 	}
 
 	@Override
-	public int delCart(String deleteId) {
+	public int delCart(int user_guid,String deleteId) {
 		// TODO Auto-generated method stub
-		String sql="delete from s_cart where packId=?";
-		return super.delUpObjectBySql(sql, new Object[]{deleteId});
+		String sql="delete from s_cart where user_guid=? and packId=?";
+		return super.delUpObjectBySql(sql, new Object[]{user_guid,deleteId});
 	}
 
 	@Override
-	public int updateCart(Cart cart) {
+	public int updateCart(int user_guid,Cart cart) {
 		// TODO Auto-generated method stub
 		String sql="update s_cart c set c.cart_number=?,c.number=?,c.price=?,c.title=?,c.total=?,c.guid=?,"
-				+ "c.packId=?,c.main_picture=?,c.insert_time=?,c.update_time=?,c.sing_cox=?,c.user_guid=? where c.cart_number=?";
+				+ "c.packId=?,c.main_picture=?,c.insert_time=?,c.update_time=?,c.sing_cox=?,c.user_guid=? where c.user_guid=? and c.cart_number=?";
 		return super.delUpObjectBySql(sql, new Object[]{cart.getCart_number(),cart.getNumber(),cart.getPrice(),cart.getTitle(),
 				cart.getTotal(),cart.getGuid(),cart.getPackId(),cart.getMain_picture(),cart.getInsert_time(),cart.getUpdate_time(),
-				cart.getSing_cox(),cart.getUser_guid(),cart.getCart_number()});
+				cart.getSing_cox(),cart.getUser_guid(),user_guid,cart.getCart_number()});
 	}
 
 	@Override

@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bisa.health.routing.annotation.RoutingTab;
+import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.wqc.dao.IPackageDao;
 
 
 @Service
+@RoutingTab(TableEnum.MASTER)
 public class PackageServiceImpl implements IPackageService {
 
 	@Autowired

@@ -1,5 +1,5 @@
 <%@ page language="java"  pageEncoding="UTF-8"%>
-<%@page import="com.bisa.hkshop.model.SystemContext"%>
+<%@page import="com.bisa.health.entity.SystemContextxt"%>
 <%@ include file="../comm/tag.jsp" %>
 
 <% String menuType = "sys3"; %>
@@ -33,7 +33,7 @@
     <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 flo-menuv2 z-999">
         <div class="container pt-10 pb-10 clear line-h-30 plr-0-10-ipad">
             <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
-            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20" onclick="document.location='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=1001';">
+            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20" onclick="document.location='<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=1001';">
                 	立即购买
             </button>
         </div>
@@ -41,7 +41,7 @@
     <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 affix t-0 l-0 bg-white z-999 dis-n flo-menuv2-aff">
         <div class="container pt-10 pb-10 clear line-h-30 plr-0-10-ipad">
             <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
-            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20" onclick="document.location='<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=1001';">
+            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20" onclick="document.location='<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=1001';">
                 立即购买
             </button>
         </div>

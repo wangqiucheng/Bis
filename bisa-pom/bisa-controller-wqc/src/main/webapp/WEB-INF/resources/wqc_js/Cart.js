@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var service_number=cardelvalid;
 		var cart_product=1;
 		$.ajax({
-			url : path + "addCart",
+			url : path + "/l/addCart",
 			type : "post",
 			dataType : "text",
 			async : false,
@@ -17,7 +17,7 @@ $(document).ready(function() {
 				"cart_product":cart_product,
 			},
 			success : function(success) {
-				window.location.href=path+"Cart";	
+				window.location.href=path+"/l/Cart";	
 			},error:function(){
 			}
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		$(".del-product").click(function() {
 			var deleteId=$("input[name='deleteId']").val();	
 			$.ajax({
-				url : path + "delCart",
+				url : path + "/l/delCart",
 				type : "post",
 				dataType : "text",
 				async : false,
@@ -37,7 +37,7 @@ $(document).ready(function() {
 				},
 				success : function(result) {
 					if(result=="success"){
-						window.location.href=path+"Cart";
+						window.location.href=path+"/l/Cart";
 					}	
 					
 				},error:function(){
