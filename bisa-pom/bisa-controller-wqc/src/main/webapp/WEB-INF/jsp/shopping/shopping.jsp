@@ -1,5 +1,5 @@
 <%@ page language="java"  pageEncoding="UTF-8"%>
-<%@page import="com.bisa.health.entity.SystemContextxt"%>
+<%@ page import="com.bisa.health.entity.SystemContext"%>
 <%@ include file="../comm/tag.jsp" %>
 
 <% String menuType = "sys3"; %>

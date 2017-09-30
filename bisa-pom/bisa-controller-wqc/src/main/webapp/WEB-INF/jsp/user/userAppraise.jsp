@@ -1,5 +1,5 @@
 <%@ page language="java"  pageEncoding="UTF-8"%>
-<%@page import="com.bisa.hkshop.model.SystemContext"%>
+<%@ page import="com.bisa.health.entity.SystemContext" %>
 <%@ include file="../comm/tag.jsp" %>
 
 <!DOCTYPE html>

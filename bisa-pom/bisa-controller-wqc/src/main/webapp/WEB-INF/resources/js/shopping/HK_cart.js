@@ -55,7 +55,7 @@ $(document).ready(function() {
         var num=t.val();
        // var userId = $("input[name='userId']").val();
     		$.ajax({
- 	        url: path + "upCart",
+ 	        url: path + "/l/upCart",
  	        type: "post",
  	        dataType: "text",
  	        async: false,
@@ -65,7 +65,7 @@ $(document).ready(function() {
  	            "num": num,
  	        },
  	        success: function(success) {
- 	            var i = "Cart";
+ 	            var i = "/l/Cart";
  	            window.location.href = path + i ;
  	        }
     		});
@@ -130,7 +130,7 @@ $(document).ready(function() {
        var num=t.val();
     //   var userId = $("input[name='userId']").val();
    		$.ajax({
-	        url: path + "upCart",
+	        url: path + "/l/upCart",
 	        type: "post",
 	        dataType: "text",
 	        async: false,
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	            "num": num,
 	        },
 	        success: function(success) {
-	            var i = "Cart";
+	            var i = "/l/Cart";
 	                  
 	            window.location.href = path + i;
 	        }

@@ -23,6 +23,7 @@ import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
 @Controller
+@RequestMapping("/l")
 public class UserOrderController {
 
 	@Autowired

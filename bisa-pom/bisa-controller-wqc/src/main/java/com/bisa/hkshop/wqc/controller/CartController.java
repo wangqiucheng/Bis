@@ -264,11 +264,13 @@ public class CartController {
 		String productId=request.getParameter("packId");
 		String result=null;
 		Cart product=ICartService.getCart(user_guid,productId);
-		product.setNumber(Integer.parseInt(num));
-		int i=ICartService.updateCart(user_guid,product);
-		if(i>0) {
-			result="success";
-		}
+			product.setNumber(Integer.parseInt(num));
+			int i=ICartService.updateCart(user_guid,product);
+			if(i>0) {
+				result="success";
+			}else {
+				result="error";
+			}
 		return result;
 		}
 	}

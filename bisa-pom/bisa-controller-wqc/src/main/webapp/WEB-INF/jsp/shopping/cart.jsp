@@ -264,7 +264,7 @@
                         <span class="col-309DE2 ">元</span>
                     </div>
                     <div class="clear col-sm-3 pl-0 pr-0 line-h-60 h-60">
-                        <form action="<%=request.getContextPath()%>/order/orderIndex" method="get">
+                        <form action="<%=request.getContextPath()%>/l/orderIndex" method="get">
                             <input class="HK-cartsubmitinput" type="hidden" name="data" value="">
                             
                             <button class="bor-none full-wh bg-309DE2 col-white f-24 text-center pos-r t--2 hovbg-38B3FF HK-cartsubmit" type="submit">

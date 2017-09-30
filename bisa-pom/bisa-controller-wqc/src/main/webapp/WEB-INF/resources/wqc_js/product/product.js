@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var path=$("base").attr("href");
     $(".add_shopcar").click(function() {
         var path = "";
     	path = $("base").attr("href");
