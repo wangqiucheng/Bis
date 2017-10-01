@@ -1,6 +1,7 @@
 package com.bisa.hkshop.wqc.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,15 +15,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.model.Address;
+import com.bisa.hkshop.model.Cart;
+import com.bisa.hkshop.model.Commodity;
+import com.bisa.hkshop.model.Order;
+import com.bisa.hkshop.model.OrderDetail;
+import com.bisa.hkshop.model.Trade;
 import com.bisa.hkshop.wqc.basic.model.OrderDetailDto;
+import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
 import com.bisa.hkshop.wqc.service.IAddressService;
+import com.bisa.hkshop.wqc.service.ICartService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IOrderDetailService;
 import com.bisa.hkshop.wqc.service.IOrderService;
 import com.bisa.hkshop.wqc.service.IPackageService;
-
+import com.bisa.hkshop.wqc.service.ITradeService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -39,8 +47,8 @@ public class OrderController {
 	@Autowired
 	private IOrderDetailService orderDetailService;
 	
-/*	@Autowired
-	private ITradeService tradeService;*/
+	@Autowired
+	private ITradeService tradeService;
 	
 	@Autowired
 	private IPackageService packageService;
@@ -48,8 +56,8 @@ public class OrderController {
 	@Autowired
 	private ICommodityService commodityService;
 	
-/*	@Autowired
-	private IShopCarService shopCartService;*/
+	@Autowired
+	private ICartService shopCartService;
 	
 	
 	/*
@@ -103,7 +111,7 @@ public class OrderController {
 		return "order/hk_order";
 		
 	}
-	/*
+	
 	//从购物车过来结算
 	@RequestMapping(value="/commitOrder",method=RequestMethod.POST)
 	public String commitOrder(HttpServletRequest request,Model model,HttpSession session){
@@ -113,17 +121,17 @@ public class OrderController {
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
-		try{
+		//try{
 			String str = request.getParameter("productList");
-			System.out.println(">>>>>>>>>orderstr"+str);
 			String addr_num = request.getParameter("addr_num");
 			if(str==null || str.equals("") || addr_num==null || addr_num.equals("")){
 				model.addAttribute("messege","地址不正确");
 				return "500";
 			}
 			
+			int user_guid=2;
 			//查出收货地址
-			 address = addressService.loadAddressByAddressNum(2,addr_num);
+			 address = addressService.loadAddressByAddressNum(user_guid,addr_num);
 			
 			//将封装好的数据转成map
 			Map<String,List<OrderDetailDto>> map = new Gson().fromJson(str, new TypeToken<HashMap<String,List<OrderDetailDto>>>(){}.getType());
@@ -142,20 +150,24 @@ public class OrderController {
 				//order = orderService.addCarOrder(orderDetailList,addr_num, 2);
 				
 				String orderGuid = GuidGenerator.generate();
-				
+				//把dto的每个记录都去购物车表里找，一个一个添加到list
+				List<Cart> car =new ArrayList<Cart>();
 				String num = "";
 				for(int i=0;i<orderDetailList.size();i++){
 					if(i==0){
 						num =  num + orderDetailList.get(i).getCartid();
+						Cart cart=shopCartService.getCart(user_guid, num);
+						car.add(cart);
 					}else{
-						num = num + orderDetailList.get(i).getCartid();
+						num = orderDetailList.get(i).getCartid();
+						Cart cart=shopCartService.getCart(user_guid, num);
+						car.add(cart);
 					}
 				}
-				System.out.println(">>>>>>>>>>>:num:" + num);
-				//查出购物车中的要买的东西
-				List<Cart> car = shopCartService.loadCarList(num);
+			//查出购物车中的要买的东西
 				
-				
+				//List<Cart> car = shopCartService.loadCarList(user_guid,num);
+								
 				double price = 0;
 				//处理订单信息，添加订单中的具体的商品细节，并且删除购物车中的物品
 				for(Cart orderCar : car){
@@ -171,9 +183,14 @@ public class OrderController {
 					orderDetail.setCount(orderCar.getNumber());
 					orderDetail.setStart_time(date);
 					orderDetail.setPrice(orderCar.getPrice());
-					orderDetailService.addOrderDetail(orderDetail);
+					boolean orderdetail_not=orderDetailService.addOrderDetail(orderDetail);
 					//删除购物车中的当前商品
-					shopCartService.deteleCar(orderCar.getPackId());			
+					int is_not=shopCartService.delCart(user_guid,orderCar.getPackId());	
+					if(is_not>0) {
+						System.out.println("删除购物车商品成功:哪个用户："+orderCar.getUser_guid()+"商品编号："+orderCar.getCart_number());
+					}else {
+						System.out.println("删除购物车商品失败:哪个用户："+orderCar.getUser_guid()+"商品编号："+orderCar.getCart_number());
+					}
 				}
 				
 				Order orderN = new Order();
@@ -186,11 +203,11 @@ public class OrderController {
 				}else{
 					orderN.setPrice(price+"");
 				}
-				orderN.setUser_guid(2);
+				orderN.setUser_guid(user_guid);
 				orderN.setTra_status(10);//未付款
 				orderN.setStart_time(date);
 				orderN.setEffective_statu(1);
-				orderService.addOrder(orderN);
+				orderService.addOrder(user_guid,orderN);
 				order = orderN;
 				
 			}else{
@@ -239,19 +256,18 @@ public class OrderController {
 							orderDetailService.addOrderDetail(orderDetail);
 						}
 					}
+					
 					Order orderN = new Order();
-					orderN.setId(1);
+					//orderN.setId(1);
 					orderN.setOrder_no(orderGuid);
 					orderN.setAddr_num(addr_num);
-					orderN.setPrice(price + "");
-					orderN.setUser_guid(2);
+					//orderN.setPrice(price + "");
+					orderN.setUser_guid(user_guid);
 					orderN.setTra_status(10);//未付款
 					orderN.setStart_time(date);
 					orderN.setEffective_statu(1);
-					orderService.addOrder(orderN);
-					order = orderN;
-					
-					
+					orderService.addOrder(user_guid,orderN);
+					order = orderN;		
 				}else{
 					return "500";
 				}
@@ -265,16 +281,16 @@ public class OrderController {
 			trade.setStart_time(date);
 			trade.setTrade_no(trade_no);
 			//拿出用户的唯一uuid
-			trade.setUser_guid(2);
+			trade.setUser_guid(user_guid);
 			//添加交易记录的表
 			tradeService.addTrade(trade);
 			//将交易信息存到session中
 			session.setAttribute("tradeNo",trade_no);
 			
-		}catch(Exception e){
+		/*}catch(Exception e){
 			model.addAttribute("messege","订单信息出错");
 			return "500";
-		}
+		}*/
 			
 		model.addAttribute("price",order.getPrice());
 		model.addAttribute("orderId",order.getOrder_no());
@@ -362,13 +378,15 @@ public class OrderController {
 		@RequestMapping(value="/order_close",method=RequestMethod.GET)
 		public String order_close(HttpServletRequest request,Model model,HttpSession session){
 			String order_no = request.getParameter("order_no");
+			session.setAttribute("user_guid", 2);
+			int user_guid=(int) session.getAttribute("user_guid");
 			Order order = orderService.loadOrderByOrderId(2,order_no);
 			order.setEffective_statu(2);//关闭订单，改变状态
 			order.setTrade_fail_cause("客户自己取消订单");
 			order.setTra_status(50);
-			orderService.updateOrder(order);
+			orderService.updateOrder(user_guid,order);
 			
 			return "order/success";
 		}
-	*/
+	
 }

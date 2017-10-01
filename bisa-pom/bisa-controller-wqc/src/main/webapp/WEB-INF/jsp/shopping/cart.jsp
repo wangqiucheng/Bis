@@ -63,6 +63,7 @@
                     <!-- 套餐外循环 -->
                     <c:forEach var="listcart" items="${listcart }">
                         <c:if test="${listcart.sing_cox=='1' }">
+                        
                             <div class="clear full-w bg-white mt-4 mb-4">
                                 <div class="clear full-w pl-0 pr-0 mb-10 car-kinds is-checkbox">
                                     <div class="clear col-md-2 col-sm-1 pl-0 pr-0 pt-10 pb-10 line-h-30">

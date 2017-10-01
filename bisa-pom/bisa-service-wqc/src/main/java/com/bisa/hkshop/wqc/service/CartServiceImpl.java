@@ -39,7 +39,6 @@ public class CartServiceImpl implements ICartService{
 	public Cart getCart(@DataGuid("user_guid") int user_guid,String packId) {
 		// TODO Auto-generated method stub
 		 Cart cart=ICartDao.getCart(user_guid,packId);
-
 		return cart;
 	}
 
@@ -65,9 +64,26 @@ public class CartServiceImpl implements ICartService{
 
 
 	@Override
-	public int selCartNum(int user_guid) {
+	@DataRouting("user_guid")
+	public int selCartNum(@DataGuid("user_guid") int user_guid) {
 		// TODO Auto-generated method stub
 		return ICartDao.selCartNum(user_guid);
+	}
+
+
+	@Override
+	@DataRouting("user_guid")
+	public List<Cart> loadCarList(@DataGuid("user_guid") int user_guid, String carNum) {
+		// TODO Auto-generated method stub
+		return ICartDao.loadCarList(user_guid, carNum);
+	}
+
+
+	@Override
+	@DataRouting("user_guid")
+	public Boolean deteleCar(@DataGuid("user_guid") int user_guid, String carNum) {
+		// TODO Auto-generated method stub
+		return ICartDao.deteleCar(user_guid, carNum);
 	}
 
 }

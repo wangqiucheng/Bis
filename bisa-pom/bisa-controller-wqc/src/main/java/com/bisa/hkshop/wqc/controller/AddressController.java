@@ -86,7 +86,7 @@ public class AddressController {
 		address.setTel(jsonObj.getString("tel"));
 		address.setEmail(jsonObj.getString("email"));
 		address.setGuid(jsonObj.getString("guid"));
-		address.setAddr_num(jsonObj.getString("shaddrnum"));
+		address.setAddr_num(jsonObj.getString("addr_num"));
 		if(address == null){
 			model.addAttribute("messege","请填写收货信息");
 			return "500";
@@ -106,6 +106,7 @@ public class AddressController {
 			addre.setAct_time(date);
 			addre.setEmail("1347@");
 			addre.setIs_default(0);
+			addre.setGuid(address.getGuid());
 			System.out.println("????update_is_default:"+ addre.getIs_default());
 			bool = addressService.updateAddress(user_guid,addre);
 		}

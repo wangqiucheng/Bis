@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="../comm/tag.jsp" %>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +26,7 @@
     <![endif]-->
 </head>
 <body>
-  <jsp:include page="/jsp/head.jsp"></jsp:include>
+  	<%@ include file="../comm/header.jsp" %> 
     <div class="wrap">
         <div class="container pl-0 pr-0">
             <div class="clear">
@@ -131,7 +132,7 @@
         
         
     </div>
-    <jsp:include page="/jsp/foot.jsp"></jsp:include>
+    <%@ include file="../comm/footer.jsp" %> 
     
     <script src="<%=request.getContextPath() %>/resources/js/comm/jquery.min.js"></script>
     <script src="<%=request.getContextPath() %>/resources/ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

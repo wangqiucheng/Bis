@@ -44,13 +44,13 @@ public class AddressServiceImpl implements IAddressService{
 	
 	@Override
 	@DataRouting("user_guid")
-	public Boolean updateAddress(@DataGuid("user_guid")int user_guid, Address address) {
+	public Boolean updateAddress(@DataGuid("user_guid") int user_guid, Address address) {
 		return addressDao.updateAddress(user_guid,address);
 	}
 
 	@Override
 	@DataRouting("user_guid")
-	public Boolean addAddress(@DataGuid("user_guid")int user_guid,Address address) {
+	public Boolean addAddress(@DataGuid("user_guid") int user_guid,Address address) {
 		return addressDao.addAddress(user_guid,address);
 	}
 

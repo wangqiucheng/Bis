@@ -61,22 +61,20 @@ $(document).ready(function(){
 		}
 		
 		$("#updateAddresspost").click(function(){
-			//var i=$(this).find("#shaddr_num").val();
-			//console.log(i);
+			
 			var str={"name":$("#shname").val(),"address":$("#shaddress").val(),"tel":$("#shphone").val(),"email":$("#shemail").val(),"guid":$("#shguid").val(),"addr_num":$("#shaddrnum").val()};
 	    	 var i=JSON.stringify(str);	
 	    	 $.ajax({
-	 			url : path + "/l/updateAddress",
+	 			url : path + "l/updateAddress",
 	 			type : "post",
 	 			dataType : "json",
 	 			async : false,
 	 			data : {
 	 				"str":i,
-	 				"sss":1,
 	 			},
 	 			success : function(str) {
 	 				console.log(str);
-	 			   $(".show-add-shippingaddress").fadeOut();
+	 			   $(".show-revise-shippingaddress").fadeOut();
 	               document.documentElement.style.overflow = "scroll";
 	 				 html_str=pinjie(str);
 	 				$(".conanorder-main").prepend(html_str);
@@ -86,6 +84,11 @@ $(document).ready(function(){
 	 		});
 	    	
 		});	
-		
+		$(".conanorder-tips-alter").click(function() {
+			var addr_number = $(this).parent().siblings().find(".conanorder-tips-addr_number").val();
+			$("#shaddrnum").val(addr_number);
+			//var i=$("#shaddrnum").val();
+			 //console.log(i);
+			});
 	});
 	

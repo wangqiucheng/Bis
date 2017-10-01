@@ -20,4 +20,8 @@ public interface ICartService {
 	public int updateCart(int user_guid,Cart cart);
 	
 	public int selCartNum(int user_guid);
+	
+	public List<Cart> loadCarList(int user_guid,String carNum);
+	
+	public Boolean deteleCar(int user_guid,String carNum);
 }

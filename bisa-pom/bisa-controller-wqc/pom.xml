@@ -27,7 +27,7 @@
   	<dependency>
 		  <groupId>com.bisa.sso</groupId>
 		  <artifactId>health-sso-server</artifactId>
-		  <version>0.0.2-SNAPSHOT</version>
+		  <version>0.0.3-SNAPSHOT</version>
 		  <type>war</type>
 		  <scope>runtime</scope>
 		</dependency>

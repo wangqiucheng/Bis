@@ -126,7 +126,7 @@
                 <c:forEach items="${productList.records }" var="list">
                     <div class="clear full-w pt-10 pb-10">
                         <div class="clear col-sm-7 line-h-30 h-30 pl-0 pr-0">
-                            <img class="img-30" src="<%=request.getContextPath() %>/resoures/img/net_shopping/producttipsv1.png" alt="">
+                            <img class="img-30" src="${list.cartimg}" alt="">
                             <span class="f-14 family-h col-252525">${list.cartdir }</span>
                         </div>
                         <div class="clear col-sm-5  pl-0 pr-0">
@@ -217,31 +217,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="clear mt-5 bg-white pd-20">
-                    <div class="col-sm-9 clear pl-10 pr-10 cur-d conanorder-tips-showmsg">
-                        <p class="f-16 family-h line-h-20">
-                            <span class="col-252525 conanorder-tips-showmsg-name">
-                                
-                            </span>
-                            <span class="col-252525 pl-10 conanorder-tips-showmsg-phone">
-                                
-                            </span>
-                        </p>
-                        <p class="f-16 family-h line-h-20">
-                            <span class="col-252525 conanorder-tips-showmsg-address">
-                                
-                            </span>
-                            <span class="f-14 col-309DE2 hovecol-309DE2 t-nonehove main-order-tips-alter">修改</span>
-                        </p>
-                        <input type="hidden" class="conanorder-tips-showmsg-emal" value="987654321@qq.com">
-                        <input type="hidden" class="conanorder-tips-showmsg-about" value="1234">
-                    </div>
-                    <div class="col-sm-3 clear pl-0 pr-0">
-                        <button class="full-w h-40 line-h-40 col-white f-14 family-h text-center bor-none bg-309DE2 hovbg-2D90CF">
-                            立即下单
-                        </button>
-                    </div>
-                </div>
+                    <form action="<%=request.getContextPath() %>/l/commitOrder" method="post">
+                            <div class="clear mt-5 bg-white pd-20">
+                                <div class="col-sm-9 clear pl-10 pr-10 cur-d conanorder-tips-showmsg">
+                                    <p class="f-16 family-h line-h-20">
+                                    	<input type="hidden" class="conanorder-tips-addr_number" id="addr_num" name="addr_num">
+                                        <span class="col-252525 conanorder-tips-showmsg-name">
+                                            
+                                        </span>
+                                        <span class="col-252525 pl-10 conanorder-tips-showmsg-phone">
+                                            
+                                        </span>
+                                    </p>
+                                    <p class="f-16 family-h line-h-20">
+                                        <span class="col-252525 conanorder-tips-showmsg-address">
+                                            
+                                        </span>
+                                        <span class="f-14 col-309DE2 hovecol-309DE2 t-nonehove main-order-tips-alter">修改</span>
+                                    </p>
+                                    <input type="hidden" class="conanorder-tips-showmsg-emal" value="987654321@qq.com">
+                                    <input type="hidden" class="conanorder-tips-showmsg-about" value="1234">
+                                    <input type="hidden" name="productList" value='${productStr}'>
+                                </div>
+                                <div class="col-sm-3 clear pl-0 pr-0">
+                                    <button class="full-w h-40 line-h-40 col-white f-14 family-h text-center bor-none bg-309DE2 hovbg-2D90CF">
+                                        立即下单
+                                    </button>
+                                </div>
+                            </div>
+                    </form>
             </div>
         </div>
         <!-- 弹出层 -->
@@ -299,8 +303,9 @@
                     </div>
                     <form class="clear pos-r shippingaddress-revise" action="">
                         <div class="clear pd-40">
+                        	<input type="hidden" class="show-input-shipping-value inshaddrnum" value="" id="shaddrnum">
                             <div class="col-xs-6 text-center pl-0 pr-10 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="" id="shaddrnum">
+                                
                                 <input type="hidden" class="show-input-shipping-value" value="请输入修改后的收货人姓名">
                                 <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrename" type="text" name="shname" id="shname">
                                 <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">姓名</div>

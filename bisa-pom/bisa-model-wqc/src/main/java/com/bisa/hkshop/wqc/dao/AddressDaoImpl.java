@@ -42,9 +42,8 @@ public class AddressDaoImpl extends BaseDao<Address> implements IAddressDao{
 	
 	@Override
 	public Address loadAddressByAddressNum(int user_guid,String addr_num) {
-		Address address = null;
-			String sql = "select * from s_address where user_guid=?,addr_num=?";
-			address = this.queryObjectBySql(sql, new Object[]{user_guid,addr_num},Address.class);
+		String sql = "select * from s_address where user_guid=? and addr_num=?";
+		Address	address = this.queryObjectBySql(sql, new Object[]{user_guid,addr_num},Address.class);
 		return address;
 	}
 
@@ -52,16 +51,15 @@ public class AddressDaoImpl extends BaseDao<Address> implements IAddressDao{
 	public Boolean updateAddress(int user_guid,Address address) {
 		
 		try{
-			String sql = "update Address s_address set s_address.act_time=?,"
+			String sql = "update s_address set s_address.act_time=?,"
 					+ "s_address.address=?,s_address.city=?,s_address.county=?,s_address.email=?,"
 					+ "s_address.name=?,s_address.postcode=?,s_address.province=?,s_address.is_default=?,"
-					+ "s_address.tel=?,s_address.guid=? where s_address.user_guid=? and s_address.addr_num=?";
-			this.updateByHql(sql, new Object[]{address.getAct_time(),address.getAddress(),address.getCity()
-					,address.getCounty(),address.getEmail(),address.getName(),
-					address.getPostcode(),address.getProvince(),
-					address.getIs_default(),address.getTel(),
-					address.getUser_guid(),address.getGuid(),
-					user_guid,address.getAddr_num()});
+					+ "s_address.tel=?,s_address.guid=?,s_address.user_guid=? where s_address.user_guid=? and s_address.addr_num=?";
+			this.delUpObjectBySql(sql, new Object[]{address.getAct_time(),address.getAddress(),address.getCity(),address.getCounty(),address.getEmail(),address.getName(),
+								address.getPostcode(),address.getProvince(),
+								address.getIs_default(),address.getTel(),
+								address.getGuid(),address.getUser_guid(),
+								user_guid,address.getAddr_num()});
 		}catch(Exception e){
 			return false;
 		}

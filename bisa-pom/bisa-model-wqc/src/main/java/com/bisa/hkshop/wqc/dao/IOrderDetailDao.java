@@ -10,7 +10,7 @@ public interface IOrderDetailDao {
 	
 	public  OrderDetail  loadOrderDetail (int user_guid,String  order_detail_guid);
 	
-	public  Boolean  addOrderDetail (int  user_guid,OrderDetail  orderDetail);
+	public  Boolean  addOrderDetail (OrderDetail  orderDetail);
 
 	public  Boolean  updateActive(int  user_guid,OrderDetail  orderDetail);
 }

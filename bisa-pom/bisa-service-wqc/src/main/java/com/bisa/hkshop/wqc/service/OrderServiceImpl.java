@@ -36,11 +36,13 @@ public class OrderServiceImpl implements IOrderService{
 	}
 	
 	@Override
+	@DataRouting("user_guid")
 	public Boolean addOrder(@DataGuid("user_guid")int user_guid,Order order) {
 		return orderDao.addOrder(user_guid,order);
 	}
 	
 	@Override
+	@DataRouting("user_guid")
 	public Boolean updateOrder(@DataGuid("user_guid")int user_guid,Order order) {
 		return orderDao.updateOrder(user_guid,order);
 	}

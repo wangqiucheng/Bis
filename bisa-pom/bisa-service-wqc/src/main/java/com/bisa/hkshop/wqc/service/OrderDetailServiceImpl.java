@@ -34,8 +34,8 @@ public class OrderDetailServiceImpl implements IOrderDetailService{
 
 	@Override
 	@DataRouting("user_guid")
-	public Boolean addOrderDetail(@DataGuid("user_guid") int user_guid,OrderDetail orderDetail) {
-		return orderDetailDao.addOrderDetail(user_guid,orderDetail);
+	public Boolean addOrderDetail(@DataGuid("user_guid") OrderDetail orderDetail) {
+		return orderDetailDao.addOrderDetail(orderDetail);
 	}
 
 	@Override

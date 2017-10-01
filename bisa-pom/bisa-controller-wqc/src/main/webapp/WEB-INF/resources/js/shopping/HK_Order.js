@@ -174,11 +174,13 @@ $(document).ready(function() {
         var cfirstaddress = $(".conanorder-tips-address:eq(0)").text();
         var cfirstemal = $(".conanorder-tips-emal:eq(0)").val();
         var cfirstabout = $(".conanorder-tips-about:eq(0)").val();
+        var cfirstaddnum = $(".conanorder-tips-addr_number:eq(0)").val();
         $(".conanorder-tips-showmsg-name").text(cfirstname);
         $(".conanorder-tips-showmsg-phone").text(cfirstphone);
         $(".conanorder-tips-showmsg-address").text(cfirstaddress);
         $(".conanorder-tips-showmsg-emal").val(cfirstemal);
         $(".conanorder-tips-showmsg-about").val(cfirstabout);
+        $(".conanorder-tips-addr_number").val(cfirstaddnum);
     } else {
         $(".conanorder-tips-showmsg-name").text("请添加收货地址！");
     }
@@ -191,6 +193,9 @@ $(document).ready(function() {
         var caddress = $(this).find(".conanorder-tips-address").text();
         var cemal = $(this).find(".conanorder-tips-emal").val();
         var cabout = $(this).find(".conanorder-tips-about").val();
+        //这里添加address编号
+       // var addr_number = $(this).parent().siblings().find(".conanorder-tips-addr_number").val();
+		//$("#shaddrnum").val(addr_number);
         $(".conanorder-tips-showmsg-name").text(cname);
         $(".conanorder-tips-showmsg-phone").text(cphone);
         $(".conanorder-tips-showmsg-address").text(caddress);
@@ -264,6 +269,9 @@ $(document).ready(function() {
         $(".inreaddress").val(caddress);
         $(".inreemail").val(cemal);
         $(".inreabout").val(cabout);
+        //添加address编号
+        var addr_number = $(this).parent().siblings().find(".conanorder-tips-addr_number").val();
+		$("#shaddrnum").val(addr_number);
         $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
         document.documentElement.style.overflow = "hidden";
     });
@@ -287,6 +295,8 @@ $(document).ready(function() {
         $(".inreaddress").val(caddress);
         $(".inreemail").val(cemal);
         $(".inreabout").val(cabout);
+      //添加address编号
+        //$("#addr_num").val($("#shaddrnum").val());
         $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
         document.documentElement.style.overflow = "hidden";
     });

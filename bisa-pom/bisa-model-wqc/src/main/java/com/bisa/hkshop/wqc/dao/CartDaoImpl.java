@@ -58,6 +58,34 @@ public class CartDaoImpl extends BaseDao<Cart> implements IcartDao{
 		String sql="select count(*) from s_cart where user_guid=?";
 		return (int) super.queryTotal(sql, new Object[]{user_guid});
 	}
+
+	@Override
+	public List<Cart> loadCarList(int user_guid,String carNum) {
+		List<Cart> car;
+		try{
+			String sql = "select * from s_cart where user_guid=? and packId IN(?)";
+			car = super.queryListBySql(sql, new Object[]{user_guid,carNum}, Cart.class);
+		}catch(Exception e){
+			return null;
+		}
+		return car;
+	}
+
+	@Override
+	public Boolean deteleCar(int user_guid,String carNum) {
+		Boolean b = false;
+		try{
+			
+			String sql = "delete from s_cart where user_guid=? and packId=?";
+			 int a = super.delUpObjectBySql(sql, new Object[]{user_guid,carNum});
+			 if(a>0){
+				 b = true;
+			 }
+			 return b;
+		}catch(Exception e){
+			return false;
+		}
+	}
 	
 
 }

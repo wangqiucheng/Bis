@@ -34,16 +34,16 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 
 	@Override
 	@DataRouting("user_guid")
-	public int addOrderDetail(@DataGuid("user_guid") int user_guid,OrderDetail orderDetail) {
+	public int addOrderDetail(@DataGuid("user_guid") OrderDetail orderDetail) {
 		// TODO Auto-generated method stub
-		return IUserOrderDetailDao.addOrderDetail(user_guid,orderDetail);
+		return IUserOrderDetailDao.addOrderDetail(orderDetail);
 	}
 
 	@Override
 	@DataRouting("user_guid")
-	public int updateActive(@DataGuid("user_guid") int user_guid,OrderDetail orderDetail) {
+	public int updateActive(@DataGuid("user_guid")OrderDetail orderDetail) {
 		// TODO Auto-generated method stub
-		return IUserOrderDetailDao.updateActive(user_guid,orderDetail);
+		return IUserOrderDetailDao.updateActive(orderDetail);
 	}
 
 	@Override
