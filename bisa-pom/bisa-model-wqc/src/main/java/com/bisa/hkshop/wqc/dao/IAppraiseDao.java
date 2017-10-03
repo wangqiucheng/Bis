@@ -8,13 +8,13 @@ public interface IAppraiseDao {
 
 	public int addAppraise(Appraise appraise);
 
-	public Appraise loadAppraise(String order_detail_guid);
+	public Appraise loadAppraise(int product_guid,String order_detail_guid);
 	
 	public int upAppraise(Appraise appraise);
 	
 	public int delAppraise(Appraise appraise);
 
-	public List<Appraise> loadAppraiseList(String productId);
+	public List<Appraise> loadAppraiseList(int product_guid);
 	
 
 }

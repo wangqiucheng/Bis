@@ -235,7 +235,7 @@
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="userOrder"/>
+                                <jsp:param name="url" value="/l/userOrder"/>
                                 <jsp:param name="items" value="${orderList.total}"/>
                             </jsp:include>
                         </div>
@@ -304,7 +304,7 @@
                         <div class="clear text-center col-333 f-14">
                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="userOrder1"/>
+                                <jsp:param name="url" value="/l/userOrder1"/>
                                 <jsp:param name="items" value="${orderList5.total}"/>
                             </jsp:include>
                         </div>
@@ -368,7 +368,7 @@
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="userOrder2"/>
+                                <jsp:param name="url" value="/l/userOrder2"/>
                                 <jsp:param name="items" value="${orderList3.total}"/>
                             </jsp:include>
                         </div>
@@ -433,7 +433,7 @@
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="userOrder3"/>
+                                <jsp:param name="url" value="/l/userOrder3"/>
                                 <jsp:param name="items" value="${orderList4.total}"/>
                             </jsp:include>
                         </div>

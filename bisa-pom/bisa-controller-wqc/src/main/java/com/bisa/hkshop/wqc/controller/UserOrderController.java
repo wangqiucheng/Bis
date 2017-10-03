@@ -33,10 +33,10 @@ public class UserOrderController {
 	
 	@RequestMapping(value = "/userOrder", method = RequestMethod.GET)
 	public String userOrder(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -83,10 +83,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder1", method = RequestMethod.GET)
 	public String userOrder1(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -128,10 +128,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder2", method = RequestMethod.GET)
 	public String userOrder2(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -173,10 +173,10 @@ public class UserOrderController {
 	}
 	@RequestMapping(value = "/userOrder3", method = RequestMethod.GET)
 	public String userOrder3(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {

@@ -44,7 +44,7 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 	}
 
 	@Override
-	public int addOrderDetail(int user_guid,OrderDetail orderDetail) {
+	public int addOrderDetail(OrderDetail orderDetail) {
 		String sql = "insert into s_order_detail(s.order_detail.id,s_order_detail.ascription,s_order_detail.ascription_guid,"
 				+ "s_order_detail.count,s_order_detail.order_detail_guid,s_order_detail.order_no,s_order_detail.pic,"
 				+ "s_order_detail.product_name,s_order_detail.start_time,s_order_detail.price,s_order_detail.appraise_isnot,"
@@ -52,11 +52,11 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		return super.addObjectBySql(sql, new Object[]{orderDetail.getId(),orderDetail.getAscription(),orderDetail.getAscription_guid()
 				,orderDetail.getCount(),orderDetail.getOrder_detail_guid(),orderDetail.getOrder_no(),
 				orderDetail.getPic(),orderDetail.getProduct_name(),orderDetail.getStart_time(),orderDetail.getPrice(),orderDetail.getAppraise_isnot()
-				,user_guid});
+				,orderDetail.getUser_guid()});
 	}
 
 	@Override
-	public int updateActive(int user_guid,OrderDetail orderDetail) {
+	public int updateActive(OrderDetail orderDetail) {
 		String sql = "update s_order_detail set s_order_detail.ascription=?,s_order_detail.ascription_guid=?,"
 				+ "s_order_detail.count=?,s_order_detail.order_detail_guid=?,s_order_detail.order_no=?,s_order_detail.pic=?,"
 				+ "s_order_detail.product_name=?,s_order_detail.start_time=?,s_order_detail.price=?,s_order_detail.appraise_isnot=?,"
@@ -64,7 +64,7 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		return super.addObjectBySql(sql, new Object[]{orderDetail.getAscription(),orderDetail.getAscription_guid()
 				,orderDetail.getCount(),orderDetail.getOrder_detail_guid(),orderDetail.getOrder_no(),
 				orderDetail.getPic(),orderDetail.getProduct_name(),orderDetail.getStart_time(),orderDetail.getPrice(),orderDetail.getAppraise_isnot()
-				,orderDetail.getUser_guid(),user_guid,orderDetail.getOrder_detail_guid()});
+				,orderDetail.getUser_guid(),orderDetail.getUser_guid(),orderDetail.getOrder_detail_guid()});
 	}
 
 

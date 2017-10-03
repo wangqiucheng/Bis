@@ -47,10 +47,10 @@ public class CartController {
 		Date date=new Date();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String packId=request.getParameter("packId");
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -199,10 +199,10 @@ public class CartController {
 	public String getCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 		//String packId=request.getParameter("packId");
 		//String guid=request.getParameter("userId");
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -232,10 +232,10 @@ public class CartController {
 	@RequestMapping(value = "/delCart", method = RequestMethod.POST)
 	@ResponseBody
 	public String delCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {
@@ -253,10 +253,10 @@ public class CartController {
 	@RequestMapping(value = "/upCart", method = RequestMethod.POST)
 	@ResponseBody
 	public String upCart(HttpServletRequest request,Model model,HttpSession session) throws Exception{
-		session.setAttribute("guid", "10");
+		session.setAttribute("guid", "2");
 		String guid=(String) session.getAttribute("guid");
 		int user_guid=Integer.parseInt(guid);
-		if(user_guid!=10) {
+		if(user_guid!=2) {
 			System.out.println("请去登录");
 			return null;
 		}else {

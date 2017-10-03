@@ -99,11 +99,12 @@ public class CommodityController {
 		//用来区别是第一次加载还是第二次加载
 		if("1".equals(appraise_more)) {
 			Commodity commodity=iCommodityService.getcommodity(productId);
-			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(productId);
+			int product_guid=commodity.getProduct_guid();
+			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(product_guid);
 			List<Package> packageList=IPackageService.getpackage(productId);
 			List<Appraise> productDto=new ArrayList<Appraise>();
 			for(Package p:packageList) {
-				String pack_number=p.getPackage_number();
+				int pack_number=Integer.parseInt(p.getPackage_number());
 				List<Appraise> packList=IAppraiseService.loadAppraiseList(pack_number);
 				for(Appraise a:packList) {
 					productDto.add(a);
@@ -125,7 +126,8 @@ public class CommodityController {
 		}else {
 			
 			Commodity commodity=iCommodityService.getcommodity(productId);
-			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(productId);
+			int product_guid=commodity.getProduct_guid();
+			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(product_guid);
 			List<Appraise> productDto=new ArrayList<Appraise>();
 			for(Appraise ae:userAppraise) {
 				productDto.add(ae);
@@ -136,7 +138,7 @@ public class CommodityController {
 			return "shopping/Uappraise";
 		}
 	}
-	@RequestMapping(value="/shopping/Uappraise1",method=RequestMethod.POST)
+	/*@RequestMapping(value="/shopping/Uappraise1",method=RequestMethod.POST)
 	@ResponseBody
 	public String Uappraise1(HttpServletRequest request,Model model) {
 		String appraise_more=request.getParameter("appraise_more");
@@ -144,6 +146,6 @@ public class CommodityController {
 			return appraise_more;
 		}
 		return null;
-	}
+	}*/
 	
 }

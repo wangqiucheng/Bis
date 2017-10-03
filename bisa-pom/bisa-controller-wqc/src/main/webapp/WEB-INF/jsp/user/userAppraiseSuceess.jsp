@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="col-sm-1 pt-70 pb-30 text-center pl-0 pr-0">
-                        <img class="" src="<%=request.getContextPath() %>/resources/${appraise.userImg}" alt="">
+                        <img class="" src="<%=request.getContextPath() %>/resources/${userImg}" alt="">
                     </div>
                     <div class="col-sm-6 pt-70 pb-30">
                         <div class="clear col-sm-9 pl-0 pr-0">

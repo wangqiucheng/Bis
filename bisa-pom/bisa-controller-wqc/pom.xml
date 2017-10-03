@@ -24,13 +24,13 @@
 	   <version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
-  	<dependency>
+  	 <dependency>
 		  <groupId>com.bisa.sso</groupId>
 		  <artifactId>health-sso-server</artifactId>
 		  <version>0.0.3-SNAPSHOT</version>
 		  <type>war</type>
 		  <scope>runtime</scope>
-		</dependency>
+	</dependency> 
 		
   	<dependency>
 			<groupId>javax.servlet</groupId>

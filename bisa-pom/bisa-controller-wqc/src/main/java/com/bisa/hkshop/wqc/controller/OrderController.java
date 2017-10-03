@@ -170,7 +170,7 @@ public class OrderController {
 								
 				double price = 0;
 				//处理订单信息，添加订单中的具体的商品细节，并且删除购物车中的物品
-				for(Cart orderCar : car){
+				/*for(Cart orderCar : car){
 					price = price + orderCar.getTotal();
 					OrderDetail orderDetail = new OrderDetail();
 					//添加订单细节表
@@ -191,7 +191,7 @@ public class OrderController {
 					}else {
 						System.out.println("删除购物车商品失败:哪个用户："+orderCar.getUser_guid()+"商品编号："+orderCar.getCart_number());
 					}
-				}
+				}*/
 				
 				Order orderN = new Order();
 				//order.setId(1);
@@ -212,7 +212,7 @@ public class OrderController {
 				
 			}else{
 				//立即购买过来结算
-				if(from_data.equals("product")){
+				/*if(from_data.equals("product")){
 					orderDetailList = map.get(from_data);
 					//order = orderService.addProductOrder(orderDetailList,addr_num, 2);
 					
@@ -256,10 +256,10 @@ public class OrderController {
 							orderDetailService.addOrderDetail(orderDetail);
 						}
 					}
-					
+				*/	
 					Order orderN = new Order();
 					//orderN.setId(1);
-					orderN.setOrder_no(orderGuid);
+					//orderN.setOrder_no(orderGuid);
 					orderN.setAddr_num(addr_num);
 					//orderN.setPrice(price + "");
 					orderN.setUser_guid(user_guid);
@@ -268,9 +268,9 @@ public class OrderController {
 					orderN.setEffective_statu(1);
 					orderService.addOrder(user_guid,orderN);
 					order = orderN;		
-				}else{
+				//}else{
 					return "500";
-				}
+			//	}
 			}
 			
 			String trade_no = "BISA" + System.currentTimeMillis() + ""; //随机产生的订单号

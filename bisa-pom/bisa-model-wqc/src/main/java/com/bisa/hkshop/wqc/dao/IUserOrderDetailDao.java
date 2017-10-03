@@ -12,9 +12,9 @@ public interface IUserOrderDetailDao {
 	
 	public  OrderDetail  loadOrderDetail (int user_guid,String  order_detail_guid);
 	
-	public  int addOrderDetail (int user_guid,OrderDetail  orderDetail);
+	public  int addOrderDetail (OrderDetail  orderDetail);
 
-	public  int updateActive(int user_guid,OrderDetail  orderDetail);
+	public  int updateActive(OrderDetail  orderDetail);
 
 	public Pager<OrderDetail> loadOderPage(int user_guid,String order_no);
 

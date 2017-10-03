@@ -54,8 +54,8 @@
         </div>
         <div class="container pl-0 pr-0 pos-r">
            <div class="col-sm-8 pt-30 pl-20 pr-10 mb-20">
-           	<c:if test="${productDtoSize<=2}">
-               <c:forEach var="productDto" items="${ productDto }">
+               <c:forEach var="productDto" items="${ productDto }" begin="1" end="3" varStatus="status">
+               		<input type="hidden" value="${status.index}" id="statusTotal">
                        <div class="clear mt-20 full-w bg-white pt-40 pb-35 pr-15">
                            <div class="clear col-sm-2 pl-0 pr-0">
                                <img class="img-70 pull-right" src="<%=request.getContextPath() %>/resources/${productDto.userImg}" alt="">
@@ -95,12 +95,10 @@
                            </div>
                        </div>
                </c:forEach>
-               </c:if>
-               <c:if test="${productDtoSize>2}">
+               <input type="hidden" value="${productDtoSize}" id="productSize">
 	               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p appraise-more">
 	                   	加载更多
 	               </div>
-               </c:if>
            </div>
            <!-- 一下4个浮标嵌入的数据一致 -->
            <!--在ipad下显示的右浮标-->
