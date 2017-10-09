@@ -42,13 +42,14 @@ public class UserOrderController {
 		}else {
 				//查询订单带分页
 				Pager<Order> orderList=null;
+				SystemContext.setPageSize(2);
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
 				orderList=iUserOrderService.selPaOrder(user_guid);
 				//查询订单细节
 				List<Order> orderList2=iUserOrderService.loadOrderList(user_guid);
 				Map<String,List<OrderDetail>> map= new HashMap<String,List<OrderDetail>>();  
-				List<OrderDetail> listordertails=new ArrayList<>(); //
+				List<OrderDetail> listordertails=new ArrayList<>(); 
 				for(Order o:orderList2) {
 					String oi=o.getOrder_no();
 					listordertails=IUserOrderDetailService.loadOrderDetailList(user_guid,oi);
@@ -56,6 +57,8 @@ public class UserOrderController {
 				}
 				model.addAttribute("listordertails", map);
 				model.addAttribute("orderList", orderList);
+				System.out.println("======orderlist.total"+orderList.getTotal());
+				model.addAttribute("orderListTotal", orderList.getTotal());
 				model.addAttribute("orderList2", orderList2);
 				//查询其他状态的总数
 				Pager<Order> orderList5=null;
@@ -91,11 +94,12 @@ public class UserOrderController {
 			return null;
 		}else {
 		//查询订单待支付
+		SystemContext.setPageSize(2);
 		Pager<Order> orderList5=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
 		orderList5=iUserOrderService.seltra_status1(user_guid,10);
-		 long oListnum1=orderList5.getTotal();
+		long oListnum1=orderList5.getTotal();
 		 model.addAttribute("oListnum1", oListnum1);
 		model.addAttribute("orderList5", orderList5);
 		List<Order> orderList2=iUserOrderService.Otra_effective_statu(user_guid,10,1);
@@ -136,6 +140,7 @@ public class UserOrderController {
 			return null;
 		}else {
 		//查询订单待收货
+		SystemContext.setPageSize(2);
 		Pager<Order> orderList3=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");
@@ -181,6 +186,7 @@ public class UserOrderController {
 			return null;
 		}else {
 		//查询订单待支付
+		SystemContext.setPageSize(2);
 		Pager<Order> orderList4=null;
 		SystemContext.setSort("start_time");
 		SystemContext.setOrder("desc");

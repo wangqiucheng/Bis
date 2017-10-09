@@ -54,8 +54,8 @@
         </div>
         <div class="container pl-0 pr-0 pos-r">
            <div class="col-sm-8 pt-30 pl-20 pr-10 mb-20">
-               <c:forEach var="productDto" items="${ productDto }" begin="1" end="3" varStatus="status">
-               		<input type="hidden" value="${status.index}" id="statusTotal">
+               <c:forEach var="productDto" items="${ productDto.datas }" begin="1" end="3">
+               		<input type="hidden" value="">
                        <div class="clear mt-20 full-w bg-white pt-40 pb-35 pr-15">
                            <div class="clear col-sm-2 pl-0 pr-0">
                                <img class="img-70 pull-right" src="<%=request.getContextPath() %>/resources/${productDto.userImg}" alt="">

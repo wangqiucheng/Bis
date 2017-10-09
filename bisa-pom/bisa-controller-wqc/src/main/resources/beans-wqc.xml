@@ -35,7 +35,7 @@
 			</list>
 		</property>
     </bean> -->
-        
+     <!--  <bean id="SystemContextFilter" class="com.bisa.hkshop.wqc.filter.SystemContextFilter" />   -->
 
 
 </beans>

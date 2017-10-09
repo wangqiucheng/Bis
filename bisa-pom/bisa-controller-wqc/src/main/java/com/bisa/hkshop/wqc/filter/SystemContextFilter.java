@@ -22,6 +22,7 @@ public class SystemContextFilter implements Filter{
 
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
+		System.out.println("=======guolv");
 		Integer offset = 0;
 		try {
 			offset = Integer.parseInt(req.getParameter("pager.offset"));
@@ -46,7 +47,7 @@ public class SystemContextFilter implements Filter{
 		try {
 			pageSize = Integer.parseInt(cfg.getInitParameter("pageSize"));
 		} catch (NumberFormatException e) {
-			pageSize = 5;
+			pageSize = 2;
 		}
 	}
 

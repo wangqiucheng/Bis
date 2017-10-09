@@ -63,7 +63,7 @@ public class OrderController {
 	/*
 	 * 跳转到下订单页面
 	 */
-	@RequestMapping(value="orderIndex",method=RequestMethod.GET)
+	@RequestMapping(value="orderIndex",method=RequestMethod.POST)
 	public String orderIndex(Model model,HttpServletRequest request){
 		
 		/*
@@ -73,7 +73,6 @@ public class OrderController {
 		/*String str1 = "{\"records\":[{'cartid':'630ed3c3971b46b5a091c5e0616f101e','cartnum':'1','cartkind':1,'cartimg':'/resources/images/producttipsv1.png','cartdir':'HC3A250 悉心心电仪','cartprice':'2000'}]}";
 		String str = "{\"product\":[{\"cartid\":\"120001\",\"cartnum\":\"1\",\"cartkind\":1,\"cartimg\":\"/resources/images/producttipsv1.png\",\"cartdir\":\"HC3A250 悉心心电仪\",\"cartprice\":\"2000\"}]}";*/
 		String str=request.getParameter("data");
-		
 		//从立即购买传来的
 		Map<String,List<OrderDetailDto>> map = new Gson().fromJson(str, new TypeToken<HashMap<String,List<OrderDetailDto>>>(){}.getType());
 		System.out.println("Gsonmap:" + new Gson().toJson(map));
@@ -120,15 +119,13 @@ public class OrderController {
 		Address address ;
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = request.getParameter("productList");
+		String addr_num = request.getParameter("addr_num");
+		if(str==null || str.equals("") || addr_num==null || addr_num.equals("")){
+			model.addAttribute("messege","地址不正确");
+			return "500";
+		}
 		
-		//try{
-			String str = request.getParameter("productList");
-			String addr_num = request.getParameter("addr_num");
-			if(str==null || str.equals("") || addr_num==null || addr_num.equals("")){
-				model.addAttribute("messege","地址不正确");
-				return "500";
-			}
-			
 			int user_guid=2;
 			//查出收货地址
 			 address = addressService.loadAddressByAddressNum(user_guid,addr_num);
@@ -165,12 +162,10 @@ public class OrderController {
 					}
 				}
 			//查出购物车中的要买的东西
-				
-				//List<Cart> car = shopCartService.loadCarList(user_guid,num);
 								
 				double price = 0;
 				//处理订单信息，添加订单中的具体的商品细节，并且删除购物车中的物品
-				/*for(Cart orderCar : car){
+				for(Cart orderCar : car){
 					price = price + orderCar.getTotal();
 					OrderDetail orderDetail = new OrderDetail();
 					//添加订单细节表
@@ -182,8 +177,10 @@ public class OrderController {
 					orderDetail.setAscription_guid(orderCar.getPackId());
 					orderDetail.setCount(orderCar.getNumber());
 					orderDetail.setStart_time(date);
+					orderDetail.setUser_guid(user_guid);
 					orderDetail.setPrice(orderCar.getPrice());
-					boolean orderdetail_not=orderDetailService.addOrderDetail(orderDetail);
+					orderDetail.setAppraise_isnot(1);
+					orderDetailService.addOrderDetail(orderDetail);
 					//删除购物车中的当前商品
 					int is_not=shopCartService.delCart(user_guid,orderCar.getPackId());	
 					if(is_not>0) {
@@ -191,7 +188,7 @@ public class OrderController {
 					}else {
 						System.out.println("删除购物车商品失败:哪个用户："+orderCar.getUser_guid()+"商品编号："+orderCar.getCart_number());
 					}
-				}*/
+				}
 				
 				Order orderN = new Order();
 				//order.setId(1);
@@ -212,7 +209,7 @@ public class OrderController {
 				
 			}else{
 				//立即购买过来结算
-				/*if(from_data.equals("product")){
+				if(from_data.equals("product")){
 					orderDetailList = map.get(from_data);
 					//order = orderService.addProductOrder(orderDetailList,addr_num, 2);
 					
@@ -237,6 +234,8 @@ public class OrderController {
 							orderDetail.setCount(Integer.valueOf(orderDetailDto.getCartnum()));
 							orderDetail.setPrice(pa.getPrice());
 							orderDetail.setStart_time(date);
+							orderDetail.setUser_guid(user_guid);
+							orderDetail.setAppraise_isnot(1);
 							orderDetailService.addOrderDetail(orderDetail);
 						}else{
 							Commodity pro = commodityService.getcommodity(orderDetailDto.getCartid());
@@ -252,25 +251,27 @@ public class OrderController {
 							orderDetail.setAscription_guid(pro.getShop_number());
 							orderDetail.setCount(Integer.valueOf(orderDetailDto.getCartnum()));
 							orderDetail.setStart_time(date);
+							orderDetail.setUser_guid(user_guid);
+							orderDetail.setAppraise_isnot(1);
 							orderDetail.setPrice(pro.getSelling_price()*Integer.valueOf(orderDetailDto.getCartnum()));
 							orderDetailService.addOrderDetail(orderDetail);
 						}
 					}
-				*/	
+					
 					Order orderN = new Order();
 					//orderN.setId(1);
-					//orderN.setOrder_no(orderGuid);
+					orderN.setOrder_no(orderGuid);
 					orderN.setAddr_num(addr_num);
-					//orderN.setPrice(price + "");
+					orderN.setPrice(price + "");
 					orderN.setUser_guid(user_guid);
 					orderN.setTra_status(10);//未付款
 					orderN.setStart_time(date);
 					orderN.setEffective_statu(1);
 					orderService.addOrder(user_guid,orderN);
 					order = orderN;		
-				//}else{
+				}else{
 					return "500";
-			//	}
+				}
 			}
 			
 			String trade_no = "BISA" + System.currentTimeMillis() + ""; //随机产生的订单号
@@ -286,11 +287,6 @@ public class OrderController {
 			tradeService.addTrade(trade);
 			//将交易信息存到session中
 			session.setAttribute("tradeNo",trade_no);
-			
-		/*}catch(Exception e){
-			model.addAttribute("messege","订单信息出错");
-			return "500";
-		}*/
 			
 		model.addAttribute("price",order.getPrice());
 		model.addAttribute("orderId",order.getOrder_no());

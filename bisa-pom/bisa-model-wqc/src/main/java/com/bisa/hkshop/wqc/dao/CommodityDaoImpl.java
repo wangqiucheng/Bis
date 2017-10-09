@@ -73,6 +73,13 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 		String sql="select * from s_commodity where type=? order by updatime desc";	
 		return super.queryListBySql(sql, new Object[]{type},Commodity.class);
 	}
+
+/*	@Override
+	public Commodity getcompro_guid(int product_guid) {
+		// TODO Auto-generated method stub
+		String sql="select * from s_commodity where product_guid=?";	
+		return super.queryObjectBySql(sql, new Object[]{product_guid},Commodity.class);
+	}*/
 	
 
 	

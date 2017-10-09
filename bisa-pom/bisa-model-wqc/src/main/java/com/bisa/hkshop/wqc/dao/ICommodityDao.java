@@ -26,4 +26,6 @@ public interface ICommodityDao {
 	
 	public List<Commodity> getTypecommodity(String type);
 	
+
+	
 }

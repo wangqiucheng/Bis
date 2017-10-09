@@ -66,6 +66,12 @@ public class CommodityServiceImpl implements ICommodityService{
 		// TODO Auto-generated method stub
 		return iCommodityDao.getTypecommodity(type);
 	}
+
+	/*@Override
+	public Commodity getcompro_guid(int product_guid) {
+		// TODO Auto-generated method stub
+		return iCommodityDao.getcompro_guid(product_guid);
+	}*/
 	
 
 }

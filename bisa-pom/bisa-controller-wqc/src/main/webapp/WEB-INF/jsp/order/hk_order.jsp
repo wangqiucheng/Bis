@@ -123,6 +123,7 @@
                             返回购物车 >
                         </a>
                     </div>
+                <c:if test="${not empty productList.records}">
                 <c:forEach items="${productList.records }" var="list">
                     <div class="clear full-w pt-10 pb-10">
                         <div class="clear col-sm-7 line-h-30 h-30 pl-0 pr-0">
@@ -157,6 +158,45 @@
                         </div>
                     </div>
                 </c:forEach> 
+               </c:if>
+               
+               <c:if test="${not empty productList.product}">
+                <c:forEach items="${productList.product }" var="list">
+                    <div class="clear full-w pt-10 pb-10">
+                        <div class="clear col-sm-7 line-h-30 h-30 pl-0 pr-0">
+                            <img class="img-30" src="${list.cartimg}" alt="">
+                            <span class="f-14 family-h col-252525">${list.cartdir }</span>
+                        </div>
+                        <div class="clear col-sm-5  pl-0 pr-0">
+                            <div class="col-sm-4 line-h-30 h-30 pl-0 pr-0">
+                                <span class="f-14 family-h col-252525">
+                                     ${list.cartprice}
+                                </span>
+                                <span class="f-14 family-h col-252525">
+                                    ×
+                                </span>
+                                <span class="f-14 family-h col-252525">
+                                    ${list.cartnum }
+                                </span>
+                            </div>
+                            <div class="col-sm-4 line-h-30 h-30 pl-0 pr-0">
+                                <span class="f-14 family-h col-252525">
+                                    有货
+                                </span>
+                            </div>
+                            <div class="col-sm-4 line-h-30 h-30 pl-0 pr-0">
+                                <span class="f-14 family-h col-309DE2">
+                                      ${list.cartprice*list.cartnum}
+                                </span>
+                                <span class="f-14 family-h col-309DE2">
+                                    元
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach> 
+               </c:if>
+               
                     <div class="clear full-w pt-20 pb-20 bor bor-t bor-col-B2B2B2">
                         <div class="clear col-sm-3 pull-right pr-0 pl-0">
                             <div class="col-sm-6 text-right h-20 line-h-20 pr-0 pl-0">

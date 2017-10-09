@@ -259,9 +259,9 @@
                             <div class="clear col-sm-8 pl-0 pr-10">
                                 <button class="line-h-45-30-ipad h-45-30-ipad col-white f-18-14-ipad text-center full-w radius-0 bg-309DE2 bor-none hovbg-2D90CF add_shopcar">加入购物车</button>
                             </div>
-                            <form action="<%=request.getContextPath()%>/order/orderIndex" method="get">
+                            <form action="<%=request.getContextPath()%>/l/orderIndex" method="post">
                             <div class="clear col-sm-4 pl-10 pr-0">
-                            	<input type="hidden" class="product-submit" value="">
+                            	<input type="hidden" class="product-submit" value="" name="data">
                                 <button class="line-h-45-30-ipad h-45-30-ipad col-white f-18-14-ipad text-center full-w radius-0 bg-9BD2F4 bor-none hovbg-9BD2F4 pro-buynow" type="submit">立即购买</button>
                             </div>
                             </form>

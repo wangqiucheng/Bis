@@ -51,11 +51,11 @@
                     <div class="clear bor bor-b bor-col-f5f5f5">
                     </div>
                     <div class="clear mt-40-20-ipad f-20-14-ipad mb-30-20-ipad line-h-25">
-                       <span class="col-333 col-active cur-p Appraise-control Appraise-controlv1" onclick="document.location='<%=request.getContextPath() %>/useAppraise';">待评价商品</span>
+                       <span class="col-333 col-active cur-p Appraise-control Appraise-controlv1" onclick="document.location='<%=request.getContextPath() %>/l/userAppraise';">待评价商品</span>
                        <span class="col-e9e9e9 mlr-20-10-ipad cur-d">|</span>
-                       <span class="col-333 cur-p Appraise-control Appraise-controlv2" onclick="document.location='<%=request.getContextPath() %>/useAppraise1';">已评价商品</span>
+                       <span class="col-333 cur-p Appraise-control Appraise-controlv2" onclick="document.location='<%=request.getContextPath() %>/l/userAppraise1';">已评价商品</span>
                        <span class="col-e9e9e9 mlr-20-10-ipad cur-d">|</span>
-                       <span class="col-333 cur-p Appraise-control Appraise-controlv3" onclick="document.location='<%=request.getContextPath() %>/useAppraise2';">评价失效商品</span>
+                       <span class="col-333 cur-p Appraise-control Appraise-controlv3" onclick="document.location='<%=request.getContextPath() %>/l//userAppraise2';">评价失效商品</span>
                     </div>
                     <div class="clear bor bor-b bor-col-f5f5f5">
                     </div>
@@ -73,7 +73,7 @@
                                         ${listordertails.price}元
                                     </p>
                                     <div class="clear full-w pb-10 pt-10 min-h-40">
-                                        <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto" onclick="javascript:window.location.href='<%=request.getContextPath() %>/goAppraise?detail_guid=${listordertails.order_detail_guid}'">
+                                        <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto" onclick="javascript:window.location.href='<%=request.getContextPath() %>/l/goAppraise?detail_guid=${listordertails.order_detail_guid}'">
                                             去评价
                                         </button>
                                     </div>
@@ -85,9 +85,9 @@
                         <div class="clear full-w text-center f-16 col-333 mt-20">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="useAppraise"/>
+                                <jsp:param name="url" value="/l/useAppraise"/>
                                 <jsp:param name="items" value="${odtail.total}"/>
-                            </jsp:include>
+                            </jsp:include> 
                         </div>
                     
                     <!-- 已评价商品部分 -->
@@ -120,7 +120,7 @@
                     <jsp:include page="../comm/pager.jsp">
                         <jsp:param name="url" value="useAppraise1"/>
                         <jsp:param name="items" value="${odpingjia.total}"/>
-                    </jsp:include>
+                    </jsp:include> 
                 </div>
             
                     <!-- 评价失效商品部分 -->
@@ -146,10 +146,10 @@
                         <!-- 循环结束，这里放分页。最多四行。四行之后分页。 -->
                         <div class="clear full-w text-center f-16 col-333 mt-20">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
-			                   <jsp:include page="../comm/pager.jsp">
+			                    <jsp:include page="../comm/pager.jsp">
 			                       <jsp:param name="url" value="useAppraise2"/>
 			                       <jsp:param name="items" value="${odtas.total}"/>
-                    		   </jsp:include>
+                    		   </jsp:include> 
                         </div>
                     </div>
                 </div>

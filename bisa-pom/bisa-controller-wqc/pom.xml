@@ -95,46 +95,11 @@
 								<exclude>WEB-INF/classes/log4j2.xml</exclude>
 							</excludes>
 						</overlay>
-						 
-				 		<!--  <overlay>
-							<groupId>bisa-pom-hkshop</groupId>
-	 						 <artifactId>bisa-hkshop-controller-zj</artifactId>
-							<excludes>
-								<exclude>WEB-INF/classes/resources.properties</exclude>
-							</excludes>
-						</overlay>    -->
 						
 					</overlays>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-	<!-- 		 <plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.5.v20170502</version>
-				<configuration>
-				 
-					<scanIntervalSeconds>1000</scanIntervalSeconds>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<webApp>
-						<contextPath>/bisa-hk-controller</contextPath>
-					</webApp>
-					<connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>8081</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                        <connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector">
-                            <port>8443</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                            <keystore>${basedir}/etc/jetty/bsriakey</keystore>
-                            <password>changeit</password>
-                            <keyPassword>changeit</keyPassword>
-                        </connector>
-                    </connectors>
-
-				</configuration>
-			</plugin> -->
 			
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
@@ -159,9 +124,6 @@
 						-Xrunjdwp:transport=dt_socket,address=5000,server=y,suspend=n</jvmArgs>
 				</configuration>
 			</plugin>
-
-
-			
 
 		</plugins>
 		<finalName>bisa-controller-wqc</finalName>

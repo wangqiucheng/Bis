@@ -3,9 +3,16 @@ $(document).ready(function() {
 		//tab选项卡切换
 		var dangpath = window.location.href;
 		//alert(dangpath);
-			var i=dangpath.indexOf("useAppraise1");
-	        var m=dangpath.indexOf("useAppraise2");
-	        console.log(i);
+			var o=dangpath.indexOf("userAppraise");
+			var i=dangpath.indexOf("userAppraise1");
+	        var m=dangpath.indexOf("userAppraise2");
+	        //console.log(i);
+	        if(0>0){	
+		        $(".Appraise-tabtips").hide();
+		        $(".Appraise-tabtipsv1").show();
+		        $(".Appraise-control").removeClass("col-active");
+		        $(".Appraise-tabtipsv1").addClass("col-active");
+			}
 			if(i>0){	
 		        $(".Appraise-tabtips").hide();
 		        $(".Appraise-tabtipsv2").show();

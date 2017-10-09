@@ -97,55 +97,20 @@ public class CommodityController {
 		String productId=request.getParameter("productId");
 		String appraise_more=request.getParameter("appraise_more");
 		//用来区别是第一次加载还是第二次加载
-		if("1".equals(appraise_more)) {
 			Commodity commodity=iCommodityService.getcommodity(productId);
 			int product_guid=commodity.getProduct_guid();
-			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(product_guid);
-			List<Package> packageList=IPackageService.getpackage(productId);
-			List<Appraise> productDto=new ArrayList<Appraise>();
-			for(Package p:packageList) {
-				int pack_number=Integer.parseInt(p.getPackage_number());
-				List<Appraise> packList=IAppraiseService.loadAppraiseList(pack_number);
-				for(Appraise a:packList) {
-					productDto.add(a);
-				}
-				}
-			for(Appraise ae:userAppraise) {
-				productDto.add(ae);
-			}
-			
-			Pager<Appraise> appraisedto=new Pager<Appraise>();
-			appraisedto.setDatas(productDto);
-			appraisedto.setTotal(productDto.size());
-			appraisedto.setOffset(2);
-			appraisedto.setSize(1);
-			
-			model.addAttribute("comm", commodity);
-			model.addAttribute("productDto", productDto);
-			return "shopping/Uappraise";
-		}else {
-			
-			Commodity commodity=iCommodityService.getcommodity(productId);
-			int product_guid=commodity.getProduct_guid();
-			List<Appraise> userAppraise=IAppraiseService.loadAppraiseList(product_guid);
-			List<Appraise> productDto=new ArrayList<Appraise>();
-			for(Appraise ae:userAppraise) {
-				productDto.add(ae);
-			}
-			model.addAttribute("productDtoSize", productDto.size());
-			model.addAttribute("comm", commodity);
-			model.addAttribute("productDto", productDto);
+			List<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
+			Pager<Appraise> appraisePager=new Pager<Appraise>();
+			appraisePager.setDatas(appraise);
+			appraisePager.setSize(2);
+			appraisePager.setTotal(appraise.size());
+			appraisePager.getOffset();
+			model.addAttribute("productDto", appraisePager);
+			Commodity comm=iCommodityService.getcommodity(productId);
+			model.addAttribute("comm", comm);
 			return "shopping/Uappraise";
 		}
 	}
-	/*@RequestMapping(value="/shopping/Uappraise1",method=RequestMethod.POST)
-	@ResponseBody
-	public String Uappraise1(HttpServletRequest request,Model model) {
-		String appraise_more=request.getParameter("appraise_more");
-		if("1".equals(appraise_more)) {
-			return appraise_more;
-		}
-		return null;
-	}*/
+
 	
-}
+

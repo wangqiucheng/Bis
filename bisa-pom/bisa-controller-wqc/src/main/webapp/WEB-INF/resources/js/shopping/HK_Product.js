@@ -249,5 +249,6 @@ $(document).ready(function() {
         }
         var JSONprobuynow = JSON.stringify(probuynowjson);
         console.log(JSONprobuynow);
+        $(".product-submit").val(JSONprobuynow);
     });
 });

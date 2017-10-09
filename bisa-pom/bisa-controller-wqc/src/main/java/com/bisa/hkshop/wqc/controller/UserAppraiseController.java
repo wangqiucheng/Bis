@@ -12,6 +12,7 @@ import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.AppraiseUser;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Order;
+import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.model.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bisa.hkshop.wqc.service.IAppraiseService;
 import com.bisa.hkshop.wqc.service.IAppraiseUserService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
+import com.bisa.hkshop.wqc.service.IPackageService;
 import com.bisa.hkshop.wqc.service.IUserOrderDetailService;
 import com.bisa.hkshop.wqc.service.IUserOrderService;
 import com.bisa.hkshop.wqc.basic.model.Pager;
+
 import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
 
 
 @Controller
+@RequestMapping("/l")
 public class UserAppraiseController {
 	@Autowired
 	private ICommodityService iCommodityService;
@@ -41,6 +45,8 @@ public class UserAppraiseController {
 	private IUserOrderDetailService IUserOrderDetailService;
 	@Autowired
 	private IAppraiseService IAppraiseService;
+	@Autowired
+	private IPackageService IPackageService;
 	 
 	 @RequestMapping(value = "/userAppraise", method = RequestMethod.GET)
 		public String userAppraise(HttpServletRequest request,Model model,HttpSession session) throws Exception{
@@ -49,6 +55,7 @@ public class UserAppraiseController {
 				System.out.println("请去登录");
 				return null;
 		 	}else {
+		 		SystemContext.setPageSize(2);
 		 		List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
 				List<OrderDetail> ordertails=new ArrayList<OrderDetail>();
 				List<Order> listorder=new ArrayList<Order>();
@@ -65,19 +72,21 @@ public class UserAppraiseController {
 						}
 					 }
 				}
-				odtail.setTotal(ordertails.size());
+				
+				odtail.setTotal(listordertails.size());
 				odtail.setDatas(ordertails);
 				model.addAttribute("odtail",odtail);
 				return "user/useAppraiseList";
 		 	}
 	 }
-		@RequestMapping(value = "/useAppraise1", method = RequestMethod.GET)
+		@RequestMapping(value = "/userAppraise1", method = RequestMethod.GET)
 		public String useAppraise1(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 			int user_guid=2;
 			if(user_guid!=2) {
 				System.out.println("请去登录");
 				return null;
 			}else {
+				SystemContext.setPageSize(2);
 				List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
 				listordertails=IUserOrderDetailService.pageuserdetails(user_guid, 0);
 				Pager<OrderDetail> odpingjia=new Pager<OrderDetail>();
@@ -90,13 +99,14 @@ public class UserAppraiseController {
 			return "user/useAppraiseList";
 		}
 		
-		@RequestMapping(value = "/useAppraise2", method = RequestMethod.GET)
+		@RequestMapping(value = "/userAppraise2", method = RequestMethod.GET)
 		public String useAppraise2(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 			int user_guid=2;
-			if(user_guid!=10) {
+			if(user_guid!=2) {
 				System.out.println("请去登录");
 				return null;
 			}else {
+				SystemContext.setPageSize(2);
 				List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
 				List<Order> listorder=new ArrayList<Order>();
 				List<OrderDetail> odtas=new ArrayList<OrderDetail>();
@@ -142,8 +152,17 @@ public class UserAppraiseController {
 			session.setAttribute("userImg", "/img/user/Appraise/appraise-portraitv3.png");
 			String userImg=(String) session.getAttribute("userImg");
 			//查询商品的product_guid;
+			
 			Commodity com=iCommodityService.getcommodity(product_number);
-			int product_guid=com.getProduct_guid();
+			int product_guid=0;
+			if(com==null) {
+				 Package pack=IPackageService.getpackages(product_number);
+				 String productId=pack.getProduct_id();
+				 Commodity comm=iCommodityService.getcommodity(productId);
+				 product_guid=comm.getProduct_guid();
+			}else {
+				product_guid=com.getProduct_guid();
+			}
 			//把值设置进评价信息
 			AppraiseUser appraiseUser=new AppraiseUser();
 			appraiseUser.setAppraise_no(GuidGenerator.generate());
@@ -155,6 +174,7 @@ public class UserAppraiseController {
 			appraiseUser.setMain_picture(main_picture);
 			appraiseUser.setOrder_detail_guid(order_detail_guid);
 			appraiseUser.setTitle(title);
+			appraiseUser.setPrice(price);
 			appraiseUser.setShop_number(product_number);
 			appraiseUser.setUser_guid(user_guid);
 			appraiseUser.setProduct_guid(product_guid);
@@ -179,6 +199,7 @@ public class UserAppraiseController {
 			appraise.setMain_picture(main_picture);
 			appraise.setOrder_detail_guid(order_detail_guid);
 			appraise.setTitle(title);
+			appraise.setPrice(price);
 			appraise.setProduct_number(product_number);
 			appraise.setUserImg(userImg);
 			appraise.setProduct_guid(product_guid);

@@ -63,6 +63,7 @@
                     <div class="clear Order-tabtips Order-tabtipsv1">
                         <!--等待支付前-->
                         <c:forEach var="orderList" items="${orderList.datas}">
+                       
                             <c:if test="${orderList.tra_status==10}">
                                 <div class="clear full-w bor bor-col-67b7ea min-h-200 mb-25">
                                     <div class="clear full-w bg-deeffa min-h-88 bor bor-b bor-col-67b7ea pt-15 pb-10 plr-20-5-ipad">
@@ -236,11 +237,12 @@
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
                                 <jsp:param name="url" value="/l/userOrder"/>
-                                <jsp:param name="items" value="${orderList.total}"/>
-                            </jsp:include>
+                                <jsp:param name="items" value="${orderListTotal}"/>
+                            </jsp:include> 
                         </div>
                     </div>
-                    <!--等待付款页面-->
+                  
+                     <!--等待付款页面-->
                     <div class="clear Order-tabtips Order-tabtipsv2 dis-n">
                         <c:forEach var="orderList5" items="${orderList5.datas}">
                             <c:if test="${orderList5.tra_status==10 }">
@@ -303,10 +305,10 @@
                         </c:forEach>
                         <div class="clear text-center col-333 f-14">
                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
-                            <jsp:include page="../comm/pager.jsp">
+                         	<jsp:include page="../comm/pager.jsp">
                                 <jsp:param name="url" value="/l/userOrder1"/>
                                 <jsp:param name="items" value="${orderList5.total}"/>
-                            </jsp:include>
+                            </jsp:include> 
                         </div>
                     </div>
                     
@@ -370,7 +372,7 @@
                             <jsp:include page="../comm/pager.jsp">
                                 <jsp:param name="url" value="/l/userOrder2"/>
                                 <jsp:param name="items" value="${orderList3.total}"/>
-                            </jsp:include>
+                            </jsp:include> 
                         </div>
                     </div>
                     <!--已关闭页面--> 
@@ -432,13 +434,13 @@
                         </c:forEach>
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
-                            <jsp:include page="../comm/pager.jsp">
+                          	<jsp:include page="../comm/pager.jsp">
                                 <jsp:param name="url" value="/l/userOrder3"/>
                                 <jsp:param name="items" value="${orderList4.total}"/>
-                            </jsp:include>
+                            </jsp:include> 
                         </div>
                     </div>
-               
+              
                 </div>
             </div>
         </div>
