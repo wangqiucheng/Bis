@@ -22,7 +22,7 @@ public class SystemContextFilter implements Filter{
 
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("=======guolv");
+		//System.out.println("=======guolv");
 		Integer offset = 0;
 		try {
 			offset = Integer.parseInt(req.getParameter("pager.offset"));
@@ -44,10 +44,13 @@ public class SystemContextFilter implements Filter{
 	}
 
 	public void init(FilterConfig cfg) throws ServletException {
+		//System.out.println("=======guolv");
 		try {
 			pageSize = Integer.parseInt(cfg.getInitParameter("pageSize"));
+			//System.out.println("============"+pageSize);
 		} catch (NumberFormatException e) {
 			pageSize = 2;
+			//System.out.println("开始============"+pageSize);
 		}
 	}
 

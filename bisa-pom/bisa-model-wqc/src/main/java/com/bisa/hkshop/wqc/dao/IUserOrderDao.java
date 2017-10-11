@@ -19,7 +19,7 @@ public List<Order> loadOrderList(int user_guid);
 
 	public Pager<Order> selPaOrder(int user_guid);
 
-	public Pager<Order> seltra_status1(int user_guid, int tra_status);
+	public Pager<Order> seltra_status1(int user_guid, int tra_status,int appraise_status);
 
 	public Pager<Order> seltra_status4(int user_guid, int tra_status);
 
@@ -40,6 +40,8 @@ public List<Order> loadOrderList(int user_guid);
 	 * @return
 	 */
 	public int Ordertra_statusCount(int user_guid, int tra_status,int appraise_status);
+	
+	public Pager<Order> Ordertra_statusPager(int user_guid, int tra_status,int appraise_status);
 
-
+	
 }

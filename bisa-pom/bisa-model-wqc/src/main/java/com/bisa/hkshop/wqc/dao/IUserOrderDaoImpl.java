@@ -40,7 +40,7 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	public Order loadOrderByOrderId(int user_guid,String order_no) {
 		Order order = null;
 		try{
-			String sql = "select * from s_order where order_no=? order by update_time desc";
+			String sql = "select * from s_order where user_guid=? and order_no=? order by update_time desc";
 			order = this.queryObjectBySql(sql, new Object[]{ user_guid,order_no},Order.class);
 		}catch(Exception e){
 			return null;
@@ -86,10 +86,10 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	}
 
 	@Override
-	public Pager<Order> seltra_status1(int user_guid, int tra_status) {
+	public Pager<Order> seltra_status1(int user_guid, int tra_status,int appraise_status) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_order where user_guid=? and tra_status=?";
-		return super.findBySql(sql, new Object[]{user_guid,tra_status}, Order.class, true);
+		String sql="select * from s_order where user_guid=? and tra_status=? and appraise_status=?";
+		return super.findBySql(sql, new Object[]{user_guid,tra_status,appraise_status}, Order.class, true);
 	}
 
 	@Override
@@ -136,6 +136,12 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 		// TODO Auto-generated method stub
 		String sql="select count(*) from s_order o where o.user_guid=? and o.tra_status=? and o.appraise_status=? order by o.update_time desc";
 		return (int) super.queryTotal(sql, new Object[]{user_guid,tra_status,appraise_status});
+	}
+
+	@Override
+	public Pager<Order> Ordertra_statusPager(int user_guid, int tra_status, int appraise_status) {
+		String sql="select * from s_order o where o.user_guid=? and o.tra_status=? and o.appraise_status=? order by o.update_time desc";
+		return super.findBySql(sql, new Object[]{user_guid,tra_status,appraise_status}, Order.class,true);
 	}
 
 

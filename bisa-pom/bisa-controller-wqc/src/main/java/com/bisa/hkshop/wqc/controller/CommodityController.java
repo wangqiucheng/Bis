@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bisa.health.entity.SystemContext;
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Package;
@@ -18,6 +19,7 @@ import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.service.IAppraiseService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IPackageService;
+import com.google.gson.Gson;
 
 
 @Controller
@@ -96,19 +98,54 @@ public class CommodityController {
 	public String Uappraise(HttpServletRequest request,Model model) {
 		String productId=request.getParameter("productId");
 		String appraise_more=request.getParameter("appraise_more");
-		//用来区别是第一次加载还是第二次加载
+		//查询商品编号
+		Commodity commodity=iCommodityService.getcommodity(productId);
+		int product_guid=commodity.getProduct_guid();
+		
+		int pager_offset=0;
+		String offset=request.getParameter("pager.offset");
+		if(StringUtil.isNotEmpty(offset)) {
+			pager_offset=Integer.parseInt(offset);
+		}
+		if(pager_offset!=0) {
+			SystemContext.setPageOffset(pager_offset);
+		}
+
+		SystemContext.setSort("update_time");
+		SystemContext.setOrder("desc");
+		SystemContext.setPageSize(1);
+		
+		Pager<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
+		model.addAttribute("productDto", appraise);
+		model.addAttribute("comm", commodity);
+		return "shopping/Uappraise";
+		}
+		@RequestMapping(value="/shopping/addUappraise",method=RequestMethod.GET)
+		public @ResponseBody List<Appraise> addUappraise1(HttpServletRequest request,Model model) {
+			String productId=request.getParameter("productId");
+			String appraise_more=request.getParameter("appraise_more");
+			//查询商品编号
 			Commodity commodity=iCommodityService.getcommodity(productId);
 			int product_guid=commodity.getProduct_guid();
-			List<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
-			Pager<Appraise> appraisePager=new Pager<Appraise>();
-			appraisePager.setDatas(appraise);
-			appraisePager.setSize(2);
-			appraisePager.setTotal(appraise.size());
-			appraisePager.getOffset();
-			model.addAttribute("productDto", appraisePager);
-			Commodity comm=iCommodityService.getcommodity(productId);
-			model.addAttribute("comm", comm);
-			return "shopping/Uappraise";
+			
+			int pager_offset=0;
+			String offset=request.getParameter("pager.offset");
+			if(StringUtil.isNotEmpty(offset)) {
+				pager_offset=Integer.parseInt(offset);
+			}
+			if(pager_offset!=0) {
+				SystemContext.setPageOffset(pager_offset);
+			}
+
+			SystemContext.setSort("update_time");
+			SystemContext.setOrder("desc");
+			SystemContext.setPageSize(1);
+			
+			Pager<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
+			List<Appraise> list=appraise.getDatas();
+			/*Gson gson = new Gson();
+			String str = gson.toJson(list);*/
+			return list;
 		}
 	}
 

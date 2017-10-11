@@ -74,7 +74,17 @@ public class IUserOrderDetailServiceImpl implements IUserOrderDetailService{
 		// TODO Auto-generated method stub
 		return IUserOrderDetailDao.delOdtail(user_guid,orderDetail);
 	}
-
+	@Override
+	@DataRouting("user_guid")
+	public Pager<OrderDetail> page_userdetails(@DataGuid("user_guid") int user_guid,int appraise_isnot,int tra_status,int appraise_status) {
+		// TODO Auto-generated method stub
+		return IUserOrderDetailDao.page_userdetails(user_guid, appraise_isnot,tra_status,appraise_status);
+	}
+	@Override
+	@DataRouting("user_guid")
+	public Pager<OrderDetail> PagerOrderDetail(@DataGuid("user_guid") int user_guid){
+		return IUserOrderDetailDao.PagerOrderDetail(user_guid);
+	}
 	
 	
 

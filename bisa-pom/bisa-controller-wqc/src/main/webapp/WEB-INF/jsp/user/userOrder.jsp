@@ -1,4 +1,4 @@
-<%@ page language="java"  pageEncoding="UTF-8"%>
+  <%@ page language="java"  pageEncoding="UTF-8"%>
 <%@ page import="com.bisa.health.entity.SystemContext"%>
 <%@ include file="../comm/tag.jsp" %>
 
@@ -63,7 +63,6 @@
                     <div class="clear Order-tabtips Order-tabtipsv1">
                         <!--等待支付前-->
                         <c:forEach var="orderList" items="${orderList.datas}">
-                       
                             <c:if test="${orderList.tra_status==10}">
                                 <div class="clear full-w bor bor-col-67b7ea min-h-200 mb-25">
                                     <div class="clear full-w bg-deeffa min-h-88 bor bor-b bor-col-67b7ea pt-15 pb-10 plr-20-5-ipad">
@@ -105,12 +104,12 @@
                                                     </div>
                                                     <div class="clear pull-right">
                                                         <div class="clear h-40 pb-10">
-                                                            <button class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF" onclick="window.location.href='<%=request.getContextPath() %>/order/order_pay?order_no=${orderList.order_no}'">
+                                                            <button class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF" onclick="window.location.href='<%=request.getContextPath() %>/l/order_pay?order_no=${orderList.order_no}'">
                                                             立即支付
                                                             </button>
                                                         </div>
                                                         <div class="clear h-40 pt-10">
-                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                             订单详情
                                                             </button>
                                                         </div>
@@ -164,7 +163,7 @@
                                                         </div>
                                                         <div class="clear pull-right">
                                                             <div class="clear h-40 pb-10">
-                                                                <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white"onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                                <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white"onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                                     订单详情
                                                                 </button>
                                                             </div>
@@ -220,7 +219,7 @@
                                                     </div>
                                                     <div class="clear pull-right">
                                                         <div class="clear h-40 pb-10">
-                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                                 订单详情
                                                             </button>
                                                         </div>
@@ -236,8 +235,8 @@
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="/l/userOrder"/>
-                                <jsp:param name="items" value="${orderListTotal}"/>
+                                <jsp:param name="url" value="l/userOrder"/>
+                                <jsp:param name="items" value="${orderList.total}"/>
                             </jsp:include> 
                         </div>
                     </div>
@@ -286,12 +285,12 @@
                                                         </div>
                                                         <div class="clear pull-right">
                                                             <div class="clear h-40 pb-10">
-                                                                <button class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF" onclick="window.location.href='<%=request.getContextPath() %>/order/order_pay?order_no=${orderList.order_no}'">
+                                                                <button class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF" onclick="window.location.href='<%=request.getContextPath() %>/l/order_pay?order_no=${orderList.order_no}'">
                                                                     立即支付
                                                                 </button>
                                                             </div>
                                                             <div class="clear h-40 pt-10">
-                                                                <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                                <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                                     订单详情
                                                                 </button>
                                                             </div>
@@ -306,7 +305,7 @@
                         <div class="clear text-center col-333 f-14">
                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                          	<jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="/l/userOrder1"/>
+                                <jsp:param name="url" value="l/userOrder1"/>
                                 <jsp:param name="items" value="${orderList5.total}"/>
                             </jsp:include> 
                         </div>
@@ -354,7 +353,7 @@
                                                     </div>
                                                     <div class="clear pull-right">
                                                         <div class="clear h-40 pb-10">
-                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                                 订单详情
                                                             </button>
                                                         </div>
@@ -370,7 +369,7 @@
                         <div class="clear text-center col-333 f-14">
                             <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="/l/userOrder2"/>
+                                <jsp:param name="url" value="l/userOrder2"/>
                                 <jsp:param name="items" value="${orderList3.total}"/>
                             </jsp:include> 
                         </div>
@@ -420,7 +419,7 @@
                                                     </div>
                                                     <div class="clear pull-right">
                                                         <div class="clear h-40 pb-10">
-                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/order/order_detail?order_no=${orderList.order_no}'">
+                                                            <button class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white" onclick="window.location.href='<%=request.getContextPath() %>/l/order_detail?order_no=${orderList.order_no}'">
                                                                 订单详情
                                                             </button>
                                                         </div>

@@ -27,6 +27,7 @@ import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IPackageService;
 import com.bisa.hkshop.wqc.service.IUserOrderDetailService;
 import com.bisa.hkshop.wqc.service.IUserOrderService;
+import com.bisa.hkshop.wqc.basic.dao.StringUtil;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
 import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
@@ -55,28 +56,24 @@ public class UserAppraiseController {
 				System.out.println("请去登录");
 				return null;
 		 	}else {
-		 		SystemContext.setPageSize(2);
-		 		List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
-				List<OrderDetail> ordertails=new ArrayList<OrderDetail>();
-				List<Order> listorder=new ArrayList<Order>();
-				Pager<OrderDetail> odtail=new Pager<OrderDetail>();
+		 		//List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
+		 		int pager_offset=0;
+				String offset=request.getParameter("pager.offset");
+				if(StringUtil.isNotEmpty(offset)) {
+					pager_offset=Integer.parseInt(offset);
+				}
+				if(pager_offset!=0) {
+					SystemContext.setPageOffset(pager_offset);
+				}
+
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				listorder=IUserOrderService.Ordertra_statusList(user_guid,30,1);
-				listordertails=IUserOrderDetailService.pageuserdetails(user_guid, 1);
-				for(OrderDetail od: listordertails) {
-					for(Order o:listorder) {
-						if(od.getOrder_no().equals(o.getOrder_no())){
-							ordertails.add(od);
-
-						}
-					 }
-				}
-				
-				odtail.setTotal(listordertails.size());
-				odtail.setDatas(ordertails);
-				model.addAttribute("odtail",odtail);
+				SystemContext.setPageSize(6);
+				//查询订单详情
+				Pager<OrderDetail>  listordertails=IUserOrderDetailService.page_userdetails(user_guid,1,30,1);
+				model.addAttribute("odtail",listordertails);
 				return "user/useAppraiseList";
+				
 		 	}
 	 }
 		@RequestMapping(value = "/userAppraise1", method = RequestMethod.GET)
@@ -86,15 +83,22 @@ public class UserAppraiseController {
 				System.out.println("请去登录");
 				return null;
 			}else {
-				SystemContext.setPageSize(2);
-				List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
-				listordertails=IUserOrderDetailService.pageuserdetails(user_guid, 0);
-				Pager<OrderDetail> odpingjia=new Pager<OrderDetail>();
+		 		int pager_offset=0;
+				String offset=request.getParameter("pager.offset");
+				if(StringUtil.isNotEmpty(offset)) {
+					pager_offset=Integer.parseInt(offset);
+				}
+				if(pager_offset!=0) {
+					SystemContext.setPageOffset(pager_offset);
+				}
+
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				odpingjia.setTotal(listordertails.size());
-				odpingjia.setDatas(listordertails);
-				model.addAttribute("odpingjia",odpingjia);
+				SystemContext.setPageSize(6);
+				Pager<OrderDetail> listordertails=IUserOrderDetailService.page_userdetails(user_guid,0,30,1);
+				SystemContext.setSort("start_time");
+				SystemContext.setOrder("desc");
+				model.addAttribute("odpingjia",listordertails);
 			}
 			return "user/useAppraiseList";
 		}
@@ -106,26 +110,22 @@ public class UserAppraiseController {
 				System.out.println("请去登录");
 				return null;
 			}else {
-				SystemContext.setPageSize(2);
-				List<OrderDetail> listordertails=new ArrayList<OrderDetail>();
-				List<Order> listorder=new ArrayList<Order>();
-				List<OrderDetail> odtas=new ArrayList<OrderDetail>();
-				listorder=IUserOrderService.Ordertra_statusList(user_guid,30,2);
-				listordertails=IUserOrderDetailService.getOrderDetail(user_guid);
-				Pager<OrderDetail> odtail=new Pager<OrderDetail>();
+				int pager_offset=0;
+				String offset=request.getParameter("pager.offset");
+				if(StringUtil.isNotEmpty(offset)) {
+					pager_offset=Integer.parseInt(offset);
+				}
+				if(pager_offset!=0) {
+					SystemContext.setPageOffset(pager_offset);
+				}
+
 				SystemContext.setSort("start_time");
 				SystemContext.setOrder("desc");
-				for(OrderDetail od: listordertails) {
-					for(Order o:listorder) {
-						if(od.getOrder_no().equals(o.getOrder_no())){
-							odtas.add(od);
-
-						}
-					 }
-				}
-				odtail.setTotal(odtas.size());
-				odtail.setDatas(odtas);
-				model.addAttribute("odtas",odtail);
+				SystemContext.setPageSize(6);
+				//这里可能涉及到时间的问题
+				Pager<OrderDetail> listordertails=IUserOrderDetailService.page_userdetails(user_guid,0,30,2);
+				List<OrderDetail> odtas=listordertails.getDatas();
+				model.addAttribute("odtas",listordertails);
 			}
 			return "user/useAppraiseList";
 		}
@@ -184,7 +184,7 @@ public class UserAppraiseController {
 			}else {
 				System.out.println("添加失败"+appraiseUser.getAppraise_no());
 			}
-			//把订单详情 的状态改变，成已评价的商品
+			//把订单详情的状态改变，成已评价的商品
 			OrderDetail ods=IUserOrderDetailService.loadOrderDetail(user_guid,order_detail_guid);
 			ods.setAppraise_isnot(0);
 			IUserOrderDetailService.updateActive(ods);
@@ -213,6 +213,7 @@ public class UserAppraiseController {
 			return "success";
 
 		}
+		//查看评价和评价后跳转页面
 		@RequestMapping(value = "/AppraiseSuccess", method = RequestMethod.GET)
 		public String AppraiseSuccess(HttpServletRequest request,Model model,HttpSession session) throws Exception{
 			String order_detail_guid=request.getParameter("order_detail_guid");

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
+import com.bisa.health.routing.annotation.DataGuid;
 import com.bisa.health.routing.annotation.RoutingTab;
 import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.OrderDetail;
@@ -82,7 +83,7 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		// TODO Auto-generated method stub
 		/*String sql="SELECT od.* FROM s_order AS o,s_order_detail AS od where o.user_guid=? and o.tra_status=? and o.appraise_isnot=? and o.appraise_status=? and od.order_no=o.order_no";
 		return super.findBySql(sql, new Object[]{guid,tra_status,appraise_isnot,appraise_status},OrderDetail.class, true);*/
-		String sql="SELECT od.* FROM s_order_detail AS od where od.user_guid=? and od.appraise_isnot=? order by start_time desc";
+		String sql="select od.* from s_order_detail as od where od.user_guid=? and od.appraise_isnot=? order by start_time desc";
 		return super.queryListBySql(sql, new Object[]{user_guid,appraise_isnot},OrderDetail.class);
 	}
 
@@ -101,6 +102,20 @@ public class IUserOrderDetailDaoImpl extends BaseDao<OrderDetail> implements IUs
 		String sql="delete from s_order_detail  od where od.user_guid=? and od.order_detail_guid=? order by start_time desc";
 		return super.delUpObjectBySql(sql, new Object[]{user_guid,orderDetail.getOrder_detail_guid()});
 	}
+	@Override
+	public Pager<OrderDetail> page_userdetails(int user_guid,int appraise_isnot,int tra_status,int appraise_status){
+			String sql="select od.* from s_order_detail as od where od.user_guid=? and od.appraise_isnot=? and od.tra_status=? and od.appraise_status=?";
+			return super.findBySql(sql, new Object[]{user_guid,appraise_isnot,tra_status,appraise_status},OrderDetail.class,true);
+	}
+	
+	@Override
+	public Pager<OrderDetail> PagerOrderDetail(int user_guid){
+		String sql="select od.* from s_order_detail as od where od.user_guid=? ";
+		return super.findBySql(sql, new Object[]{user_guid},OrderDetail.class,true);
+	}
+
+
+	
 	
 
 

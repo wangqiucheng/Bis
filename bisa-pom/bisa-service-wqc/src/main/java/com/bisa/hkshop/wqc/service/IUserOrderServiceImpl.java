@@ -68,9 +68,9 @@ public class IUserOrderServiceImpl implements IUserOrderService{
 
 	@Override
 	@DataRouting("user_guid")
-	public Pager<Order> seltra_status1(@DataGuid("user_guid") int user_guid, int tra_status) {
+	public Pager<Order> seltra_status1(@DataGuid("user_guid") int user_guid, int tra_status,int appraise_status) {
 		// TODO Auto-generated method stub
-		return orderDao.seltra_status1(user_guid,tra_status);
+		return orderDao.seltra_status1(user_guid,tra_status,appraise_status);
 	}
 
 

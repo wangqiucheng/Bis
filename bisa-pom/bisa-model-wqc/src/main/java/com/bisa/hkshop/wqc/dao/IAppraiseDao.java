@@ -3,6 +3,7 @@ package com.bisa.hkshop.wqc.dao;
 import java.util.List;
 
 import com.bisa.hkshop.model.Appraise;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IAppraiseDao {
 
@@ -14,7 +15,7 @@ public interface IAppraiseDao {
 	
 	public int delAppraise(Appraise appraise);
 
-	public List<Appraise> loadAppraiseList(int product_guid);
+	public Pager<Appraise> loadAppraiseList(int product_guid);
 	
 
 }

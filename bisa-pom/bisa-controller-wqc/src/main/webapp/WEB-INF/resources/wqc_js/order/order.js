@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var path=$("base").attr("href");
-     $("#addAddress").click(function(){
+/*     $("#addAddress").click(function(){
     	var str={"name":$("#name").val(),"address":$("#address").val(),"tel":$("#tel").val(),"email":$("#email").val(),"guid":$("#guid").val()};
     	 var i=JSON.stringify(str);	
     	 $.ajax({
@@ -13,18 +13,19 @@ $(document).ready(function(){
  				"sss":1,
  			},
  			success : function(str) {
- 				console.log(str);
+ 				//console.log(str);
  			   $(".show-add-shippingaddress").fadeOut();
                document.documentElement.style.overflow = "scroll";
  				 html_str=pinjie(str);
  				$(".conanorder-main").prepend(html_str);
+ 				window.location.reload();
  			},error:function(){
  			}
 
  		});
     	 });
-     
-     function pinjie(str){
+     */
+  /*   function pinjie(str){
 			var strVar ="";
 				strVar += "<div class=\"clear col-sm-3 pd-15-5-ipad conanorder-block\">";
 				strVar += "                            <div class=\"clear pd-15-5-ipad bor bor-col-7A7A7A bor-col-activate min-h-190-160-ipad conanorder-tips\">";
@@ -58,18 +59,13 @@ $(document).ready(function(){
 				strVar += "                        <\/div>";
 				return strVar;
 		}
-		
-     
-     
 		function pinjie2(str){
 			var strVar ="";
 				strVar += "<div class=\"clear col-sm-3 pd-15-5-ipad conanorder-block\">";
 				strVar += "                            <div class=\"clear pd-15-5-ipad bor bor-col-7A7A7A bor-col-activate min-h-190-160-ipad conanorder-tips\">";
 				strVar += "                                <p class=\"line-h-30-20-ipad f-18 family-h\">";
 				strVar += "<input type=\"hidden\" class=\"conanorder-tips-addr_number \" value=\"" ;
-				if(str[0].addr_num!=null||str[0].addr_num!=""){
 				strVar +=str[0].addr_num;
-				}
 				strVar +=		"\/>";
 				strVar += "                                    <span class=\"col-252525 conanorder-tips-name\">";
 				strVar +=str[0].name;
@@ -97,9 +93,9 @@ $(document).ready(function(){
 				strVar += "                            <\/div>";
 				strVar += "                        <\/div>";
 				return strVar;
-		}
+		}*/
 		
-		$("#updateAddresspost").click(function(){
+		/*$("#updateAddresspost").click(function(){
 			
 			var str={"name":$("#shname").val(),"address":$("#shaddress").val(),"tel":$("#shphone").val(),"email":$("#shemail").val(),"guid":$("#shguid").val(),"addr_num":$("#shaddrnum").val()};
 	    	 var i=JSON.stringify(str);	
@@ -112,22 +108,18 @@ $(document).ready(function(){
 	 				"str":i,
 	 			},
 	 			success : function(str) {
-	 				console.log(str);
+	 				//console.log(str);
 	 			   $(".show-revise-shippingaddress").fadeOut();
 	               document.documentElement.style.overflow = "scroll";
 	 				 html_str=pinjie2(str);
 	 				$(".conanorder-main").prepend(html_str);
+	 				window.location.reload();
 	 			},error:function(){
 	 			}
 
 	 		});
 	    	
-		});	
-		$(".conanorder-tips-alter").click(function() {
-			var addr_number = $(this).parent().siblings().find(".conanorder-tips-addr_number").val();
-			$("#shaddrnum").val(addr_number);
-			//var i=$("#shaddrnum").val();
-			 //console.log(i);
-			});
+		});	*/
+		
 	});
 	

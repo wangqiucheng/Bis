@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
+import com.bisa.health.routing.annotation.DataGuid;
 import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.wqc.basic.model.Pager;
 
@@ -24,5 +25,8 @@ public interface IUserOrderDetailService {
 	public List<OrderDetail> getOrderDetail(int user_guid);
 	
 	public int delOdtail(int user_guid,OrderDetail  orderDetail);
+	
+	public Pager<OrderDetail> page_userdetails(int user_guid,int appraise_isnot,int tra_status,int appraise_status);
 
+	public Pager<OrderDetail> PagerOrderDetail(int user_guid);
 }

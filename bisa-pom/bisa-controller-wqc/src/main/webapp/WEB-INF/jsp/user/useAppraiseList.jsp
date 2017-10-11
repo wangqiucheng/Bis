@@ -29,6 +29,7 @@
 
 <body>
 	<%@ include file="../comm/header.jsp" %>
+		
     <div class="wrap clear">
         <div class="container pl-0 pr-0">
             <div class="clear">
@@ -80,12 +81,12 @@
                                 </div>
                         </c:forEach>   
                     </div>
-
+						
+						
                         <!-- 循环结束，这里放分页。 -->
                         <div class="clear full-w text-center f-16 col-333 mt-20">
-                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                             <jsp:include page="../comm/pager.jsp">
-                                <jsp:param name="url" value="/l/useAppraise"/>
+                                <jsp:param name="url" value="l/userAppraise"/>
                                 <jsp:param name="items" value="${odtail.total}"/>
                             </jsp:include> 
                         </div>
@@ -106,7 +107,7 @@
                                              ${odpingjia.price}元
                                         </p>
                                         <div class="clear full-w pb-10 pt-10 min-h-40">
-                                            <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto" onclick="window.location.href='<%=request.getContextPath() %>/selAppraise?order_detail_guid=${odpingjia.order_detail_guid}'">
+                                            <button class="w-70 h-20 bor-none bg-309DE2 col-white text-center hovbg-2D90CF dis-n appraise-btninto" onclick="window.location.href='<%=request.getContextPath() %>/l/AppraiseSuccess?order_detail_guid=${odpingjia.order_detail_guid}'">
                                                 查看评价
                                             </button>
                                         </div>
@@ -114,14 +115,14 @@
                             </c:forEach> 
                         </div>   
                     </div>
-                <!-- 循环结束，这里放分页。最多四行。四行之后分页。 -->
-                <div class="clear full-w text-center f-16 col-333 mt-20">
-                    <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
+                <!-- 循环结束，这里放分页。最多四行。四行之后分页。
+                <div class="clear full-w text-center f-16 col-333 mt-20">-->
+                    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
                     <jsp:include page="../comm/pager.jsp">
-                        <jsp:param name="url" value="useAppraise1"/>
+                        <jsp:param name="url" value="l/userAppraise1"/>
                         <jsp:param name="items" value="${odpingjia.total}"/>
                     </jsp:include> 
-                </div>
+                </div> 
             
                     <!-- 评价失效商品部分 -->
                     <div class="clear Appraise-tabtips Appraise-tabtipsv3 dis-n">
@@ -143,11 +144,11 @@
                             </div>
                         </c:forEach>  
                         </div>
-                        <!-- 循环结束，这里放分页。最多四行。四行之后分页。 -->
-                        <div class="clear full-w text-center f-16 col-333 mt-20">
-                            <script type="text/javascript" scr="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
+                        <!-- 循环结束，这里放分页。最多四行。四行之后分页。 
+                        <div class="clear full-w text-center f-16 col-333 mt-20">-->
+                            <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/pager/pager-taglib.js"></script> 
 			                    <jsp:include page="../comm/pager.jsp">
-			                       <jsp:param name="url" value="useAppraise2"/>
+			                       <jsp:param name="url" value="l/userAppraise2"/>
 			                       <jsp:param name="items" value="${odtas.total}"/>
                     		   </jsp:include> 
                         </div>

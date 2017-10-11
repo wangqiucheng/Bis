@@ -10,13 +10,13 @@
   
  <dependencies>
  
- 	<!-- <dependency>
+ 	<!--  <dependency>
 	  <groupId>bisa-pom-hkshop</groupId>
 	  <artifactId>bisa-hkshop-controller-zj</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
 	  <type>war</type>
 	  <scope>runtime</scope>
-   </dependency> -->
+   </dependency> --> 
 
    	<dependency>
 	   <groupId>com.bisa.hkshop</groupId>
@@ -27,7 +27,7 @@
   	 <dependency>
 		  <groupId>com.bisa.sso</groupId>
 		  <artifactId>health-sso-server</artifactId>
-		  <version>0.0.3-SNAPSHOT</version>
+		  <version>0.0.4-SNAPSHOT</version>
 		  <type>war</type>
 		  <scope>runtime</scope>
 	</dependency> 
@@ -86,7 +86,7 @@
 				<version>2.6</version>
 				<configuration>
 					<warName>bisahealth-shopserver</warName>
-					<overlays>
+					 <overlays>
 					  <overlay>
 						<groupId>com.bisa.sso</groupId>
 							<artifactId>health-sso-server</artifactId>
@@ -95,8 +95,8 @@
 								<exclude>WEB-INF/classes/log4j2.xml</exclude>
 							</excludes>
 						</overlay>
-						
-					</overlays>
+			
+					</overlays> 
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>

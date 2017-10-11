@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 @Repository
 public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 
@@ -49,10 +50,10 @@ public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 	}
 
 	@Override
-	public List<Appraise> loadAppraiseList(int product_guid) {
+	public Pager<Appraise> loadAppraiseList(int product_guid) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_appraise a where a.product_guid=? order by update_time desc";
-		return super.queryListBySql(sql, new Object[]{product_guid}, Appraise.class);
+		String sql="select * from s_appraise a where a.product_guid=?";
+		return super.findBySql(sql, new Object[]{product_guid}, Appraise.class,true);
 	}
 	
 

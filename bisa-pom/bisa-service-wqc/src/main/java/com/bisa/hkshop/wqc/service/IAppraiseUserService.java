@@ -3,6 +3,8 @@ package com.bisa.hkshop.wqc.service;
 import java.util.List;
 
 import com.bisa.hkshop.model.AppraiseUser;
+import com.bisa.hkshop.model.Order;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IAppraiseUserService {
 
@@ -16,5 +18,6 @@ public interface IAppraiseUserService {
 
 	public List<AppraiseUser> loadAppraiseUserList(int user_guid);
 	
+	//public Pager<Order> Ordertra_statusPager(int user_guid, int tra_status,int appraise_status);
 
 }

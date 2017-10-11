@@ -10,6 +10,7 @@ import com.bisa.health.routing.annotation.DataRouting;
 import com.bisa.health.routing.annotation.RoutingTab;
 import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Appraise;
+import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.dao.IAppraiseDao;
 
 @Service
@@ -48,7 +49,7 @@ public class IAppraiseServiceImpl implements IAppraiseService{
 
 	@Override
 	@DataRouting("product_guid")
-	public List<Appraise> loadAppraiseList(@DataGuid("product_guid") int product_guid) {
+	public Pager<Appraise> loadAppraiseList(@DataGuid("product_guid") int product_guid) {
 		// TODO Auto-generated method stub
 		return IAppraiseDao.loadAppraiseList(product_guid);
 	}

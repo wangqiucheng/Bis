@@ -61,7 +61,7 @@
                                         <p class="line-h-30-20-ipad f-18 family-h">
                                             <input type="hidden" class="conanorder-tips-addr_number" id="shaddr_num" value="${address.addr_num}"/>
                                             <input type="hidden" value="${statu.index}" id="pre" />
-                                            <span class="col-252525 conanorder-tips-name">${address.name}</span>
+                                            <span class="col-252525 conanorder-tips-name text-line-1">${address.name}</span>
                                         </p>
                                         <p class="line-h-20 mt-15-0-ipad f-14 family-h">
                                             <span class="col-555 conanorder-tips-phone">${address.tel}</span>
@@ -261,7 +261,7 @@
                             <div class="clear mt-5 bg-white pd-20">
                                 <div class="col-sm-9 clear pl-10 pr-10 cur-d conanorder-tips-showmsg">
                                     <p class="f-16 family-h line-h-20">
-                                    	<input type="hidden" class="conanorder-tips-addr_number" id="addr_num" name="addr_num">
+                                    	<input type="hidden" class="conanorder-tips-showmsg-addr_number" id="addr_num" name="addr_num">
                                         <span class="col-252525 conanorder-tips-showmsg-name">
                                             
                                         </span>
@@ -326,7 +326,7 @@
                             </div>
                         </div>
                         <div class="clear full-w h-75 bg-f5f5f5 mt-10 pt-20 pb-20 line-h-35 text-center">
-                            <button type="submit" class="full-h w-150 mr-10 bor-none bg-309DE2 hovbg-2D90CF col-white" id="addAddress">保存</button>
+                            <button  class="full-h w-150 mr-10 bor-none bg-309DE2 hovbg-2D90CF col-white" id="addAddress">保存</button>
                             <button type="reset" class="full-h w-150 ml-10 bor-none bg-9a9a9a hovbg-666 col-white">重置</button>
                         </div>
                     </form>
@@ -372,7 +372,7 @@
                             </div>
                         </div>
                         <div class="clear full-w h-75 bg-f5f5f5 mt-10 pt-20 pb-20 line-h-35 text-center">
-                            <button type="submit" class="full-h w-150 mr-10 bor-none bg-309DE2 hovbg-2D90CF col-white" id="updateAddresspost">保存</button>
+                            <button  class="full-h w-150 mr-10 bor-none bg-309DE2 hovbg-2D90CF col-white" id="updateAddresspost">保存</button>
                             <button type="button" class="full-h w-150 ml-10 bor-none bg-9a9a9a hovbg-666 col-white close-mod">取消</button>
                         </div>
                     </form>

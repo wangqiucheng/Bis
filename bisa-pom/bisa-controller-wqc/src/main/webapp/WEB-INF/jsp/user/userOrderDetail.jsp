@@ -42,34 +42,7 @@
             <img class="full-w" src="<%=request.getContextPath() %>/resources/images/images/news/HK_NewsIndex/banner.jpg" alt="">
         </div>
         <div class="container mt-30 pl-0 pr-0 clear bg-f5f5f5 pt-30 pb-70 mb-60">
-            <div class="col-sm-3 pl-30 pr-20">
-                <div class="clear bg-white pd-40-10-ipad">
-                    <p class="mt-10 mb-10 col-212121 f-30 line-h-40 cur-d">
-                        订单中心
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-40 mb-20 cur-p hovecol-309DE2 col-active">
-                        我的订单
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        评价晒单
-                    </p>
-                    <p class="mt-30 mb-30 col-212121 f-30 line-h-40 cur-d">
-                        个人中心
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        我的个人中心
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        充值服务
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        收货地址
-                    </p>
-                    <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        账号安全
-                    </p>
-                </div>
-            </div>
+            <%@ include file="./comm/menu.jsp" %>
             <div class="clear col-sm-9 pr-30 pl-0">
                 <div class="clear bg-white pb-280 pl-50 pr-50">
                     <p class="pt-40-20-ipad f-50-40-ipad col-757575 line-h-70-50-ipad pb-20">
@@ -81,10 +54,10 @@
                         </div>
                         <div class="clear pull-right h-30 line-h-30 mb-10 ">
                         	<c:if test="${order.effective_statu==1 && order.tra_status==10}">
-                            <button onclick="window.location.href='<%=request.getContextPath() %>/order/order_close?order_no=${order.order_no}'" class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white mr-20">
+                            <button onclick="window.location.href='<%=request.getContextPath() %>/l/order_close?order_no=${order.order_no}'" class="h-30 line-h-30 f-14 col-757575 bg-white w-110 text-center bor bor-col-ccc hovbg-757575 hovecol-white mr-20">
                                 	取消订单
                             </button>
-                            <button onclick="window.location.href='<%=request.getContextPath() %>/order/order_close?order_no=${order.order_no}'" class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF">
+                            <button onclick="window.location.href='<%=request.getContextPath() %>/l/order_pay?order_no=${order.order_no}'" class="h-30 line-h-30 f-14 bor-none col-white bg-309DE2 w-110 text-center hovbg-2D90CF">
                                 	立即支付
                             </button>
                             </c:if>
@@ -206,7 +179,7 @@
                      <c:forEach items="${orderDetail }" var="orderDetail">
                         <div class="clear full-w">
                             <div class="col-sm-1 col-md-1 pl-0 pr-0 mt-15 mb-15">
-                                <img class="img-60-35-ipad" src="<%=request.getContextPath() %>/resources/images/user/Order/Order-Contertipsv1.png" alt="">
+                                <img class="img-60-35-ipad" src="<%=request.getContextPath() %>/resources${orderDetail.pic}" alt="">
                             </div>
                             <div class="col-sm-7 col-md-5 col-lg-4 f-14 col-333 h-60-35-ipad line-h-60-ipad mt-15 mb-15 text-line-1">
                                ${orderDetail.product_name}

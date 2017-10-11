@@ -59,7 +59,6 @@ public class OrderController {
 	@Autowired
 	private ICartService shopCartService;
 	
-	
 	/*
 	 * 跳转到下订单页面
 	 */
@@ -180,6 +179,8 @@ public class OrderController {
 					orderDetail.setUser_guid(user_guid);
 					orderDetail.setPrice(orderCar.getPrice());
 					orderDetail.setAppraise_isnot(1);
+					orderDetail.setTra_status(10);
+					orderDetail.setAppraise_status(1);
 					orderDetailService.addOrderDetail(orderDetail);
 					//删除购物车中的当前商品
 					int is_not=shopCartService.delCart(user_guid,orderCar.getPackId());	
@@ -236,6 +237,8 @@ public class OrderController {
 							orderDetail.setStart_time(date);
 							orderDetail.setUser_guid(user_guid);
 							orderDetail.setAppraise_isnot(1);
+	/*						orderDetail.setTra_status(10);
+							orderDetail.setAppraise_status(1);*/
 							orderDetailService.addOrderDetail(orderDetail);
 						}else{
 							Commodity pro = commodityService.getcommodity(orderDetailDto.getCartid());
@@ -254,6 +257,8 @@ public class OrderController {
 							orderDetail.setUser_guid(user_guid);
 							orderDetail.setAppraise_isnot(1);
 							orderDetail.setPrice(pro.getSelling_price()*Integer.valueOf(orderDetailDto.getCartnum()));
+							/*orderDetail.setTra_status(10);
+							orderDetail.setAppraise_status(1);*/
 							orderDetailService.addOrderDetail(orderDetail);
 						}
 					}
@@ -293,42 +298,6 @@ public class OrderController {
 		model.addAttribute("address",address);
 		return "order/HK-payment";
 	}
-	
-	
-			
-		//订单细节页面
-		@RequestMapping(value="/order_detail",method=RequestMethod.GET)
-		public String order_detail(HttpServletRequest request,Model model,HttpSession session){
-			
-			//根据订单号去查商品
-			Order order = orderService.loadOrderByOrderId(2,"a1e340e4f78c4135a395b351fca605cf");
-			
-			List<OrderDetail> order_detail = orderDetailService.loadOrderDetailList(2,order.getOrder_no());
-			
-			Address address = addressService.loadAddressByAddressNum(2,order.getAddr_num());
-			
-			Date date = new Date();
-			
-			Date date1 = order.getStart_time();
-			
-			long time = date.getTime() - date1.getTime();
-			if(86400000>time){
-				time = 86400000 - time;
-				System.out.println(">>>>>>>>>>"+time);			
-			    long hh = time % (1000 * 24 * 60 * 60) / (1000 * 60 * 60);
-			    long min = time % (1000 * 24 * 60 * 60) % (1000 * 60 * 60) / (1000 * 60);
-			    model.addAttribute("time",hh + "小时" + min + "分");
-			}
-			
-			model.addAttribute("orderDetail",order_detail);
-			
-			model.addAttribute("order",order);
-			
-			model.addAttribute("address",address);
-			
-			return "order/hk_order_detail";
-			
-		}
 	
 		//个人中心中的立即下单
 		@RequestMapping(value="/order_pay",method=RequestMethod.GET)
@@ -376,12 +345,18 @@ public class OrderController {
 			String order_no = request.getParameter("order_no");
 			session.setAttribute("user_guid", 2);
 			int user_guid=(int) session.getAttribute("user_guid");
-			Order order = orderService.loadOrderByOrderId(2,order_no);
+			Order order = orderService.loadOrderByOrderId(user_guid,order_no);
 			order.setEffective_statu(2);//关闭订单，改变状态
 			order.setTrade_fail_cause("客户自己取消订单");
 			order.setTra_status(50);
+			order.setAppraise_status(2);
 			orderService.updateOrder(user_guid,order);
-			
+			List<OrderDetail> OrderDetail=orderDetailService.loadOrderDetailList(user_guid, order_no);
+			for(OrderDetail od:OrderDetail) {
+				od.setTra_status(50);
+				od.setAppraise_isnot(2);
+				orderDetailService.updateActive(user_guid, od);
+			}
 			return "order/success";
 		}
 	

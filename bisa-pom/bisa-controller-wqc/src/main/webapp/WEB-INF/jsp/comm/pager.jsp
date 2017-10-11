@@ -7,14 +7,10 @@
 
 <c:set var="pg_url" value='<%=request.getParameter("url")%>'></c:set>
 <c:set var="pg_items" value='<%=request.getParameter("items")%>'></c:set>
-<%-- <c:set var="report_type" value='<%=request.getParameter("report_type")%>'></c:set> --%>
 
 
-   <pg:pager export="currentPageNumber=pageNumber" items="${pg_items }"
-	maxPageItems="<%=SystemContext.getPageSize()%>" url="${pg_url}">
-	
-<%-- 	<pg:param name="type" value="${report_type}"/> --%>
 
+   <pg:pager maxPageItems="<%=SystemContext.getPageSize()%>" url="${pg_url}" export="currentPageNumber=pageNumber" items="${pg_items}" >
   	<pg:index export="items,pages">
   	
         <c:if test="${!empty params}">

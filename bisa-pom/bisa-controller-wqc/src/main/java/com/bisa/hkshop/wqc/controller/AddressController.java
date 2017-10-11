@@ -100,7 +100,7 @@ public class AddressController {
 			addre.setTel(address.getTel());
 			addre.setName(address.getName());
 			addre.setAct_time(date);
-			addre.setEmail("1347@");
+			addre.setEmail(address.getEmail());
 			addre.setIs_default(0);
 			addre.setGuid(address.getGuid());
 			System.out.println("????update_is_default:"+ addre.getIs_default());
