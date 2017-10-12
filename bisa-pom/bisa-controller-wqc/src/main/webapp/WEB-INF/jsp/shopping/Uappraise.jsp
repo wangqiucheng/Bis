@@ -98,11 +98,15 @@
                	<div id="appraiseList">
                	
                	</div>
-               <c:if test="${productDto.total>2}">
-	               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p appraise-more">
+               <c:if test="${productDto.total>=2}">
+	               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p <c:if test="${ productDto.total==2}">dis-n</c:if> appraise-more">
 	                   	加载更多
 	               </div>
+	               <div class="clear mt-20 full-w h-50 line-h-50 text-center f-14 col-309DE2 bg-white cur-p <c:if test="${ productDto.total>2}">dis-n</c:if> appraise-daodi">
+	                   	到底了
+	           		</div>
 	           </c:if> 
+	           
            </div>
            <!-- 一下4个浮标嵌入的数据一致 -->
            <!--在ipad下显示的右浮标-->

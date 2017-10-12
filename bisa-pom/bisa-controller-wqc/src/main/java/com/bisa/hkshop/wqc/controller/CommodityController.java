@@ -1,7 +1,10 @@
 package com.bisa.hkshop.wqc.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -120,33 +123,42 @@ public class CommodityController {
 		model.addAttribute("comm", commodity);
 		return "shopping/Uappraise";
 		}
-		@RequestMapping(value="/shopping/addUappraise",method=RequestMethod.GET)
-		public @ResponseBody List<Appraise> addUappraise1(HttpServletRequest request,Model model) {
-			String productId=request.getParameter("productId");
-			String appraise_more=request.getParameter("appraise_more");
-			//查询商品编号
-			Commodity commodity=iCommodityService.getcommodity(productId);
-			int product_guid=commodity.getProduct_guid();
-			
-			int pager_offset=0;
-			String offset=request.getParameter("pager.offset");
-			if(StringUtil.isNotEmpty(offset)) {
-				pager_offset=Integer.parseInt(offset);
-			}
-			if(pager_offset!=0) {
-				SystemContext.setPageOffset(pager_offset);
-			}
-
-			SystemContext.setSort("update_time");
-			SystemContext.setOrder("desc");
-			SystemContext.setPageSize(1);
-			
-			Pager<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
-			List<Appraise> list=appraise.getDatas();
-			/*Gson gson = new Gson();
-			String str = gson.toJson(list);*/
-			return list;
+	@RequestMapping(value="/shopping/addUappraise",method=RequestMethod.GET)
+	public @ResponseBody Map<String,List<Appraise>> addUappraise1(HttpServletRequest request,Model model) {
+		String productId=request.getParameter("productId");
+		String appraise_more=request.getParameter("appraise_more");
+		//查询商品编号
+		Commodity commodity=iCommodityService.getcommodity(productId);
+		int product_guid=commodity.getProduct_guid();
+		
+		int pager_offset=0;
+		String offset=request.getParameter("pager.offset");
+		int pageNum=0;
+		pageNum=Integer.parseInt(request.getParameter("pageNum"));
+		
+		if(StringUtil.isNotEmpty(offset)) {
+			pager_offset=Integer.parseInt(offset);
 		}
+		if(pager_offset!=0) {
+			SystemContext.setPageOffset((pageNum-1)*1);
+		}
+		
+		SystemContext.setSort("update_time");
+		SystemContext.setOrder("desc");
+		SystemContext.setPageSize(1);
+		int pageSize=SystemContext.getPageSize();
+		Pager<Appraise> appraise=IAppraiseService.loadAppraiseList(product_guid);
+		pager_offset=(pageNum-1)*pageSize;
+		pageNum++;
+		
+		List<Appraise> list=appraise.getDatas();
+        String url="&pager.offset="+pager_offset+"&pageNum="+pageNum+"";
+        Map<String,List<Appraise>> map=new HashMap<String,List<Appraise>>();
+        map.put(url, list);
+        
+		return map;
+	}
+		
 	}
 
 	
