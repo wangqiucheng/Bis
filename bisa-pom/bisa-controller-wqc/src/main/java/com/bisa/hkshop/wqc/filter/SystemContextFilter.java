@@ -10,7 +10,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.bisa.health.entity.SystemContext;
+import com.bisa.health.model.SystemContext;
+
+
 
 
 public class SystemContextFilter implements Filter{

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.model.Address;
 import com.bisa.hkshop.model.Cart;
@@ -24,6 +26,7 @@ import com.bisa.hkshop.model.OrderDetail;
 import com.bisa.hkshop.model.Trade;
 import com.bisa.hkshop.wqc.basic.model.OrderDetailDto;
 import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
+import com.bisa.hkshop.wqc.basic.utility.KdniaoTrackQueryAPI;
 import com.bisa.hkshop.wqc.service.IAddressService;
 import com.bisa.hkshop.wqc.service.ICartService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
@@ -206,6 +209,7 @@ public class OrderController {
 				orderN.setStart_time(date);
 				orderN.setEffective_statu(1);
 				orderService.addOrder(user_guid,orderN);
+				
 				order = orderN;
 				
 			}else{
@@ -286,10 +290,13 @@ public class OrderController {
 			trade.setPrice(order.getPrice());
 			trade.setStart_time(date);
 			trade.setTrade_no(trade_no);
+			trade.setPay_type(0);
+			trade.setGuid(GuidGenerator.generate());
 			//拿出用户的唯一uuid
 			trade.setUser_guid(user_guid);
 			//添加交易记录的表
-			tradeService.addTrade(trade);
+			boolean i=tradeService.addTrade(trade);
+			System.out.println("添加交易记录"+i);
 			//将交易信息存到session中
 			session.setAttribute("tradeNo",trade_no);
 			
@@ -350,14 +357,16 @@ public class OrderController {
 			order.setTrade_fail_cause("客户自己取消订单");
 			order.setTra_status(50);
 			order.setAppraise_status(2);
+
 			orderService.updateOrder(user_guid,order);
 			List<OrderDetail> OrderDetail=orderDetailService.loadOrderDetailList(user_guid, order_no);
 			for(OrderDetail od:OrderDetail) {
 				od.setTra_status(50);
 				od.setAppraise_isnot(2);
+				
 				orderDetailService.updateActive(user_guid, od);
 			}
 			return "order/success";
 		}
-	
+
 }

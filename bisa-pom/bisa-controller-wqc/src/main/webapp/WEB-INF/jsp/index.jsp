@@ -56,165 +56,277 @@
             <div class="clear pos-r pl-0 pr-0 full-w">
                 <div class="swiper-container swiper-container-tipsv1 full-w">
                     <div class="swiper-wrapper">
-                    <!-- 这块是可以for循环    -->
-                  <%--   <c:forEach var="list5" items="${listMap }" > --%>
+                        <!-- slide1 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w pl-0 pr-0 bor bor-t-none bor-b-none bor-col-E9E9E9 protipssidev1 shodow-tip">
-                                <div class="clear ">
-                                    <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/shopping"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
-                                    </div>
-                                    <div class="clear pt-30 protipsplmedia cur-d pb-80">
-                                        <p class="line-h-30 f-16 f-w col-252525">
-                                            HC3A250 悉心心电仪
-                                        </p>
-                                        <p class="line-h-20 f-14 col-8c8c8c pt-20">
-                                           采集数据精确到0.00001mm
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           导联数：3通道 数据传输稳定
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           存储容量：0.9GB 相当于连续采
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           集40天的数据
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           重量：33g 轻巧易携带
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           续航：无蓝牙120小时持续使用
-                                        </p>
-                                        <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=1001">了解产品细节 ></a>
-                                        <!-- </p> -->
+                            <div class="full-w pl-0 pr-0 bor bor-r pos-r bor-col-E9E9E9 protipssidev1 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear full-h bor bor-l bor-col-E9E9E9 pos-a t-9 l-0 t-0">
+                                        </div>
+                                        <div class="clear ">
+                                            <div class="clear full-w text-center pt-30 pb-30 bg-e2f3fe">
+                                                <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
+                                            </div>
+                                            <div class="clear pt-30 protipsplmedia cur-d pb-80-20-ipad">
+                                                <p class="line-h-30 f-16 f-w col-252525">
+                                                    HC3A250 悉心心电仪
+                                                </p>
+                                                <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                                   采集数据精确到0.00001mm
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   导联数：3通道 数据传输稳定
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   存储容量：0.9GB 相当于连续采
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   集40天的数据
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   重量：33g 轻巧易携带
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   续航：无蓝牙120小时持续使用
+                                                </p>
+                                                <p class="line-h-25 f-14 pt-20">
+                                                   <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3">了解产品细节 ></a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- slide2 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip">
-                                <div class="clear shodow-tips">
-                                    <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=2001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips2.png" alt=""></a>
-                                    </div>
-                                    <div class="clear pt-30 protipsplmedia pb-80 cur-d">
-                                        <p class="line-h-30 f-16 f-w col-252525">
-                                            HC3A250 悉心血压计
-                                        </p>
-                                        <p class="line-h-20 f-14 col-8c8c8c pt-20">
-                                           采集数据精确到0.00001mm
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           导联数：3通道 数据传输稳定
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           存储容量：0.9GB 相当于连续采
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           集40天的数据
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           重量：33g 轻巧易携带
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           续航：无蓝牙120小时持续使用
-                                        </p>
-                                        <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=2001">了解产品细节 ></a>
-                                        </p>
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear full-w text-center pt-30 pb-30  bg-e2f3fe">
+                                            <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=4f7b0b61890c46ab8c0f423a3d9edfed"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips2.png" alt=""></a>
+                                        </div>
+                                        <div class="clear pt-30 protipsplmedia pb-80-20-ipad cur-d">
+                                            <p class="line-h-30 f-16 f-w col-252525">
+                                                HC3A250 悉心血压计
+                                            </p>
+                                            <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                               采集数据精确到0.00001mm
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               导联数：3通道 数据传输稳定
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               存储容量：0.9GB 相当于连续采
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               集40天的数据
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               重量：33g 轻巧易携带
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               续航：无蓝牙120小时持续使用
+                                            </p>
+                                            <p class="line-h-25 f-14 pt-20">
+                                               <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4f7b0b61890c46ab8c0f423a3d9edfed">了解产品细节 ></a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- slide3 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip">
-                                <div class="clear shodow-tips">
-                                    <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
-                                    </div>
-                                    <div class="clear pt-30 protipsplmedia pb-80 cur-d">
-                                        <p class="line-h-30 f-16 f-w col-252525">
-                                            HC3A250 悉心心电仪
-                                        </p>
-                                        <p class="line-h-20 f-14 col-8c8c8c pt-20">
-                                           采集数据精确到0.00001mm
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           导联数：3通道 数据传输稳定
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           存储容量：0.9GB 相当于连续采
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           集40天的数据
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           重量：33g 轻巧易携带
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           续航：无蓝牙120小时持续使用
-                                        </p>
-                                        <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4001">了解产品细节 ></a>
-                                        </p>
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear full-w text-center pt-30 pb-30 bg-e2f3fe">
+                                            <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
+                                        </div>
+                                        <div class="clear pt-30 protipsplmedia pb-80-20-ipad cur-d">
+                                            <p class="line-h-30 f-16 f-w col-252525">
+                                                HC3A250 悉心心电仪
+                                            </p>
+                                            <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                               采集数据精确到0.00001mm
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               导联数：3通道 数据传输稳定
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               存储容量：0.9GB 相当于连续采
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               集40天的数据
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               重量：33g 轻巧易携带
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               续航：无蓝牙120小时持续使用
+                                            </p>
+                                            <p class="line-h-25 f-14 pt-20">
+                                               <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3">了解产品细节 ></a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
+                        <!-- slide4 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tipv2">
-                                <div class="clear">
-                                    <div class="clear full-w text-center pt-30 pb-30">
-                                        <a href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=3001"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips3.png" alt=""></a>
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 min-h-600">
+                                <div class="clear full-w pull-left protipshalfheight shodow-tipv2">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear shodow-tipl">
+                                            <a href="#"><img class="cur-p full-wh  protipshalfheight" src="<%=request.getContextPath() %>/resources/img/index/producttips4.png" alt=""></a>
+                                        </div>
                                     </div>
-                                    <div class="clear pt-30 protipsplmedia cur-d pb-80">
-                                        <p class="line-h-30 f-16 f-w col-252525">
-                                            HC3A250 悉心摄像头
-                                        </p>
-                                        <p class="line-h-20 f-14 col-8c8c8c pt-20">
-                                           采集数据精确到0.00001mm
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           导联数：3通道 数据传输稳定
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           存储容量：0.9GB 相当于连续采
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           集40天的数据
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           重量：33g 轻巧易携带
-                                        </p>
-                                        <p class="line-h-25 f-14 col-8c8c8c">
-                                           续航：无蓝牙120小时持续使用
-                                        </p>
-                                        <p class="line-h-25 f-14 pt-20">
-                                           <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=3001">了解产品细节 ></a>
-                                        </p>
+                                </div>
+                                <div class="clear full-w pull-left protipshalfheight shodow-tipv2">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear shodow-tipl">
+                                            <a href="#"><img class="cur-p full-wh  protipshalfheight" src="<%=request.getContextPath() %>/resources/img/index/producttips5.png" alt=""></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                 <%--    </c:forEach>   --%>
-                       <!-- for循环结束 -->
+                        <!-- slide5 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w protipssidev2 bg-252525 pl-0 pr-0">
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear">
+                                            <div class="clear full-w text-center pt-30 pb-30 bg-e2f3fe">
+                                                <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=5e86b4dcbbed4f4e9bbb57c85e04bc87"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips3.png" alt=""></a>
+                                            </div>
+                                            <div class="clear pt-30 protipsplmedia cur-d pb-80-20-ipad">
+                                                <p class="line-h-30 f-16 f-w col-252525">
+                                                    HC3A250 悉心摄像头
+                                                </p>
+                                                <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                                   采集数据精确到0.00001mm
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   导联数：3通道 数据传输稳定
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   存储容量：0.9GB 相当于连续采
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   集40天的数据
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   重量：33g 轻巧易携带
+                                                </p>
+                                                <p class="line-h-25 f-14 col-8c8c8c">
+                                                   续航：无蓝牙120小时持续使用
+                                                </p>
+                                                <p class="line-h-25 f-14 pt-20">
+                                                   <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=5e86b4dcbbed4f4e9bbb57c85e04bc87">了解产品细节 ></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- slide6 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w protipssidev2 bg-252525 pl-0 pr-0">
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear full-w text-center pt-30 pb-30  bg-e2f3fe">
+                                            <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=4f7b0b61890c46ab8c0f423a3d9edfed"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips2.png" alt=""></a>
+                                        </div>
+                                        <div class="clear pt-30 protipsplmedia pb-80-20-ipad cur-d">
+                                            <p class="line-h-30 f-16 f-w col-252525">
+                                                HC3A250 悉心血压计
+                                            </p>
+                                            <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                               采集数据精确到0.00001mm
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               导联数：3通道 数据传输稳定
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               存储容量：0.9GB 相当于连续采
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               集40天的数据
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               重量：33g 轻巧易携带
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               续航：无蓝牙120小时持续使用
+                                            </p>
+                                            <p class="line-h-25 f-14 pt-20">
+                                               <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=4f7b0b61890c46ab8c0f423a3d9edfed">了解产品细节 ></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- slide7 -->
                         <div class="swiper-slide protips">
-                            <div class="full-w protipssidev2 bg-252525 pl-0 pr-0">
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 shodow-tip min-h-600">
+                                <div class="clear shodow-tipl">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear full-w text-center pt-30 pb-30 bg-e2f3fe">
+                                            <a href="<%=request.getContextPath() %>/l/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3"><img class="cur-p" src="<%=request.getContextPath() %>/resources/img/index/producttips1.png" alt=""></a>
+                                        </div>
+                                        <div class="clear pt-30 protipsplmedia pb-80-20-ipad cur-d">
+                                            <p class="line-h-30 f-16 f-w col-252525">
+                                                HC3A250 悉心心电仪
+                                            </p>
+                                            <p class="line-h-20 f-14 col-8c8c8c pt-20">
+                                               采集数据精确到0.00001mm
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               导联数：3通道 数据传输稳定
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               存储容量：0.9GB 相当于连续采
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               集40天的数据
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               重量：33g 轻巧易携带
+                                            </p>
+                                            <p class="line-h-25 f-14 col-8c8c8c">
+                                               续航：无蓝牙120小时持续使用
+                                            </p>
+                                            <p class="line-h-25 f-14 pt-20">
+                                               <a class="col-8c8c8c t-nonehove hovecol-333" href="<%=request.getContextPath() %>/shopping/getCommodityId?shop_number=de00d806c70141ce98158df5bc0ab3a3">了解产品细节 ></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>    
                             </div>
                         </div>
+                        <!-- slide8 -->
                         <div class="swiper-slide protips">
-                        	<div class="full-w protipssidev2 bg-252525 pl-0 pr-0">
-                        </div>
+                            <div class="full-w pl-0 pr-0 bor bor-r bor-col-E9E9E9 min-h-600">
+                                <div class="clear full-w pull-left protipshalfheight shodow-tipv2">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear shodow-tipl">
+                                            <a href="#"><img class="cur-p full-wh protipshalfheight" src="<%=request.getContextPath() %>/resources/img/index/producttips5.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear full-w pull-left protipshalfheight shodow-tipv2">
+                                    <div class="clear shodow-tipr">
+                                        <div class="clear shodow-tipl">
+                                            <a href="#"><img class="cur-p full-wh protipshalfheight" src="<%=request.getContextPath() %>/resources/img/index/producttips4.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="clear pos-a t-0 l-0 rgba-90 z-99">

@@ -12,9 +12,6 @@ import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Trade;
 import com.bisa.hkshop.wqc.dao.ITradeDao;
 
-
-
-
 @Service
 @RoutingTab(TableEnum.SWITCH)
 public class TradeServiceImpl implements ITradeService{
@@ -36,7 +33,7 @@ public class TradeServiceImpl implements ITradeService{
 	
 	@Override
 	@DataRouting("user_guid")
-	public Boolean addTrade(Trade trade) {
+	public Boolean addTrade(@DataGuid("user_guid") Trade trade) {
 		return tradeDao.addTrade(trade);
 	}
 

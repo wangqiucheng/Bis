@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 @Repository
 public class IAppraiseDaoImpl extends BaseDao<Appraise> implements IAppraiseDao{
 

@@ -15,8 +15,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 
-import com.bisa.health.entity.SystemContext;
-import com.bisa.hkshop.wqc.basic.model.Pager;
+import com.bisa.health.entity.Pager;
+import com.bisa.health.model.SystemContext;
+
 
 
 /**

@@ -13,16 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bisa.health.entity.SystemContext;
+import com.bisa.health.entity.Pager;
+import com.bisa.health.model.SystemContext;
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.model.Package;
 import com.bisa.hkshop.wqc.basic.dao.StringUtil;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.service.IAppraiseService;
 import com.bisa.hkshop.wqc.service.ICommodityService;
 import com.bisa.hkshop.wqc.service.IPackageService;
-import com.google.gson.Gson;
 
 
 @Controller
@@ -57,7 +56,7 @@ public class CommodityController {
 		List<Package> pack=IPackageService.getpackage(shop_Number);
 		model.addAttribute("pack", pack);
 		//悉心服务
-		Commodity comm = iCommodityService.getcommodity("4001");
+		Commodity comm = iCommodityService.getcommodity("51409f91960848579d64bd5f103ea66a");
 		model.addAttribute("comm", comm);
 		return "shopping/product";
 		

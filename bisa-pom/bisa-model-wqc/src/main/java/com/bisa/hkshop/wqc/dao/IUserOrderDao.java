@@ -2,8 +2,8 @@ package com.bisa.hkshop.wqc.dao;
 
 import java.util.List;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Order;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IUserOrderDao {
 	

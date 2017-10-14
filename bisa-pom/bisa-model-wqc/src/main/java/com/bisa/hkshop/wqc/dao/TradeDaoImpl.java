@@ -40,16 +40,17 @@ public class TradeDaoImpl extends BaseDao<Trade> implements ITradeDao{
 	
 	@Override
 	public Boolean addTrade(Trade trade) {
-		try{
-			String sql = "insert into s_trade(s_trade.order_guid,s_trade.pay_type,"
-					+ "s_trade.price,s_trade.start_time,s_trade.status,s_trade.trade_no,"
-					+ "s_trade.user_guid,s_trade.guid) values(?,?,?,?,?,?,?,?)";
-			this.addObjectBySql(sql, new Object[]{trade.getOrder_guid(),trade.getPay_type(),trade.getPrice()
-					,trade.getStart_time(),trade.getStatus(),trade.getTrade_no(),trade.getUser_guid(),trade.getGuid()});
-		}catch(Exception e){
+		
+		String sql = "insert into s_trade(s_trade.order_guid,s_trade.pay_type,"
+				+ "s_trade.price,s_trade.start_time,s_trade.status,s_trade.trade_no,"
+				+ "s_trade.user_guid,s_trade.guid) values(?,?,?,?,?,?,?,?)";
+		int i=super.addObjectBySql(sql, new Object[]{trade.getOrder_guid(),trade.getPay_type(),trade.getPrice()
+				,trade.getStart_time(),trade.getStatus(),trade.getTrade_no(),trade.getUser_guid(),trade.getGuid()});
+		if(i>0){
+			return true;
+		}else {
 			return false;
 		}
-		return true;
 	}
 
 	@Override

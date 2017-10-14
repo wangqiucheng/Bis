@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.health.routing.annotation.DataGuid;
 import com.bisa.health.routing.annotation.DataRouting;
 import com.bisa.health.routing.annotation.RoutingTab;
 import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Order;
 
-import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.dao.IUserOrderDao;
 
 

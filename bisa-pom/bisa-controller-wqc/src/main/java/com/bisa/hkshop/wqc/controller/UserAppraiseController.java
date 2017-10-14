@@ -7,7 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.bisa.health.entity.SystemContext;
+import com.bisa.health.entity.Pager;
+import com.bisa.health.model.SystemContext;
 import com.bisa.hkshop.model.Appraise;
 import com.bisa.hkshop.model.AppraiseUser;
 import com.bisa.hkshop.model.Commodity;
@@ -28,7 +29,6 @@ import com.bisa.hkshop.wqc.service.IPackageService;
 import com.bisa.hkshop.wqc.service.IUserOrderDetailService;
 import com.bisa.hkshop.wqc.service.IUserOrderService;
 import com.bisa.hkshop.wqc.basic.dao.StringUtil;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 import com.bisa.hkshop.wqc.basic.utility.GuidGenerator;
 

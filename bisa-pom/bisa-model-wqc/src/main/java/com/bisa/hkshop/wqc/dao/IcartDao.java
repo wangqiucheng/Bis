@@ -3,7 +3,6 @@ package com.bisa.hkshop.wqc.dao;
 import java.util.List;
 
 import com.bisa.hkshop.model.Cart;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IcartDao {
 

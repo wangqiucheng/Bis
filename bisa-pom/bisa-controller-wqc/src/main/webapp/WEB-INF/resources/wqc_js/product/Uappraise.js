@@ -65,6 +65,8 @@ $(document).ready(function() {
 				dataType : 'json', // 数据格式:JSON
 				url : path+"l/shopping/addUappraise?productId="+productId+"&pager.offset="+(pageOffset-1)*1+"&pageNum="+pageNum, // 目标地址
 				success : function(data) {
+					var path1=$("base").attr("href");
+					console.log(path1);
 					console.log(data);
 					var datas = eval(data);
 						for(var key in datas){
@@ -78,7 +80,6 @@ $(document).ready(function() {
 									for(var i=0;i<list.length;i++){
 										console.log(list.length);
 										request_htmls(pijie(list[i]));
-										var path=$("base").attr("href");
 										function pijie(str){
 												var strVar="";
 												if(str.appraise_degree==1){
@@ -92,12 +93,12 @@ $(document).ready(function() {
 												}else{
 													str.appraise_degree="超爱";
 												}
-
+												//console.log("path1:"+path1);
 												strVar += "<div class=\"clear mt-20 full-w bg-white pt-40 pb-35 pr-15\">";
 												strVar +="<div class=\"clear col-sm-2 pl-0 pr-0\">";
 												strVar +="<img class=\"img-70 pull-right\" src=\"" ;
-												strVar +="\/l\/resources\/img\/user\/Appraise\/appraise-portraitv1.png\"";
-												strVar +="alt=\"\">";
+												strVar +=path1+"\/resources\/img\/user\/Appraise\/appraise-portraitv1.png\"";
+												strVar +="  alt=\"\">";
 												strVar += "<\/div>";
 												strVar += "<div class=\"clear col-sm-10 pl-20 pr-20\">";
 												strVar += "<p class=\"line-h-20 mb-20 clear\">";

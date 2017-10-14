@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 
 @Repository
@@ -65,7 +65,7 @@ public class IUserOrderDaoImpl extends BaseDao<Order> implements IUserOrderDao{
 	
 	@Override
 	public int updateOrder(int user_guid,Order order) {
-		String sql = "UPDATE s_trade SET s_order.addr_num=?,s_order.effective_statu=?,s_order.invoice_title=?,"
+		String sql = "UPDATE s_order SET s_order.addr_num=?,s_order.effective_statu=?,s_order.invoice_title=?,"
 				+ "s_order.invoice_type=?,s_order.logistics_name=?,s_order.logistics_number=?,s_order.order_fail_time=?,"
 				+ "s_order.order_no=?,s_order.pay_ok_time=?,s_order.pay_type=?,s_order.post_price=?,s_order.price=?,"
 				+ "s_order.reduced_price=?,s_order.start_time=?,s_order.tra_status=?,s_order.trade_fail_cause=?,"

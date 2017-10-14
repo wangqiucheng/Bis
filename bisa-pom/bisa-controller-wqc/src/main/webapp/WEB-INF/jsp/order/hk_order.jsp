@@ -119,7 +119,7 @@
                         <span class="f-18 col-252525 family-h dis-ib mr-30">
                             商品清单
                         </span>
-                        <a class="f-14 col-252525 mr-10 family-h dis-ib pull-right t-nonehove hovecol-309DE2">
+                        <a class="f-14 col-252525 mr-10 family-h dis-ib pull-right t-nonehove hovecol-309DE2" href="<%=request.getContextPath() %>/l/Cart">
                             返回购物车 >
                         </a>
                     </div>

@@ -62,22 +62,22 @@ public class OrderDaoImpl extends BaseDao<Order> implements IOrderDao{
 	
 	@Override
 	public Boolean updateOrder(int user_guid,Order order) {
-		try{
-			String sql = "UPDATE Order s_order SET s_order.addr_num=?,s_order.effective_statu=?,s_order.invoice_title=?,"
+			String sql = "UPDATE s_order SET s_order.addr_num=?,s_order.effective_statu=?,s_order.invoice_title=?,"
 					+ "s_order.invoice_type=?,s_order.logistics_name=?,s_order.logistics_number=?,s_order.order_fail_time=?,"
 					+ "s_order.pay_ok_time=?,s_order.pay_type=?,s_order.post_price=?,s_order.price=?,"
 					+ "s_order.reduced_price=?,s_order.start_time=?,s_order.tra_status=?,s_order.trade_fail_cause=?,"
 					+ "s_order.trade_false_time=?,s_order.trade_ok_time=?,s_order.update_time=?,"
 					+ "s_order.guid=?,s_order.appraise_status=? where s_order.user_guid=? and s_order.order_no=?";
-			this.addObjectBySql(sql,new Object[]{order.getAddr_num(),order.getEffective_statu(),order.getInvoice_title()
+			int i=super.delUpObjectBySql(sql,new Object[]{order.getAddr_num(),order.getEffective_statu(),order.getInvoice_title()
 					,order.getInvoice_type(),order.getLogistics_name(),order.getLogistics_number(),order.getOrder_fail_time()
 					,order.getPay_ok_time(),order.getPay_type(),order.getPost_price(),order.getPrice(),order.getReduced_price(),order.getStart_time(),
 					order.getTra_status(),order.getTrade_fail_cause(),order.getTrade_false_time(),order.getTrade_ok_time(),order.getUpdate_time(),
 					order.getGuid(),order.getAppraise_status(),user_guid,order.getOrder_no()});
-		}catch(Exception e){
-			return false;
-		}
-		return true;
+			if(i>0) {
+				return true;
+			}else {
+				return false;
+			}
+
 	}
-	
 }

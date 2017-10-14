@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.health.routing.annotation.RoutingTab;
 import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.Commodity;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.dao.ICommodityDao;
 
 @Service
@@ -62,9 +62,9 @@ public class CommodityServiceImpl implements ICommodityService{
 	}
 
 	@Override
-	public List<Commodity> getTypecommodity(String type) {
+	public List<Commodity> getTypecommodity(String classification) {
 		// TODO Auto-generated method stub
-		return iCommodityDao.getTypecommodity(type);
+		return iCommodityDao.getTypecommodity(classification);
 	}
 
 	/*@Override

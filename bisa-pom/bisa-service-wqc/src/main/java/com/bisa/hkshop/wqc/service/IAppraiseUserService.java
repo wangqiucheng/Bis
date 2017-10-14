@@ -3,8 +3,6 @@ package com.bisa.hkshop.wqc.service;
 import java.util.List;
 
 import com.bisa.hkshop.model.AppraiseUser;
-import com.bisa.hkshop.model.Order;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface IAppraiseUserService {
 

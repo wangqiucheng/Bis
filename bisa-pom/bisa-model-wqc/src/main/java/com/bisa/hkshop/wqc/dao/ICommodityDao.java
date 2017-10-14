@@ -4,8 +4,8 @@ package com.bisa.hkshop.wqc.dao;
 
 import java.util.List;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Commodity;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface ICommodityDao {
 	//根据商品编号获取商品详情
@@ -24,7 +24,7 @@ public interface ICommodityDao {
 	
 	public List<Commodity> selthreeCon(String shop_Number);
 	
-	public List<Commodity> getTypecommodity(String type);
+	public List<Commodity> getTypecommodity(String classification);
 	
 
 	

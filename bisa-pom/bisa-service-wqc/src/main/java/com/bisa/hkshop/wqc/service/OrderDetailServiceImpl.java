@@ -40,7 +40,7 @@ public class OrderDetailServiceImpl implements IOrderDetailService{
 
 	@Override
 	@DataRouting("user_guid")
-	public Boolean updateActive(@DataGuid("user_guid")int user_guid, OrderDetail orderDetail) {
+	public Boolean updateActive(@DataGuid("user_guid") int user_guid, OrderDetail orderDetail) {
 		return orderDetailDao.updateActive(user_guid,orderDetail);
 	}
 

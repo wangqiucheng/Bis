@@ -303,11 +303,14 @@ $(document).ready(function() {
         var caddress = $(".conanorder-tips-showmsg-address").text();
         var cemal = $(".conanorder-tips-showmsg-emal").val();
         var cabout = $(".conanorder-tips-showmsg-about").val();
+        var caddr_number=$(".conanorder-tips-showmsg-addr_number").val();
         $(".inrename").val(cname);
         $(".inrephone").val(cphone);
         $(".inreaddress").val(caddress);
         $(".inreemail").val(cemal);
         $(".inreabout").val(cabout);
+        $(".inshaddrnum").val(caddr_number);
+        
       //添加address编号
         //$("#addr_num").val($("#shaddrnum").val());
         $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);

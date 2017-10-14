@@ -2,8 +2,8 @@ package com.bisa.hkshop.wqc.service;
 
 import java.util.List;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Commodity;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 
 public interface ICommodityService {
 
@@ -23,7 +23,7 @@ public interface ICommodityService {
 	
 	public List<Commodity> selthreeCon(String shop_Number);
 	
-	public List<Commodity> getTypecommodity(String type);
+	public List<Commodity> getTypecommodity(String classification);
 	
 
 	

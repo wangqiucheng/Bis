@@ -32,6 +32,7 @@ public class AddressController {
 	public String addAddress(Model model,HttpServletRequest request,HttpSession session) throws Exception{
 		String add=request.getParameter("str");
 		JSONObject jsonObj = new JSONObject(add);
+		
 		Address address=new Address();
 		address.setName(jsonObj.getString("name"));
 		address.setAddress(jsonObj.getString("address"));

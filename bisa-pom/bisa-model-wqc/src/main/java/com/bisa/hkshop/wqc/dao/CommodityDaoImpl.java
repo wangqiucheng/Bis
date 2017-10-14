@@ -6,10 +6,10 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
+import com.bisa.health.entity.Pager;
 import com.bisa.hkshop.model.Commodity;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
 import com.bisa.hkshop.wqc.basic.dao.StringUtil;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 @Repository
 public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDao{
 
@@ -68,10 +68,10 @@ public class CommodityDaoImpl extends BaseDao<Commodity> implements ICommodityDa
 	}
 
 	@Override
-	public List<Commodity> getTypecommodity(String type) {
+	public List<Commodity> getTypecommodity(String classification) {
 		// TODO Auto-generated method stub
-		String sql="select * from s_commodity where type=? order by updatime desc";	
-		return super.queryListBySql(sql, new Object[]{type},Commodity.class);
+		String sql="select * from s_commodity where classification=? order by updatime desc";	
+		return super.queryListBySql(sql, new Object[]{classification},Commodity.class);
 	}
 
 /*	@Override

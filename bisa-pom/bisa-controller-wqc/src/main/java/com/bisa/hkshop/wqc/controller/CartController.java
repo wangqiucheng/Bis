@@ -220,7 +220,7 @@ public class CartController {
 				map.put(pi, listPackdetails);		
 	//		 	listPackdetails.add(c);
 			}
-			List<Commodity> comm=iCommodityService.getTypecommodity("3");
+			List<Commodity> comm=iCommodityService.getTypecommodity("3001");
 			model.addAttribute("cartNum", cartNum);
 			model.addAttribute("comm", comm);
 			model.addAttribute("listcart", listcart);

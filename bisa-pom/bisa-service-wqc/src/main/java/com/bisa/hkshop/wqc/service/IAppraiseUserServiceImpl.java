@@ -13,7 +13,6 @@ import com.bisa.health.routing.annotation.TableEnum;
 import com.bisa.hkshop.model.AppraiseUser;
 import com.bisa.hkshop.model.Order;
 import com.bisa.hkshop.wqc.basic.dao.BaseDao;
-import com.bisa.hkshop.wqc.basic.model.Pager;
 import com.bisa.hkshop.wqc.dao.IAppraiseUserDao;
 @Service
 @RoutingTab(TableEnum.SWITCH)
